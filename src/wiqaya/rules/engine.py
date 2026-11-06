@@ -160,8 +160,9 @@ def _periodic(rule: Rule, v: SnapshotView, as_of: date, ctx: EngineContext) -> C
                 last = (d, src, val)
 
     interval = rule.interval_months
-    for iba in rule.interval_by_age:
-        if iba.age_years.contains(age):
+    # Bands are matched on their lower bound (ascending), so ages between bands are never left out.
+    for iba in sorted(rule.interval_by_age, key=lambda b: b.age_years.min or 0):
+        if age >= (iba.age_years.min or 0):
             interval = iba.interval_months
     if last and rule.interval_by_test:
         key = last[1].split(":", 1)[1]
