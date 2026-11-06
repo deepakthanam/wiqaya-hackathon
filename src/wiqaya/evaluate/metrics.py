@@ -16,7 +16,7 @@ from wiqaya.governance.suppress import suppress_records
 
 SEGMENTS = {"nationality_group": "nationality_group", "language": "preferred_language", "age_band": "age_band",
             "sex": "sex", "district": "district_id", "housing_type": "housing_type",
-            "insurance_tier": "insurance_tier"}  # fmt: skip
+            "insurance_tier": "insurance_tier", "district_x_nationality": "district_x_nationality"}  # fmt: skip
 
 
 def with_age_band(people: pd.DataFrame, as_of: date) -> pd.DataFrame:
@@ -24,6 +24,8 @@ def with_age_band(people: pd.DataFrame, as_of: date) -> pd.DataFrame:
     p = people.copy()
     age = p.birth_date.map(lambda b: (as_of - b).days / 365.25)
     p["age_band"] = pd.cut(age, bins=cfg["bins"], labels=cfg["labels"], right=False).astype(str)
+    # A deliberately fine-grained segment: small cells show the n<11 suppression rule in action.
+    p["district_x_nationality"] = p.district_id + " / " + p.nationality_group
     return p
 
 

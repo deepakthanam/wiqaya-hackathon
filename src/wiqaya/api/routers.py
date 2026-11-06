@@ -332,12 +332,33 @@ def family_graph(pid: str, depth: int = 2, s: Session = Depends(require(*PERSON_
 
 
 # ------------------------------------------------------------------------------------------------- planner
-def _need_by_district(st: Store) -> list[dict[str, Any]]:
+POPULATIONS = {
+    "all": "Everyone",
+    "labour_accommodation": "Residents of labour accommodation",
+    "children_under_6": "Children under 6",
+    "adults_65_plus": "Adults 65 and over",
+}
+
+
+def _population(st: Store, population: str) -> pd.DataFrame:
+    p = st.people
+    if population == "labour_accommodation":
+        return p[p.housing_type == "labour_accommodation"]
+    age = p.birth_date.map(lambda b: (st.as_of - b).days / 365.25)
+    if population == "children_under_6":
+        return p[age < 6]
+    if population == "adults_65_plus":
+        return p[age >= 65]
+    return p
+
+
+def _need_by_district(st: Store, population: str = "all") -> list[dict[str, Any]]:
     d = C.districts()
-    ppl = st.people.groupby("district_id").size()
-    gaps = st.gaps.merge(st.people[["id", "district_id"]], left_on="person_id", right_on="id")
+    pop = _population(st, population)
+    ppl = pop.groupby("district_id").size()
+    gaps = st.gaps.merge(pop[["id", "district_id"]], left_on="person_id", right_on="id")
     g = gaps.groupby("district_id")
-    assigned = st.flags[st.flags.slot_status == "assigned"].merge(st.people[["id", "district_id"]], left_on="person_id",
+    assigned = st.flags[st.flags.slot_status == "assigned"].merge(pop[["id", "district_id"]], left_on="person_id",
                                                                   right_on="id").groupby("district_id").size()  # fmt: skip
     people_with_gaps = g.person_id.nunique()
     cap = st.buckets.copy()
@@ -361,9 +382,13 @@ def _need_by_district(st: Store) -> list[dict[str, Any]]:
 
 
 @router.get("/planner/districts", tags=["planner"])
-def planner_districts(s: Session = Depends(require("planner", "admin"))) -> dict[str, Any]:  # noqa: B008
+def planner_districts(
+    population: Literal["all", "labour_accommodation", "children_under_6", "adults_65_plus"] = "all",
+    s: Session = Depends(require("planner", "admin")),  # noqa: B008
+) -> dict[str, Any]:
     st = get_store()
-    return envelope(st, suppress_records(_need_by_district(st), min_n=C.cfg("segments")["min_cell_n"]))
+    rows = suppress_records(_need_by_district(st, population), min_n=C.cfg("segments")["min_cell_n"])
+    return envelope(st, rows, population=population, populations=POPULATIONS)
 
 
 @router.get("/planner/equity", tags=["planner"])

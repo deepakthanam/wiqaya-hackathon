@@ -11,10 +11,11 @@ UV := uv run
 export PYTHONIOENCODING := utf-8
 export PYTHONUTF8 := 1
 TODO := $(UV) wiqaya todo
+PNPM := corepack pnpm
 
 .PHONY: help setup env up down logs wait-hapi fhir-metadata lint typecheck test test-all e2e \
         content-check data load gaps train simulate sensitivity evaluate api web demo synthea \
-        licenses clean fetch-reference pipeline
+        licenses clean fetch-reference pipeline openapi
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-15s\033[0m %s\n",$$1,$$2}'
@@ -22,8 +23,9 @@ help: ## List targets
 env: ## Create .env from .env.example if missing
 	@test -f .env || cp .env.example .env
 
-setup: env ## Install Python deps (uv) [web deps arrive in M7]
+setup: env ## Install Python and web dependencies
 	uv sync
+	cd web && $(PNPM) install
 
 # --- Services -------------------------------------------------------------------------------
 up: env ## Start HAPI FHIR + Postgres and wait until HAPI answers
@@ -48,9 +50,10 @@ fhir-metadata: ## Print a summary of the HAPI CapabilityStatement
 	  $(UV) python -c "import sys,json;c=json.load(sys.stdin);print(c['resourceType'],c.get('fhirVersion'),c.get('software',{}).get('name'),c.get('software',{}).get('version'))"
 
 # --- Quality --------------------------------------------------------------------------------
-lint: ## ruff (Python) [eslint arrives in M7]
+lint: ## ruff (Python) + eslint and tsc (web)
 	$(UV) ruff check src tests
 	$(UV) ruff format --check src tests
+	cd web && $(PNPM) lint && $(PNPM) typecheck
 
 typecheck: ## mypy (strict on rules, governance, api)
 	$(UV) mypy
@@ -61,8 +64,8 @@ test: ## Fast unit tests
 test-all: ## All tests including slow and integration
 	$(UV) pytest -m ''
 
-e2e: ## Playwright smoke test (M7)
-	@$(TODO) e2e
+e2e: ## Playwright smoke test (starts API + web if needed)
+	bash scripts/run_e2e.sh
 
 # --- Pipeline (stubs until their milestone) ---------------------------------------------------
 content-check: ## Validate rules, sources and message templates
@@ -101,11 +104,15 @@ pipeline: ## data -> gaps -> train -> sensitivity -> evaluate (no HAPI)
 	$(MAKE) --no-print-directory sensitivity
 	$(MAKE) --no-print-directory evaluate
 
-api: ## Run the API locally with reload (M6)
+api: ## Run the API locally with reload
 	$(UV) uvicorn wiqaya.api.app:app --reload --port 8000
 
-web: ## Run the web app in dev mode (M7)
-	@$(TODO) web
+web: ## Run the web app in dev mode (http://localhost:3000)
+	cd web && $(PNPM) dev
+
+openapi: ## Regenerate the typed web API client from the FastAPI schema
+	$(UV) python -c "import json; from wiqaya.api.app import app; open('web/openapi.json','w').write(json.dumps(app.openapi(), indent=1))"
+	cd web && $(PNPM) gen:api
 
 demo: ## Full demo from a clean clone (M8)
 	@$(TODO) demo

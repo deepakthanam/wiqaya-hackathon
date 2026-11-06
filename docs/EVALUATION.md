@@ -127,6 +127,102 @@ Cells covering fewer than 11 people are shown as `suppressed (n<11)`. A per-100-
 | Enhanced | 6,136 | 42.10 | 20.40 | 21.00 | 43.40 | 8.50 | 22.00 |
 | Thiqa | 2,738 | 37.90 | 16.80 | 24.40 | 45.00 | 8.60 | 19.20 |
 
+### District X Nationality
+
+| Segment | n | Reach % (B) | Reach % (W) | Per 100 contacts (B) | Per 100 contacts (W) | Gaps closed % (B) | Gaps closed % (W) |
+|---|---|---|---|---|---|---|---|
+| abu_dhabi_island / bangladeshi | 131 | 45.80 | 21.40 | 13.30 | 25.80 | 6.30 | 19.20 |
+| abu_dhabi_island / emirati | 305 | 32.50 | 16.70 | 30.30 | 46.20 | 9.30 | 17.90 |
+| abu_dhabi_island / filipino | 335 | 37.30 | 18.50 | 20.00 | 32.20 | 6.70 | 17.70 |
+| abu_dhabi_island / indian | 1,074 | 36.20 | 21.50 | 21.10 | 44.80 | 7.50 | 24.60 |
+| abu_dhabi_island / other | 266 | 39.50 | 16.20 | 27.60 | 36.00 | 8.80 | 16.50 |
+| abu_dhabi_island / other_arab | 566 | 43.80 | 18.00 | 27.40 | 39.90 | 11.00 | 18.50 |
+| abu_dhabi_island / pakistani | 379 | 38.00 | 15.80 | 17.40 | 51.90 | 6.60 | 20.10 |
+| abu_dhabi_island / western | 179 | 39.10 | 14.00 | 34.30 | 61.10 | 12.00 | 18.70 |
+| al_ain_city / bangladeshi | 125 | 39.20 | 25.60 | 10.20 | 28.00 | 4.10 | 24.90 |
+| al_ain_city / emirati | 454 | 37.20 | 13.90 | 22.50 | 37.20 | 7.90 | 14.40 |
+| al_ain_city / filipino | 134 | 44.80 | 15.70 | 18.30 | 43.90 | 9.80 | 19.30 |
+| al_ain_city / indian | 659 | 44.90 | 20.50 | 18.90 | 40.80 | 8.20 | 20.30 |
+| al_ain_city / other | 164 | 47.00 | 29.90 | 22.10 | 38.20 | 10.00 | 25.70 |
+| al_ain_city / other_arab | 306 | 39.90 | 17.30 | 19.70 | 36.80 | 7.30 | 19.30 |
+| al_ain_city / pakistani | 248 | 46.00 | 16.50 | 8.80 | 57.40 | 4.90 | 21.50 |
+| al_ain_city / western | 29 | 27.60 | 6.90 | – | – | 7.30 | 7.30 |
+| al_hili / bangladeshi | 11 | 63.60 | 36.40 | – | – | 24.20 | 33.30 |
+| al_hili / emirati | 236 | 32.60 | 19.50 | 29.90 | 37.80 | 9.00 | 21.90 |
+| al_hili / filipino | 38 | 42.10 | 26.30 | 18.80 | 55.00 | 10.80 | 35.10 |
+| al_hili / indian | 149 | 40.90 | 25.50 | 18.00 | 36.10 | 4.90 | 23.30 |
+| al_hili / other | 32 | 46.90 | 28.10 | 40.00 | 46.70 | 24.20 | 38.70 |
+| al_hili / other_arab | 85 | 43.50 | 17.60 | 27.00 | 30.30 | 9.60 | 16.30 |
+| al_hili / pakistani | 41 | 63.40 | 17.10 | 15.40 | – | 12.60 | 28.40 |
+| al_reem_island / bangladeshi | 64 | 42.20 | 26.60 | 25.90 | 15.00 | 8.00 | 10.40 |
+| al_reem_island / emirati | 32 | 40.60 | 18.80 | 38.50 | 46.20 | 13.60 | 22.70 |
+| al_reem_island / filipino | 125 | 40.00 | 20.80 | 20.00 | 40.40 | 5.90 | 23.30 |
+| al_reem_island / indian | 301 | 39.90 | 22.30 | 15.80 | 42.30 | 5.80 | 25.90 |
+| al_reem_island / other | 62 | 43.50 | 19.40 | 29.60 | 37.00 | 10.20 | 23.40 |
+| al_reem_island / other_arab | 145 | 37.90 | 15.90 | 38.20 | 51.20 | 14.90 | 22.00 |
+| al_reem_island / pakistani | 85 | 35.30 | 16.50 | 3.30 | 27.60 | 0.50 | 11.00 |
+| al_reem_island / western | 208 | 42.30 | 19.70 | 23.90 | 54.80 | 8.50 | 21.30 |
+| al_shamkha / bangladeshi | 37 | 32.40 | 18.90 | 8.30 | 20.00 | 1.90 | 13.00 |
+| al_shamkha / emirati | 418 | 41.90 | 17.00 | 23.40 | 44.40 | 8.50 | 18.40 |
+| al_shamkha / filipino | 33 | 39.40 | 24.20 | 23.10 | 64.30 | 6.60 | 36.10 |
+| al_shamkha / indian | 135 | 43.70 | 21.50 | 16.90 | 53.60 | 5.30 | 25.50 |
+| al_shamkha / other | 37 | 67.60 | 5.40 | 28.00 | – | 25.30 | 16.90 |
+| al_shamkha / other_arab | 64 | 34.40 | 28.10 | 18.20 | 35.50 | 8.90 | 26.00 |
+| al_shamkha / pakistani | 60 | 48.30 | 13.30 | 0.00 | 21.10 | 0.00 | 6.20 |
+| ghayathi / bangladeshi | 11 | 81.80 | 9.10 | – | – | 14.30 | 0.00 |
+| ghayathi / emirati | 50 | 46.00 | 20.00 | 39.10 | 40.90 | 13.50 | 22.90 |
+| ghayathi / filipino | suppressed (n<11) | suppressed (n<11) | suppressed (n<11) | – | – | suppressed (n<11) | suppressed (n<11) |
+| ghayathi / indian | 48 | 52.10 | 27.10 | 28.00 | 60.00 | 14.30 | 35.20 |
+| ghayathi / other | 13 | 61.50 | 38.50 | – | 25.00 | 9.10 | 39.40 |
+| ghayathi / other_arab | suppressed (n<11) | suppressed (n<11) | suppressed (n<11) | – | – | suppressed (n<11) | suppressed (n<11) |
+| ghayathi / pakistani | suppressed (n<11) | suppressed (n<11) | suppressed (n<11) | – | – | suppressed (n<11) | suppressed (n<11) |
+| khalifa_city / bangladeshi | 25 | 44.00 | 12.00 | 9.10 | – | 8.30 | 27.10 |
+| khalifa_city / emirati | 496 | 36.50 | 16.90 | 22.10 | 39.40 | 7.00 | 15.80 |
+| khalifa_city / filipino | 43 | 34.90 | 27.90 | 20.00 | 30.80 | 5.80 | 19.80 |
+| khalifa_city / indian | 294 | 41.50 | 21.80 | 14.80 | 37.10 | 6.70 | 19.50 |
+| khalifa_city / other | 79 | 41.80 | 19.00 | 21.20 | 32.30 | 6.10 | 17.80 |
+| khalifa_city / other_arab | 175 | 40.00 | 20.00 | 28.60 | 45.30 | 8.60 | 22.50 |
+| khalifa_city / pakistani | 101 | 37.60 | 19.80 | 23.70 | 32.50 | 7.60 | 17.40 |
+| khalifa_city / western | 73 | 32.90 | 20.50 | 33.30 | 38.70 | 13.30 | 31.50 |
+| madinat_zayed / bangladeshi | 40 | 50.00 | 25.00 | 20.00 | 45.50 | 13.80 | 26.20 |
+| madinat_zayed / emirati | 153 | 39.90 | 24.20 | 23.00 | 39.20 | 10.70 | 22.10 |
+| madinat_zayed / filipino | 21 | 52.40 | 23.80 | 0.00 | 23.10 | 0.00 | 26.30 |
+| madinat_zayed / indian | 167 | 53.30 | 28.70 | 13.50 | 51.60 | 8.80 | 37.80 |
+| madinat_zayed / other | 21 | 33.30 | 14.30 | – | – | 7.90 | 26.30 |
+| madinat_zayed / other_arab | 36 | 58.30 | 5.60 | 14.30 | – | 9.80 | 16.40 |
+| madinat_zayed / pakistani | 65 | 52.30 | 24.60 | 5.90 | 45.20 | 6.00 | 33.30 |
+| mbz_city / bangladeshi | 99 | 47.50 | 21.20 | 23.40 | 37.20 | 9.40 | 22.90 |
+| mbz_city / emirati | 434 | 38.70 | 14.30 | 23.80 | 66.00 | 8.80 | 21.90 |
+| mbz_city / filipino | 93 | 41.90 | 17.20 | 23.10 | 63.00 | 6.00 | 25.30 |
+| mbz_city / indian | 458 | 41.70 | 21.20 | 13.60 | 49.40 | 5.40 | 25.10 |
+| mbz_city / other | 109 | 40.40 | 17.40 | 31.80 | 66.70 | 12.60 | 26.50 |
+| mbz_city / other_arab | 194 | 43.30 | 18.00 | 20.20 | 52.50 | 7.60 | 25.30 |
+| mbz_city / pakistani | 177 | 43.50 | 18.10 | 11.70 | 35.90 | 4.60 | 15.30 |
+| mbz_city / western | 37 | 43.20 | 10.80 | 0.00 | – | 0.00 | 15.70 |
+| musaffah / bangladeshi | 305 | 39.70 | 15.40 | 12.40 | 41.60 | 5.80 | 16.70 |
+| musaffah / emirati | 63 | 47.60 | 19.00 | 20.00 | 75.00 | 10.00 | 32.70 |
+| musaffah / filipino | 128 | 49.20 | 25.00 | 14.30 | 37.50 | 8.40 | 22.10 |
+| musaffah / indian | 1,072 | 42.40 | 17.40 | 16.10 | 57.60 | 7.00 | 23.20 |
+| musaffah / other | 241 | 35.30 | 17.40 | 20.00 | 42.40 | 7.20 | 22.30 |
+| musaffah / other_arab | 244 | 53.30 | 16.40 | 25.40 | 64.70 | 13.40 | 23.10 |
+| musaffah / pakistani | 386 | 41.70 | 17.90 | 12.40 | 48.10 | 7.00 | 20.30 |
+| ruwais / bangladeshi | 69 | 46.40 | 33.30 | 12.50 | 23.40 | 5.80 | 23.10 |
+| ruwais / emirati | 65 | 56.90 | 23.10 | 18.90 | 71.40 | 10.30 | 36.50 |
+| ruwais / filipino | 21 | 76.20 | 42.90 | 37.50 | 78.60 | 20.00 | 51.10 |
+| ruwais / indian | 245 | 51.40 | 25.70 | 13.50 | 66.70 | 6.20 | 34.60 |
+| ruwais / other | 69 | 47.80 | 24.60 | 21.20 | 58.60 | 11.60 | 26.40 |
+| ruwais / other_arab | 50 | 56.00 | 20.00 | 28.60 | 66.70 | 12.70 | 24.50 |
+| ruwais / pakistani | 84 | 48.80 | 26.20 | 17.10 | 47.70 | 9.00 | 33.10 |
+| ruwais / western | 60 | 55.00 | 35.00 | 12.10 | 46.50 | 4.20 | 34.20 |
+| yas_island / bangladeshi | suppressed (n<11) | suppressed (n<11) | suppressed (n<11) | – | – | suppressed (n<11) | suppressed (n<11) |
+| yas_island / emirati | 136 | 32.40 | 16.20 | 22.70 | 36.70 | 7.50 | 20.10 |
+| yas_island / filipino | 12 | 25.00 | 16.70 | – | – | 0.00 | 0.00 |
+| yas_island / indian | 75 | 46.70 | 21.30 | 8.60 | 23.70 | 2.30 | 18.50 |
+| yas_island / other | 40 | 40.00 | 27.50 | 18.80 | 28.60 | 6.20 | 12.30 |
+| yas_island / other_arab | 19 | 36.80 | 15.80 | – | – | 6.20 | 3.10 |
+| yas_island / pakistani | 45 | 40.00 | 20.00 | 16.70 | 40.00 | 8.70 | 14.10 |
+| yas_island / western | 112 | 33.00 | 15.20 | 10.80 | 45.20 | 6.90 | 18.30 |
+
 ## Models (held-out people)
 
 **Model R: risk elevation.** Label: condition detected in the 12 months after the reference date among adults screened. Reference date 2025-11-01. Train 1919, calibration 663, test 616 people.

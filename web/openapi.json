@@ -1,0 +1,1138 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Wiqaya API",
+  "description": "Population prioritisation, not a clinical decision. All data is a simulated cohort.",
+  "version": "0.1.0"
+ },
+ "paths": {
+  "/api/v1/session/guest": {
+   "post": {
+    "tags": [
+     "session"
+    ],
+    "summary": "Guest",
+    "description": "Continue as Guest: signed session cookie for the chosen role. No credentials exist.",
+    "operationId": "guest_api_v1_session_guest_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GuestRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Guest Api V1 Session Guest Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/session": {
+   "get": {
+    "tags": [
+     "session"
+    ],
+    "summary": "Whoami",
+    "operationId": "whoami_api_v1_session_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Whoami Api V1 Session Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/worklist": {
+   "get": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Worklist",
+    "operationId": "worklist_api_v1_worklist_get",
+    "parameters": [
+     {
+      "name": "clinic_id",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Clinic Id"
+      }
+     },
+     {
+      "name": "pathway",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Pathway"
+      }
+     },
+     {
+      "name": "band",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Band"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 50,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Worklist Api V1 Worklist Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/people/{pid}": {
+   "get": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Person",
+    "operationId": "person_api_v1_people__pid__get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Pid"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Person Api V1 People  Pid  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/households/{hid}": {
+   "get": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Household",
+    "operationId": "household_api_v1_households__hid__get",
+    "parameters": [
+     {
+      "name": "hid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Hid"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Household Api V1 Households  Hid  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/flags/{flag_id}/decision": {
+   "post": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Decide",
+    "operationId": "decide_api_v1_flags__flag_id__decision_post",
+    "parameters": [
+     {
+      "name": "flag_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Flag Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Decision"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Decide Api V1 Flags  Flag Id  Decision Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/outreach/preview": {
+   "post": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Outreach Preview",
+    "operationId": "outreach_preview_api_v1_outreach_preview_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PreviewRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Outreach Preview Api V1 Outreach Preview Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/family-graph/{pid}": {
+   "get": {
+    "tags": [
+     "coordinator"
+    ],
+    "summary": "Family Graph",
+    "operationId": "family_graph_api_v1_family_graph__pid__get",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Pid"
+      }
+     },
+     {
+      "name": "depth",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 2,
+       "title": "Depth"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Family Graph Api V1 Family Graph  Pid  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/districts": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Planner Districts",
+    "operationId": "planner_districts_api_v1_planner_districts_get",
+    "parameters": [
+     {
+      "name": "population",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "all",
+        "labour_accommodation",
+        "children_under_6",
+        "adults_65_plus"
+       ],
+       "type": "string",
+       "default": "all",
+       "title": "Population"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Planner Districts Api V1 Planner Districts Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/equity": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Planner Equity",
+    "operationId": "planner_equity_api_v1_planner_equity_get",
+    "parameters": [
+     {
+      "name": "policy",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "baseline",
+        "wiqaya",
+        "both"
+       ],
+       "type": "string",
+       "default": "both",
+       "title": "Policy"
+      }
+     },
+     {
+      "name": "segment",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string",
+       "default": "nationality_group",
+       "title": "Segment"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Planner Equity Api V1 Planner Equity Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/calibration": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Planner Calibration",
+    "operationId": "planner_calibration_api_v1_planner_calibration_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Planner Calibration Api V1 Planner Calibration Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/compare": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Planner Compare",
+    "operationId": "planner_compare_api_v1_planner_compare_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Planner Compare Api V1 Planner Compare Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/family/{hid}/messages": {
+   "get": {
+    "tags": [
+     "family"
+    ],
+    "summary": "Family Messages",
+    "operationId": "family_messages_api_v1_family__hid__messages_get",
+    "parameters": [
+     {
+      "name": "hid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Hid"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Family Messages Api V1 Family  Hid  Messages Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/family/{hid}/preferences": {
+   "get": {
+    "tags": [
+     "family"
+    ],
+    "summary": "Get Preferences",
+    "operationId": "get_preferences_api_v1_family__hid__preferences_get",
+    "parameters": [
+     {
+      "name": "hid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Hid"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Get Preferences Api V1 Family  Hid  Preferences Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/family/{pid}/preferences": {
+   "post": {
+    "tags": [
+     "family"
+    ],
+    "summary": "Set Preferences",
+    "operationId": "set_preferences_api_v1_family__pid__preferences_post",
+    "parameters": [
+     {
+      "name": "pid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Pid"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Preferences"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Set Preferences Api V1 Family  Pid  Preferences Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/rules": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Admin Rules",
+    "operationId": "admin_rules_api_v1_admin_rules_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Admin Rules Api V1 Admin Rules Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/provenance": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Admin Provenance",
+    "operationId": "admin_provenance_api_v1_admin_provenance_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Admin Provenance Api V1 Admin Provenance Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/audit": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Admin Audit",
+    "operationId": "admin_audit_api_v1_admin_audit_get",
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "default": 100,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Admin Audit Api V1 Admin Audit Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/model-card": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Admin Model Card",
+    "operationId": "admin_model_card_api_v1_admin_model_card_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Admin Model Card Api V1 Admin Model Card Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/config": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Admin Config",
+    "operationId": "admin_config_api_v1_admin_config_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Admin Config Api V1 Admin Config Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/meta/demo-personas": {
+   "get": {
+    "tags": [
+     "meta"
+    ],
+    "summary": "Demo Personas",
+    "operationId": "demo_personas_api_v1_meta_demo_personas_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Demo Personas Api V1 Meta Demo Personas Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/meta/limitations": {
+   "get": {
+    "tags": [
+     "meta"
+    ],
+    "summary": "Limitations",
+    "operationId": "limitations_api_v1_meta_limitations_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Limitations Api V1 Meta Limitations Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/healthz": {
+   "get": {
+    "tags": [
+     "meta"
+    ],
+    "summary": "Healthz",
+    "operationId": "healthz_api_v1_healthz_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": {
+          "type": "string"
+         },
+         "type": "object",
+         "title": "Response Healthz Api V1 Healthz Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "Decision": {
+    "properties": {
+     "decision": {
+      "type": "string",
+      "enum": [
+       "accepted",
+       "changed",
+       "rejected"
+      ],
+      "title": "Decision"
+     },
+     "note": {
+      "type": "string",
+      "maxLength": 500,
+      "title": "Note",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "decision"
+    ],
+    "title": "Decision"
+   },
+   "GuestRequest": {
+    "properties": {
+     "role": {
+      "type": "string",
+      "enum": [
+       "coordinator",
+       "clinician",
+       "planner",
+       "family",
+       "admin"
+      ],
+      "title": "Role"
+     },
+     "household_id": {
+      "type": "string",
+      "title": "Household Id",
+      "default": "hh-demo-001"
+     }
+    },
+    "type": "object",
+    "required": [
+     "role"
+    ],
+    "title": "GuestRequest"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "Preferences": {
+    "properties": {
+     "channel_order": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string",
+         "enum": [
+          "whatsapp",
+          "sms",
+          "call_script",
+          "chw_script"
+         ]
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Channel Order"
+     },
+     "opt_out_pathways": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Opt Out Pathways",
+      "default": []
+     },
+     "remind_later_until": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Remind Later Until"
+     },
+     "decline_reason": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 300
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Decline Reason"
+     }
+    },
+    "type": "object",
+    "title": "Preferences"
+   },
+   "PreviewRequest": {
+    "properties": {
+     "flag_id": {
+      "type": "string",
+      "title": "Flag Id"
+     },
+     "channel": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "whatsapp",
+         "sms",
+         "call_script",
+         "chw_script"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Channel"
+     },
+     "language": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "en",
+         "ar",
+         "ur",
+         "hi",
+         "ml",
+         "tl"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Language"
+     }
+    },
+    "type": "object",
+    "required": [
+     "flag_id"
+    ],
+    "title": "PreviewRequest"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   }
+  }
+ }
+}

@@ -15,10 +15,27 @@ jobs:
       - name: Install
         run: uv sync --frozen
       - name: Lint
-        run: make lint
+        run: uv run ruff check src tests && uv run ruff format --check src tests
       - name: Type check
         run: make typecheck
+      - name: Small synthetic cohort for API tests
+        run: |
+          uv run wiqaya data --n 2500
+          uv run wiqaya train
+          uv run wiqaya simulate --no-sensitivity
       - name: Test
-        run: make test
+        run: uv run pytest
 
-  # Web lint and Playwright jobs are added in Milestone 7.
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable && pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck

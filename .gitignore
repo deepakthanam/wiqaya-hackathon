@@ -31,3 +31,5 @@ web/test-results/
 Thumbs.db
 .idea/
 .vscode/
+web/*.tsbuildinfo
+data/audit/
