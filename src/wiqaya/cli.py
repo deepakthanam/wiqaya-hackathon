@@ -89,5 +89,58 @@ def load(mode: str = typer.Option(None, help="sample | full (default: FHIR_LOAD 
         raise typer.Exit(1)
 
 
+@app.command()
+def train() -> None:
+    """Train + calibrate models, score, rank, fairness floor and capacity fit."""
+    from wiqaya.models.pipeline import run
+
+    m = run()
+    keys = (
+        "flags",
+        "capacity_total",
+        "flags_per_slot",
+        "assigned",
+        "van_assigned",
+        "household_bundled",
+        "capacity_violations",
+        "seconds",
+    )
+    out = {k: m[k] for k in keys}
+    out["model_r_auroc"] = m["model_r"]["test_calibrated"].get("auroc")
+    out["model_n_auroc"] = m["model_n"]["test_calibrated"].get("auroc")
+    out["fit"] = {k: v for k, v in m["fit"].items() if k != "detail"}
+    out["fairness_adjustments"] = m["fairness"]["adjustments"]
+    typer.echo(json.dumps(out, indent=1, default=str))
+
+
+@app.command()
+def simulate(sensitivity: bool = typer.Option(True, help="also run the sensitivity scenarios")) -> None:
+    """Simulate 12 weeks under baseline and Wiqaya policies (common random numbers)."""
+    from wiqaya.simulate.run import run, summary
+
+    res = run(sensitivity=sensitivity)
+    typer.echo(summary(res).to_string())
+    typer.echo(
+        json.dumps(
+            {
+                "primary_endpoint": res["primary_endpoint"],
+                "sensitivity": res.get("sensitivity"),
+                "seconds": res["seconds"],
+            },
+            indent=1,
+            default=str,
+        )
+    )
+
+
+@app.command()
+def evaluate() -> None:
+    """Write docs/EVALUATION.md from the latest runs."""
+    from wiqaya.evaluate.report import write
+
+    write()
+    typer.echo("wrote docs/EVALUATION.md")
+
+
 if __name__ == "__main__":
     app()

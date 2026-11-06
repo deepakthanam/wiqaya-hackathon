@@ -14,7 +14,7 @@ TODO := $(UV) wiqaya todo
 
 .PHONY: help setup env up down logs wait-hapi fhir-metadata lint typecheck test test-all e2e \
         content-check data load gaps train simulate sensitivity evaluate api web demo synthea \
-        licenses clean fetch-reference
+        licenses clean fetch-reference pipeline
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-15s\033[0m %s\n",$$1,$$2}'
@@ -83,17 +83,23 @@ load: ## Load NDJSON into HAPI (FHIR_LOAD=sample|full); DuckDB is built by `make
 gaps: ## Run the care-gap engine and family graph
 	$(UV) wiqaya gaps
 
-train: ## Train and calibrate models, rank, fit capacity (M4)
-	@$(TODO) train
+train: ## Train and calibrate models, rank, fairness floor, fit capacity
+	$(UV) wiqaya train
 
-simulate: ## Run baseline vs Wiqaya 12-week simulation (M5)
-	@$(TODO) simulate
+simulate: ## Run baseline vs Wiqaya 12-week simulation (no sensitivity)
+	$(UV) wiqaya simulate --no-sensitivity
 
-sensitivity: ## Re-run the simulation with alternative response parameters (M5)
-	@$(TODO) sensitivity
+sensitivity: ## Simulation + 3 alternative response-parameter sets
+	$(UV) wiqaya simulate --sensitivity
 
-evaluate: ## Write docs/EVALUATION.md (M5)
-	@$(TODO) evaluate
+evaluate: ## Write docs/EVALUATION.md
+	$(UV) wiqaya evaluate
+
+pipeline: ## data -> gaps -> train -> sensitivity -> evaluate (no HAPI)
+	$(MAKE) --no-print-directory data
+	$(MAKE) --no-print-directory train
+	$(MAKE) --no-print-directory sensitivity
+	$(MAKE) --no-print-directory evaluate
 
 api: ## Run the API locally with reload (M6)
 	$(UV) uvicorn wiqaya.api.app:app --reload --port 8000
