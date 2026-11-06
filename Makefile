@@ -1,0 +1,106 @@
+# Wiqaya Makefile. Needs a POSIX shell (Linux/macOS, or Git Bash on Windows).
+SHELL := bash
+.DEFAULT_GOAL := help
+
+SEED ?= 42
+N ?= 20000
+FHIR_LOAD ?= sample
+HAPI_PORT ?= 8080
+FHIR_BASE_URL ?= http://localhost:$(HAPI_PORT)/fhir
+UV := uv run
+TODO := $(UV) wiqaya todo
+
+.PHONY: help setup env up down logs wait-hapi fhir-metadata lint typecheck test test-all e2e \
+        content-check data load gaps train simulate sensitivity evaluate api web demo synthea \
+        licenses clean
+
+help: ## List targets
+	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-15s\033[0m %s\n",$$1,$$2}'
+
+env: ## Create .env from .env.example if missing
+	@test -f .env || cp .env.example .env
+
+setup: env ## Install Python deps (uv) [web deps arrive in M7]
+	uv sync
+
+# --- Services -------------------------------------------------------------------------------
+up: env ## Start HAPI FHIR + Postgres and wait until HAPI answers
+	docker compose up -d hapi-db hapi
+	@$(MAKE) --no-print-directory wait-hapi
+
+down: ## Stop all services (keeps volumes)
+	docker compose --profile app down
+
+logs: ## Tail HAPI logs
+	docker compose logs -f hapi
+
+wait-hapi: ## Wait (up to ~4 min) for the HAPI CapabilityStatement
+	@echo "Waiting for HAPI at $(FHIR_BASE_URL)/metadata ..."
+	@for i in $$(seq 1 120); do \
+	  if curl -fsS -H 'Accept: application/fhir+json' "$(FHIR_BASE_URL)/metadata" 2>/dev/null | grep -q '"CapabilityStatement"'; then \
+	    echo "HAPI is up."; exit 0; fi; sleep 2; done; \
+	  echo "HAPI did not come up in time; see 'make logs'."; exit 1
+
+fhir-metadata: ## Print a summary of the HAPI CapabilityStatement
+	@curl -fsS -H 'Accept: application/fhir+json' "$(FHIR_BASE_URL)/metadata" | \
+	  $(UV) python -c "import sys,json;c=json.load(sys.stdin);print(c['resourceType'],c.get('fhirVersion'),c.get('software',{}).get('name'),c.get('software',{}).get('version'))"
+
+# --- Quality --------------------------------------------------------------------------------
+lint: ## ruff (Python) [eslint arrives in M7]
+	$(UV) ruff check src tests
+	$(UV) ruff format --check src tests
+
+typecheck: ## mypy (strict on rules, governance, api)
+	$(UV) mypy
+
+test: ## Fast unit tests
+	$(UV) pytest
+
+test-all: ## All tests including slow and integration
+	$(UV) pytest -m ''
+
+e2e: ## Playwright smoke test (M7)
+	@$(TODO) e2e
+
+# --- Pipeline (stubs until their milestone) ---------------------------------------------------
+content-check: ## Validate rules, sources and message templates (M1)
+	@$(TODO) content-check
+
+data: ## Generate the synthetic cohort: make data SEED=42 N=20000 (M2)
+	@$(TODO) "data SEED=$(SEED) N=$(N)"
+
+load: ## Load NDJSON into HAPI (FHIR_LOAD=sample|full) and DuckDB (M2)
+	@$(TODO) "load FHIR_LOAD=$(FHIR_LOAD)"
+
+gaps: ## Run the care-gap engine and family graph (M3)
+	@$(TODO) gaps
+
+train: ## Train and calibrate models, rank, fit capacity (M4)
+	@$(TODO) train
+
+simulate: ## Run baseline vs Wiqaya 12-week simulation (M5)
+	@$(TODO) simulate
+
+sensitivity: ## Re-run the simulation with alternative response parameters (M5)
+	@$(TODO) sensitivity
+
+evaluate: ## Write docs/EVALUATION.md (M5)
+	@$(TODO) evaluate
+
+api: ## Run the API locally with reload (M6)
+	$(UV) uvicorn wiqaya.api.app:app --reload --port 8000
+
+web: ## Run the web app in dev mode (M7)
+	@$(TODO) web
+
+demo: ## Full demo from a clean clone (M8)
+	@$(TODO) demo
+
+synthea: ## Optional Synthea path (stretch)
+	@$(TODO) synthea
+
+licenses: ## Generate docs/THIRD_PARTY_LICENSES.md (M8)
+	@$(TODO) licenses
+
+clean: ## Remove generated data (keeps docker volumes)
+	rm -rf data/ndjson data/parquet data/duckdb data/runs

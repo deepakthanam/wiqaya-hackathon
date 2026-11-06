@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Env
+.env
+
+# Generated data (synthetic, reproducible from the seed)
+data/*
+!data/.gitkeep
+
+# Web
+web/node_modules/
+web/.next/
+web/out/
+web/playwright-report/
+web/test-results/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
