@@ -114,14 +114,14 @@ openapi: ## Regenerate the typed web API client from the FastAPI schema
 	$(UV) python -c "import json; from wiqaya.api.app import app; open('web/openapi.json','w').write(json.dumps(app.openapi(), indent=1))"
 	cd web && $(PNPM) gen:api
 
-demo: ## Full demo from a clean clone (M8)
-	@$(TODO) demo
+demo: ## Full demo from a clean clone: setup, HAPI, pipeline, FHIR load, API + web
+	bash scripts/demo.sh
 
-synthea: ## Optional Synthea path (stretch)
-	@$(TODO) synthea
+synthea: ## Optional Synthea path (cut for time; see docs/DECISIONS.md D-042)
+	@echo "Synthea path not implemented in this prototype (cut order item 3)."
 
-licenses: ## Generate docs/THIRD_PARTY_LICENSES.md (M8)
-	@$(TODO) licenses
+licenses: ## Generate docs/THIRD_PARTY_LICENSES.md
+	$(UV) python scripts/licenses.py
 
 clean: ## Remove generated data (keeps docker volumes)
 	rm -rf data/ndjson data/parquet data/duckdb data/runs

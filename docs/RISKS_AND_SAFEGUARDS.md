@@ -1,0 +1,31 @@
+# Risks and safeguards
+
+Each safeguard links to the code that implements it and the test that proves it.
+
+| Area | Risk | Safeguard | Code | Test |
+|---|---|---|---|---|
+| Privacy | Real personal data enters the system | Fully synthetic generator; every resource tagged "Simulated cohort"; provenance register | `generator/`, `fhir/resources.py: meta()`, `governance/provenance.py` | `test_generator.py::test_every_resource_tagged_simulated` |
+| Privacy | Engines read more than they need | `SnapshotView` raises `FieldNotDeclaredError` for any field not in the rule's `data_required` and records `fields_read` | `rules/snapshot.py` | `tests/rules/test_golden.py::test_undeclared_field_is_refused` |
+| Privacy | Processing without consent | People without `clinical_data` consent get no gaps and are counted as "excluded by consent" | `rules/run.py` | `test_gaps_pipeline.py`, hypothesis `test_clinical_data_denied_never_gets_gap` |
+| Privacy | Family links used without consent | A graph edge is kept only if **both** people granted `family_links` | `graph/family.py: build_graph` | `test_gaps_pipeline.py::test_consent_edge_case_no_cascade`, `test_api.py::test_consent_edge_case_graph` |
+| Privacy | Genomic data exposure | Genomic findings count as index reasons only with genomic consent; API strips genomic fields for roles other than clinician/admin; FHIR `meta.tag "genomic"` | `graph/family.py: index_people`, `api/security.py: strip_genomic` | `test_api.py::test_family_role_cannot_read_genomic`, `test_clinician_sees_genomic` |
+| Privacy | A relative learns the index person's diagnosis | Cascade templates may not use relative or condition slots; blocklist forbids family and condition words; messages only say "your doctor recommends a heart-health check for your family" | `content/messages/matrix.yaml`, `blocklist/*.yaml`, `outreach/library.py` | `test_messages.py::test_cascade_never_names_relative` |
+| Privacy | Re-identification from aggregates | `suppress()` / `suppress_records()` mask any cell with n < 11; every planner route goes through it | `governance/suppress.py`, `api/routers.py` | `test_api.py::test_aggregates_are_suppressed`, `test_every_aggregate_route_checked` |
+| Privacy | Hidden truth leaks into models or the API | Latent truth is kept outside DuckDB; `load_latent` refuses callers outside generator/simulate/evaluate | `store/repo.py` | `test_generator.py::test_latent_truth_not_readable_by_engines` |
+| Security | Unauthorised access | Signed, expiring guest sessions; role checks on every route; no password store; no admin write endpoints | `api/security.py` | `test_api.py::test_role_matrix` |
+| Security | Abuse of guest access | Rate limit on guest creation; per-session overlay that resets after 2 hours; security headers | `api/security.py: RateLimiter`, `api/app.py` | `test_guest_rate_limited`, `test_security_headers` |
+| Security | Unlogged access to records | Audit event for every person-level read and every write, with `fields_read` | `governance/overlay.py: AuditLog` | `test_api.py::test_person_reads_are_audited` |
+| Bias | Models encode nationality or language | These are excluded from Model R features (asserted) and used only as monitoring segments | `models/features.py: FORBIDDEN_R` | `test_models.py::test_model_r_excludes_segments` |
+| Bias | Ranking starves a group | Fairness floor (0.8 × need share) with a logged swap for every adjustment | `models/fairness.py` | `test_models.py::test_fairness_floor_met_and_logged` |
+| Bias | Model unreliable for small groups | "Model not validated for this segment" when held-out n < 100 | `models/train.py: segment_metrics` | per-segment table in EVALUATION.md |
+| Bias | Language exclusion | Messages in 6 languages; preferred language used; Bengali gap made visible | `outreach/plan.py`, equity console | `test_api.py::test_worker_sms_malayalam_van` |
+| Explainability | Unexplained flags | Rule citation (`rule_id@version`, source, evidence, fields read) shown first; then SHAP top-3 phrases and priority components with weights | `api/routers.py: person`, web person page | e2e `coordinator…` |
+| Misuse | Use for pricing or denial | Model card out-of-scope list; guardrail keeps every due gap listed; "Population prioritisation, not a clinical decision" banner | `docs/MODEL_CARD.md`, `models/priority.py` | `test_models.py::test_every_gap_stays_on_worklist` |
+| Human oversight | Automation without review | Accept / Change / Reject (reason required); cascade needs clinician sign-off; the simulator includes a 10% rejection rate | `api/routers.py: decide`, `simulate/engine.py` | `test_api.py::test_cascade_requires_clinician_signoff`, `test_reject_needs_reason` |
+| Safety | Harmful or frightening wording | Blocklist (diagnosis, fear, guilt) in every language; decline option in every message; length limits | `outreach/library.py: validate_library` | `test_messages.py` |
+| Safety | LLM hallucination | LLM off by default. If enabled, output must add no new numbers, pass the blocklist and stay within length, otherwise the deterministic text is used | `outreach/render.py: validate_llm_output` | `test_outreach_sim.py::test_llm_fence_rejects_new_numbers_and_blocklist` |
+| Safety | Messages at bad times | Quiet hours, Friday midday, Eid, public holidays, Ramadan send-after-iftar; exam windows | `common/calendar.py` | `test_outreach_sim.py::test_quiet_hours_and_friday`, `test_ramadan_send_after_iftar` |
+| Failure mode | HAPI down | Person pages fall back to DuckDB and show a banner | `api/store.py: hapi_patient` | manual (stop HAPI) |
+| Failure mode | Optimiser timeout | Greedy hint and fallback; deterministic budget; capacity never exceeded | `capacity/fit.py` | `test_models.py::test_capacity_respected_and_households_bundled` |
+| Failure mode | Unverifiable guideline URL | `verify_sources.py` re-checks every source; a rule must be `unverified_source` if not verified; the Admin UI shows the state | `scripts/verify_sources.py`, `common/content_check.py` | `test_content.py` |
+| Failure mode | Simulator flatters design | Common random numbers; models never see response parameters; three-scenario sensitivity analysis | `simulate/` | EVALUATION.md sensitivity section |

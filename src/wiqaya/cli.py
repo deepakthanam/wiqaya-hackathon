@@ -79,9 +79,23 @@ def gaps() -> None:
 
 
 @app.command()
-def load(mode: str = typer.Option(None, help="sample | full (default: FHIR_LOAD env or sample)")) -> None:
+def load(
+    mode: str = typer.Option(None, help="sample | full (default: FHIR_LOAD env or sample)"),
+    wait: bool = typer.Option(False, help="wait up to 5 minutes for HAPI to answer first"),
+) -> None:
     """Load NDJSON into HAPI FHIR via transaction bundles."""
+    import time
+
+    from wiqaya.fhir.loader import get
     from wiqaya.fhir.loader import load as do_load
+
+    if wait:
+        for _ in range(150):
+            try:
+                get("metadata")
+                break
+            except Exception:
+                time.sleep(2)
 
     out = do_load(mode)
     typer.echo(json.dumps(out, indent=1))

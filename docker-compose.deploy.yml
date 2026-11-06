@@ -1,0 +1,56 @@
+# Deployment override (docs/DEPLOYMENT.md):
+#   docker compose -f docker-compose.yml -f docker-compose.deploy.yml --profile app up -d --build
+# HAPI is not published; Caddy terminates HTTPS and is the only public entry point.
+
+services:
+  hapi:
+    ports: !reset []
+
+  api:
+    image: wiqaya-api
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+      args:
+        SEED: ${SEED:-42}
+        N: ${N:-20000}
+    ports: !reset []
+    volumes: !reset []
+    environment:
+      FHIR_BASE_URL: http://hapi:8080/fhir
+      CORS_ORIGINS: https://${DOMAIN:-localhost}
+    restart: unless-stopped
+
+  loader:
+    profiles: [app]
+    image: wiqaya-api
+    command: ["uv", "run", "--no-dev", "wiqaya", "load", "--mode", "sample", "--wait"]
+    environment:
+      FHIR_BASE_URL: http://hapi:8080/fhir
+    depends_on: [hapi, api]
+    restart: "no"
+    networks: [internal]
+
+  web:
+    build:
+      context: ./web
+      args:
+        API_ORIGIN: http://api:8000
+    ports: !reset []
+    restart: unless-stopped
+
+  caddy:
+    profiles: [app]
+    image: caddy:2.8
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on: [web]
+    networks: [internal]
+
+volumes:
+  caddy-data:

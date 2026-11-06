@@ -1,7 +1,7 @@
 # Wiqaya — build plan
 
 Source brief: `PROMPT.md`. This plan turns it into milestones, files and risks.
-Status: **Milestone 0 complete, waiting for approval.** Today is 2026-11-07; submission is 2026-11-20.
+Status: **Milestones 0–8 built on 2026-11-07.** Open items: public deployment (needs a VPS + domain), GitHub remote, deck alignment. Submission is 2026-11-20.
 
 ## Schedule
 
