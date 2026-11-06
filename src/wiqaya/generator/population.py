@@ -219,7 +219,7 @@ class PopulationBuilder:
         lo = fam["mother_age_at_birth"]["min"]
         max_child_age = min(17.9, mother_age - lo)
         kids: list[Person] = []
-        if max_child_age > 0:
+        if max_child_age > 0.1:
             for _ in range(n_kids):
                 kage = float(rng.uniform(0.02, max_child_age))
                 sex = "male" if rng.random() < 0.51 else "female"
@@ -280,6 +280,13 @@ class PopulationBuilder:
         # Family nationality weights, adjusted for the labour population's nationality mix.
         mix = dict(p["nationality_mix"])
         fam_w = {k: max(1e-4, v - labour_share * hp["labour_nationality"].get(k, 0)) for k, v in mix.items()}
+        # Convert people shares into household shares: divide by each group's expected household size.
+        fam = hp["family"]
+        for k in fam_w:
+            kids = fam["children_count_probs"].get(k, fam["children_count_probs"]["default"])
+            mean_kids = sum(i * q for i, q in enumerate(kids)) / sum(kids)
+            gp = fam["grandparent_prob"].get(k, fam["grandparent_prob"]["default"])
+            fam_w[k] /= 1 + fam["two_adult_prob"] + mean_kids + gp
         heads: list[Person] = []
         sib_p = p["siblings"]["adult_sibling_target"] * 0.75
         while len(self.c.people) < n_target:

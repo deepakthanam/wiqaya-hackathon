@@ -4,217 +4,217 @@
 # Opening hours and indoor_mall_adjacent flags are synthetic ASSUMPTIONS for the simulation, not real schedules.
 note: "Generic synthetic clinics. Names are not real facilities; coordinates are approximate."
 clinics:
-  - id: clinic_abu_dhabi_island_1
+  - id: clinic-abu-dhabi-island-1
     name: "Primary Care Centre – Abu Dhabi Island 1"
     district_id: abu_dhabi_island
     lat: 24.473
     lon: 54.3924
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri, sat], open: "07:30", close: "22:00"}
-  - id: clinic_abu_dhabi_island_2
+  - id: clinic-abu-dhabi-island-2
     name: "Family Health Centre – Abu Dhabi Island 2"
     district_id: abu_dhabi_island
     lat: 24.4458
     lon: 54.3688
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_abu_dhabi_island_3
+  - id: clinic-abu-dhabi-island-3
     name: "Community Health Centre – Abu Dhabi Island 3"
     district_id: abu_dhabi_island
     lat: 24.464
     lon: 54.3776
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_abu_dhabi_island_4
+  - id: clinic-abu-dhabi-island-4
     name: "Primary Care Centre – Abu Dhabi Island 4"
     district_id: abu_dhabi_island
     lat: 24.4847
     lon: 54.3653
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_reem_island_1
+  - id: clinic-al-reem-island-1
     name: "Primary Care Centre – Al Reem Island 1"
     district_id: al_reem_island
     lat: 24.4962
     lon: 54.4068
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_reem_island_2
+  - id: clinic-al-reem-island-2
     name: "Family Health Centre – Al Reem Island 2"
     district_id: al_reem_island
     lat: 24.4922
     lon: 54.3755
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_khalifa_city_1
+  - id: clinic-khalifa-city-1
     name: "Primary Care Centre – Khalifa City 1"
     district_id: khalifa_city
     lat: 24.4267
     lon: 54.5839
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_khalifa_city_2
+  - id: clinic-khalifa-city-2
     name: "Family Health Centre – Khalifa City 2"
     district_id: khalifa_city
     lat: 24.4192
     lon: 54.5607
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_khalifa_city_3
+  - id: clinic-khalifa-city-3
     name: "Community Health Centre – Khalifa City 3"
     district_id: khalifa_city
     lat: 24.4195
     lon: 54.5861
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_mbz_city_1
+  - id: clinic-mbz-city-1
     name: "Primary Care Centre – Mohammed Bin Zayed City 1"
     district_id: mbz_city
     lat: 24.2698
     lon: 54.596
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_mbz_city_2
+  - id: clinic-mbz-city-2
     name: "Family Health Centre – Mohammed Bin Zayed City 2"
     district_id: mbz_city
     lat: 24.3412
     lon: 54.5421
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_mbz_city_3
+  - id: clinic-mbz-city-3
     name: "Community Health Centre – Mohammed Bin Zayed City 3"
     district_id: mbz_city
     lat: 24.3457
     lon: 54.5396
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_musaffah_1
+  - id: clinic-musaffah-1
     name: "Primary Care Centre – Musaffah 1"
     district_id: musaffah
     lat: 24.4205
     lon: 54.4561
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_musaffah_2
+  - id: clinic-musaffah-2
     name: "Family Health Centre – Musaffah 2"
     district_id: musaffah
     lat: 24.3608
     lon: 54.5043
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_musaffah_3
+  - id: clinic-musaffah-3
     name: "Community Health Centre – Musaffah 3"
     district_id: musaffah
     lat: 24.4168
     lon: 54.4668
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_shamkha_1
+  - id: clinic-al-shamkha-1
     name: "Primary Care Centre – Al Shamkha 1"
     district_id: al_shamkha
     lat: 24.3779
     lon: 54.6978
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_shamkha_2
+  - id: clinic-al-shamkha-2
     name: "Family Health Centre – Al Shamkha 2"
     district_id: al_shamkha
     lat: 24.3363
     lon: 54.6588
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_yas_island_1
+  - id: clinic-yas-island-1
     name: "Primary Care Centre – Yas Island 1"
     district_id: yas_island
     lat: 24.5665
     lon: 54.6912
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_yas_island_2
+  - id: clinic-yas-island-2
     name: "Family Health Centre – Yas Island 2"
     district_id: yas_island
     lat: 24.5772
     lon: 54.7287
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_ain_city_1
+  - id: clinic-al-ain-city-1
     name: "Primary Care Centre – Al Ain City 1"
     district_id: al_ain_city
     lat: 24.2252
     lon: 55.7728
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri, sat], open: "07:30", close: "22:00"}
-  - id: clinic_al_ain_city_2
+  - id: clinic-al-ain-city-2
     name: "Family Health Centre – Al Ain City 2"
     district_id: al_ain_city
     lat: 24.2224
     lon: 55.758
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_ain_city_3
+  - id: clinic-al-ain-city-3
     name: "Community Health Centre – Al Ain City 3"
     district_id: al_ain_city
     lat: 24.2213
     lon: 55.7496
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_ain_city_4
+  - id: clinic-al-ain-city-4
     name: "Primary Care Centre – Al Ain City 4"
     district_id: al_ain_city
     lat: 24.2291
     lon: 55.7539
     indoor_mall_adjacent: true
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_hili_1
+  - id: clinic-al-hili-1
     name: "Primary Care Centre – Al Hili 1"
     district_id: al_hili
     lat: 24.3167
     lon: 55.7984
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_al_hili_2
+  - id: clinic-al-hili-2
     name: "Family Health Centre – Al Hili 2"
     district_id: al_hili
     lat: 24.284
     lon: 55.7686
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "08:00", close: "20:00"}
-  - id: clinic_madinat_zayed_1
+  - id: clinic-madinat-zayed-1
     name: "Primary Care Centre – Madinat Zayed 1"
     district_id: madinat_zayed
     lat: 23.6472
     lon: 53.7086
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "07:30", close: "15:30"}
-  - id: clinic_madinat_zayed_2
+  - id: clinic-madinat-zayed-2
     name: "Family Health Centre – Madinat Zayed 2"
     district_id: madinat_zayed
     lat: 23.6633
     lon: 53.7005
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "07:30", close: "15:30"}
-  - id: clinic_ruwais_1
+  - id: clinic-ruwais-1
     name: "Primary Care Centre – Ruwais 1"
     district_id: ruwais
     lat: 24.1004
     lon: 52.7197
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "07:30", close: "15:30"}
-  - id: clinic_ruwais_2
+  - id: clinic-ruwais-2
     name: "Family Health Centre – Ruwais 2"
     district_id: ruwais
     lat: 24.0963
     lon: 52.7101
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "07:30", close: "15:30"}
-  - id: clinic_ghayathi_1
+  - id: clinic-ghayathi-1
     name: "Primary Care Centre – Ghayathi 1"
     district_id: ghayathi
     lat: 23.8935
     lon: 52.8023
     indoor_mall_adjacent: false
     opening: {weekdays: [mon, tue, wed, thu, fri], open: "07:30", close: "15:30"}
-  - id: clinic_ghayathi_2
+  - id: clinic-ghayathi-2
     name: "Family Health Centre – Ghayathi 2"
     district_id: ghayathi
     lat: 23.8946
@@ -224,10 +224,10 @@ clinics:
 mobile_van:
   # One synthetic mobile screening van. Stop coordinates: OSM Nominatim (© OpenStreetMap contributors,
   # ODbL 1.0), retrieved 2026-11-07, rounded to 3 dp. Weekday rota and hours are ASSUMPTIONS.
-  - id: van_1
+  - id: van-1
     name: "Mobile Screening Van 1"
     stops:
-      - id: van_1_musaffah
+      - id: van-1-musaffah
         district_id: musaffah
         label: "Musaffah labour-accommodation area"
         lat: 24.340
@@ -236,7 +236,7 @@ mobile_van:
         weekday: mon
         open: "16:00"
         close: "21:00"
-      - id: van_1_ruwais
+      - id: van-1-ruwais
         district_id: ruwais
         label: "Ruwais"
         lat: 24.086
@@ -245,7 +245,7 @@ mobile_van:
         weekday: tue
         open: "08:00"
         close: "14:00"
-      - id: van_1_madinat_zayed
+      - id: van-1-madinat-zayed
         district_id: madinat_zayed
         label: "Madinat Zayed"
         lat: 23.652
@@ -254,7 +254,7 @@ mobile_van:
         weekday: wed
         open: "08:00"
         close: "14:00"
-      - id: van_1_ghayathi
+      - id: van-1-ghayathi
         district_id: ghayathi
         label: "Ghayathi"
         lat: 23.882

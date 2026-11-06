@@ -78,7 +78,7 @@ def create_people(b: PopulationBuilder) -> None:
     b.link(f.id, sis.id, "sibling")
     b.link(u.id, sis.id, "sibling")
 
-    van = C.van_stops()["van_1_musaffah"]
+    van = C.van_stops()["van-1-musaffah"]
     h4 = b.make_household("indian", "musaffah", "labour_accommodation", hid="hh-demo-010")
     h4.lat, h4.lon = van["lat"] + 0.002, van["lon"] + 0.002
     h4.primary_language = "ml"

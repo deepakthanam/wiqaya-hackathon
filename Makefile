@@ -74,14 +74,14 @@ fetch-reference: ## Re-fetch OSM clinics and ClinVar (network)
 	$(UV) python scripts/fetch_osm_clinics.py --force
 	$(UV) python scripts/fetch_clinvar.py --force
 
-data: ## Generate the synthetic cohort: make data SEED=42 N=20000 (M2)
-	@$(TODO) "data SEED=$(SEED) N=$(N)"
+data: ## Generate the synthetic cohort: make data SEED=42 N=20000
+	$(UV) wiqaya data --seed $(SEED) --n $(N)
 
-load: ## Load NDJSON into HAPI (FHIR_LOAD=sample|full) and DuckDB (M2)
-	@$(TODO) "load FHIR_LOAD=$(FHIR_LOAD)"
+load: ## Load NDJSON into HAPI (FHIR_LOAD=sample|full); DuckDB is built by `make data`
+	$(UV) wiqaya load --mode $(FHIR_LOAD)
 
-gaps: ## Run the care-gap engine and family graph (M3)
-	@$(TODO) gaps
+gaps: ## Run the care-gap engine and family graph
+	$(UV) wiqaya gaps
 
 train: ## Train and calibrate models, rank, fit capacity (M4)
 	@$(TODO) train

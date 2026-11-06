@@ -140,7 +140,7 @@ hbb_carrier_prob_if_consanguineous_spouse_carrier: 0.25   # ASSUMPTION
 brca_prob: 0.003                        # ASSUMPTION
 
 genome_programme:                       # who has a simulated genome-programme result; ASSUMPTION
-  participation: {emirati: 0.30, default: 0.01}
+  participation: {emirati: 0.50, default: 0.02}
   # Findings are reported for FH carriers, HBB carriers and BRCA among participants.
 
 siblings:

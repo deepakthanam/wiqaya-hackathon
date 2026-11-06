@@ -178,7 +178,7 @@ class LatentBuilder:
 
     def _cond(self, pid: str, key: str, onset: date, verification: str = "confirmed") -> None:
         self.n_cond += 1
-        self.c.conditions.append(Condition(f"cond-{self.n_cond:07d}", pid, key, onset, verification))
+        self.c.conditions.append(Condition(f"cond-pre-{self.n_cond:07d}", pid, key, onset, verification))
 
     def _diagnosed_before_history(self) -> None:
         share = self.p["diagnosed_before_history"]
