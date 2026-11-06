@@ -57,6 +57,7 @@ priority:
     wcv: 0.70
     immunisation: 0.75
     adult_screening: 0.40
+  cascade_risk_percentile: 0.99         # guideline prior for first-degree relatives of an index case
   overdue_boost_days: 90                 # overdue by > 90 days adds the boost below
   overdue_boost: 0.20
   infant_boost: 0.15                     # under 2 years
@@ -67,7 +68,7 @@ models:
   lightgbm: {n_estimators: 200, learning_rate: 0.05, num_leaves: 15, min_child_samples: 30, subsample: 0.8, colsample_bytree: 0.8}
 
 capacity_fit:
-  time_limit_seconds: 30
+  time_limit_seconds: 2   # CP-SAT deterministic-time budget per site component (approx. 5-10 s each on a laptop)
   candidate_sites: 2               # nearest N sites per person (+ van if eligible)
   max_km:                          # travel-distance limit by profile
     labour_no_smartphone: 6

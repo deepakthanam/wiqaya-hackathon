@@ -19,6 +19,6 @@ open_weekdays: [mon, tue, wed, thu, fri]   # clinics closed Sat/Sun and public h
 clinic_weight_by_district_population: true # bigger districts get more slots
 mobile_van:
   id: van_1
-  slots_per_stop: 30
+  slots_per_stop: 12
   slot_type: adult
   weeks: all
