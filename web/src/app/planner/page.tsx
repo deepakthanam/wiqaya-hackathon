@@ -125,7 +125,7 @@ export default function Planner() {
           {cal && (
             <p className="text-xs text-muted">AUROC {fmt(cal.model_r.test.auroc, 3)} · Brier {fmt(cal.model_r.test.brier, 3)} · slope {fmt(cal.model_r.test.calibration_slope, 2)} · intercept {fmt(cal.model_r.test.calibration_intercept, 2)} · n {cal.model_r.test.n} · Simulated cohort</p>
           )}
-          <div className="h-72">
+          <div className="h-72 w-full min-w-0">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart margin={{ top: 10, right: 10, bottom: 20, left: 0 }}>
                 <CartesianGrid stroke="#eee" />
