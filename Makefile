@@ -8,11 +8,13 @@ FHIR_LOAD ?= sample
 HAPI_PORT ?= 8080
 FHIR_BASE_URL ?= http://localhost:$(HAPI_PORT)/fhir
 UV := uv run
+export PYTHONIOENCODING := utf-8
+export PYTHONUTF8 := 1
 TODO := $(UV) wiqaya todo
 
 .PHONY: help setup env up down logs wait-hapi fhir-metadata lint typecheck test test-all e2e \
         content-check data load gaps train simulate sensitivity evaluate api web demo synthea \
-        licenses clean
+        licenses clean fetch-reference
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-15s\033[0m %s\n",$$1,$$2}'
@@ -63,8 +65,14 @@ e2e: ## Playwright smoke test (M7)
 	@$(TODO) e2e
 
 # --- Pipeline (stubs until their milestone) ---------------------------------------------------
-content-check: ## Validate rules, sources and message templates (M1)
-	@$(TODO) content-check
+content-check: ## Validate rules, sources and message templates
+	$(UV) python scripts/verify_sources.py $(if $(ONLINE),,--offline)
+	$(UV) wiqaya content-check
+	$(UV) pytest -q tests/test_messages.py tests/test_content.py
+
+fetch-reference: ## Re-fetch OSM clinics and ClinVar (network)
+	$(UV) python scripts/fetch_osm_clinics.py --force
+	$(UV) python scripts/fetch_clinvar.py --force
 
 data: ## Generate the synthetic cohort: make data SEED=42 N=20000 (M2)
 	@$(TODO) "data SEED=$(SEED) N=$(N)"

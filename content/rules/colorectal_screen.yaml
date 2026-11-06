@@ -1,0 +1,27 @@
+id: COLORECTAL_SCREEN
+version: 1.0.0
+title: Colorectal (bowel) screening (ages 45-75)
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Colorectal Cancer: Screening"
+  year: 2021
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Adults 50-75 (A) and 45-49 (B)", "FIT every year is one recommended strategy"]
+message_pathway: colorectal
+slot_type: adult
+applies_to:
+  age_years: {min: 45, max: 75}
+  exclude_conditions: [colorectal_neoplasia]
+interval_months: 12
+interval_by_test: {fit: 12}
+data_required: [birth_date, conditions, "obs:fit"]
+satisfied_by: ["obs:fit"]
+output_codes: {gap_code: "local:gap-colorectal"}
+assumptions:
+  - "Only the annual FIT strategy is modelled; colonoscopy history is not."

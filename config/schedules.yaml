@@ -1,0 +1,52 @@
+# Schedules used by schedule-type rules. Configurable so the DOH schedules can replace them.
+
+wcv:
+  source_note: >-
+    Configurable; default follows a common periodicity schedule (AAP/Bright Futures); replace with the DOH
+    Well-Child Visit schedule.
+  # visit key -> target age in months
+  visits: {newborn: 0.25, m1: 1, m2: 2, m4: 4, m6: 6, m9: 9, m12: 12, m15: 15, m18: 18, m24: 24, m30: 30}
+  yearly_from_years: 3
+  yearly_to_years: 18
+  window_before_days: 14          # ASSUMPTION – a visit counts if done within this window
+  window_after_days: 60           # ASSUMPTION – after this the visit is overdue
+
+developmental:
+  ages_months: [9, 18, 30]
+  window_before_days: 30
+  window_after_days: 90
+
+autism:
+  ages_months: [18, 24]
+  window_before_days: 30
+  window_after_days: 90
+
+immunisation:
+  status: placeholder_replace_with_uae_national_schedule
+  source_note: >-
+    PLACEHOLDER modelled on a generic childhood schedule. Replace with the UAE National Immunisation
+    Programme schedule before any real use. Vaccine keys map to codes in content/reference/codes.yaml.
+  catchup_max_age_years: 18
+  grace_days: 30                  # dose counts as due (not overdue) for this many days after the target age
+  doses:                          # vaccine key, dose number, target age (months)
+    - {vaccine: hepb, dose: 1, age_months: 0}
+    - {vaccine: hepb, dose: 2, age_months: 2}
+    - {vaccine: hepb, dose: 3, age_months: 6}
+    - {vaccine: dtap_ipv_hib, dose: 1, age_months: 2}
+    - {vaccine: dtap_ipv_hib, dose: 2, age_months: 4}
+    - {vaccine: dtap_ipv_hib, dose: 3, age_months: 6}
+    - {vaccine: dtap_ipv_hib, dose: 4, age_months: 18}
+    - {vaccine: pcv, dose: 1, age_months: 2}
+    - {vaccine: pcv, dose: 2, age_months: 4}
+    - {vaccine: pcv, dose: 3, age_months: 12}
+    - {vaccine: rotavirus, dose: 1, age_months: 2, max_age_months: 8}
+    - {vaccine: rotavirus, dose: 2, age_months: 4, max_age_months: 8}
+    - {vaccine: mmr, dose: 1, age_months: 12}
+    - {vaccine: mmr, dose: 2, age_months: 18}
+    - {vaccine: varicella, dose: 1, age_months: 12}
+    - {vaccine: varicella, dose: 2, age_months: 18}
+    - {vaccine: hepa, dose: 1, age_months: 18}
+    - {vaccine: dtap_ipv, dose: 5, age_months: 60}
+    - {vaccine: tdap, dose: 1, age_months: 156}
+    - {vaccine: hpv, dose: 1, age_months: 156}
+    - {vaccine: hpv, dose: 2, age_months: 162}

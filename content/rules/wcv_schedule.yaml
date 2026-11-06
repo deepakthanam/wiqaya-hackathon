@@ -1,0 +1,25 @@
+id: WCV_SCHEDULE
+version: 1.0.0
+title: Well-Child Visit schedule
+pathway: wcv
+kind: schedule
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "Configurable; default follows a common periodicity schedule (Bright Futures/AAP Recommendations for Preventive Pediatric Health Care); replace with DOH WCV schedule"
+  year: 2025
+  url: "https://downloads.aap.org/AAP/PDF/periodicity_schedule.pdf"
+  retrieved_on: "2026-11-07"
+  licence: "© 2025 American Academy of Pediatrics; cited, not reproduced"
+  verified: true
+  http_status: 200
+  key_facts: ["Visits at newborn, 1, 2, 4, 6, 9, 12, 15, 18, 24, 30 months, then yearly from 3 years"]
+message_pathway: wcv
+slot_type: child
+applies_to:
+  age_years: {min: 0, max: 18.99}
+schedule_ref: wcv
+data_required: [birth_date, "enc:wcv"]
+satisfied_by: ["enc:wcv"]
+output_codes: {gap_code: "local:gap-wcv"}
+assumptions:
+  - "Schedule lives in config/schedules.yaml; a visit counts from 14 days before to 60 days after the target age."

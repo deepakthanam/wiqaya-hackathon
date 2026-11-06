@@ -1,0 +1,24 @@
+id: BREAST_SCREEN
+version: 1.0.0
+title: Breast screening (ages 40-74, every 2 years)
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Breast Cancer: Screening"
+  year: 2024
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Biennial screening mammography for women aged 40 to 74 years (B)"]
+message_pathway: breast
+slot_type: women
+applies_to:
+  age_years: {min: 40, max: 74}
+  sex: female
+interval_months: 24
+data_required: [birth_date, sex, "obs:mammogram"]
+satisfied_by: ["obs:mammogram"]
+output_codes: {gap_code: "local:gap-breast"}

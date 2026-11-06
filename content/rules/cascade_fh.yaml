@@ -1,0 +1,32 @@
+id: CASCADE_FH
+version: 1.0.0
+title: Familial hypercholesterolaemia cascade testing of first-degree relatives (clinician task)
+pathway: cascade
+kind: cascade
+status: demo_encoding_requires_clinical_validation
+requires_clinician: true
+source:
+  name: "NICE CG71 – Familial hypercholesterolaemia: identification and management"
+  year: 2008
+  url: "https://www.nice.org.uk/guidance/cg71"
+  retrieved_on: "2026-11-07"
+  licence: "© NICE; cited, not reproduced"
+  verified: true
+  http_status: 403
+  verification_url: "http://web.archive.org/web/20261010100045/https://www.nice.org.uk/guidance/cg71/chapter/Recommendations"
+  key_facts: ["1.2.1: cascade testing of first- and second-degree (and where possible third-degree) relatives", "1.1.15: children 0-10 at risk because of one affected parent: offer a DNA test at the earliest opportunity", "1.2.4: be aware of data-protection guidance during cascade testing", "Last updated 4 Oct 2019"]
+message_pathway: cascade_family
+slot_type: adult
+cascade:
+  index_genes: [LDLR, APOB, PCSK9]
+  index_conditions: [fh]
+  relationships: [parent, child, sibling]
+  child_min_age_years: 0
+  relative_min_age_years: 0
+  outreach_allowed_after_approval: true
+data_required: [birth_date, cascade_links, "obs:ldl"]
+satisfied_by: ["obs:ldl"]
+output_codes: {gap_code: "local:gap-cascade-fh"}
+assumptions:
+  - "Only first-degree relatives are walked (brief scope); NICE also covers second- and third-degree relatives."
+  - "Never auto-contacts: outreach only after clinician approval AND the index person's consent to share."

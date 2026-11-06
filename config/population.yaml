@@ -1,0 +1,166 @@
+# Synthetic population parameters.
+# EVERY numeric value here is a PLACEHOLDER ASSUMPTION unless stated otherwise:
+#   ASSUMPTION – replace with SCAD/DOH published figure; cite in DATA_PROVENANCE.md
+# The generator reads only this file (+ content/) and a seed; same seed => byte-identical output.
+
+seed: 42
+n_people: 20000
+t0: "2026-11-01"           # as-of date for the care-gap engine; history covers the 24 months before
+history_months: 24
+
+nationality_mix:           # share of PEOPLE; ASSUMPTION – replace with SCAD/DOH published figure; cite in DATA_PROVENANCE.md
+  emirati: 0.20
+  indian: 0.30
+  pakistani: 0.12
+  bangladeshi: 0.07
+  filipino: 0.07
+  other_arab: 0.12
+  western: 0.04
+  other: 0.08
+
+south_asian_groups: [indian, pakistani, bangladeshi]
+
+households:
+  labour_share_of_people: 0.18          # ASSUMPTION – replace with SCAD/DOH published figure; cite in DATA_PROVENANCE.md
+  labour_size: {min: 4, max: 12}        # ASSUMPTION – per brief
+  labour_nationality:                   # ASSUMPTION – replace with SCAD/DOH published figure; cite in DATA_PROVENANCE.md
+    indian: 0.45
+    pakistani: 0.22
+    bangladeshi: 0.20
+    other: 0.13
+  labour_male_share: 0.97               # ASSUMPTION
+  labour_age: {min: 20, max: 58, mode: 32}   # ASSUMPTION
+  labour_district:                      # ASSUMPTION – concentrated in Musaffah and industrial districts
+    musaffah: 0.55
+    ruwais: 0.12
+    madinat_zayed: 0.07
+    ghayathi: 0.04
+    al_ain_city: 0.12
+    al_shamkha: 0.05
+    mbz_city: 0.05
+  family:
+    two_adult_prob: 0.85                # ASSUMPTION
+    children_count_probs:               # P(0..5 children); ASSUMPTION
+      emirati: [0.08, 0.12, 0.22, 0.24, 0.20, 0.14]
+      default: [0.22, 0.25, 0.30, 0.15, 0.06, 0.02]
+    grandparent_prob:                   # ASSUMPTION – higher for Emirati households (per brief)
+      emirati: 0.30
+      default: 0.06
+    adult_age: {min: 22, max: 62}       # ASSUMPTION
+    spouse_age_gap: {mean: 4, sd: 3}    # husband older on average; ASSUMPTION
+    mother_age_at_birth: {min: 19, max: 44}   # ASSUMPTION
+    grandparent_age: {min: 58, max: 88} # ASSUMPTION
+  housing_type_family:                  # ASSUMPTION – replace with SCAD/DOH published figure; cite in DATA_PROVENANCE.md
+    emirati: {villa: 0.85, apartment: 0.15}
+    western: {villa: 0.35, apartment: 0.65}
+    default: {villa: 0.15, apartment: 0.85}
+
+district_weights_family:                # where family households live; ASSUMPTION – replace with SCAD/DOH figure
+  emirati:     {abu_dhabi_island: 0.10, khalifa_city: 0.18, mbz_city: 0.14, al_shamkha: 0.14, al_ain_city: 0.18, al_hili: 0.08, madinat_zayed: 0.06, ruwais: 0.02, ghayathi: 0.03, yas_island: 0.03, al_reem_island: 0.02, musaffah: 0.02}
+  western:     {abu_dhabi_island: 0.25, al_reem_island: 0.30, yas_island: 0.20, khalifa_city: 0.10, mbz_city: 0.05, al_ain_city: 0.05, ruwais: 0.05}
+  default:     {abu_dhabi_island: 0.30, al_reem_island: 0.08, khalifa_city: 0.08, mbz_city: 0.12, musaffah: 0.12, al_shamkha: 0.04, yas_island: 0.02, al_ain_city: 0.14, al_hili: 0.04, madinat_zayed: 0.02, ruwais: 0.03, ghayathi: 0.01}
+
+district_deprivation_proxy:             # 0 (least) .. 1 (most); ASSUMPTION – no official index used
+  abu_dhabi_island: 0.35
+  al_reem_island: 0.15
+  khalifa_city: 0.25
+  mbz_city: 0.40
+  musaffah: 0.85
+  al_shamkha: 0.35
+  yas_island: 0.10
+  al_ain_city: 0.45
+  al_hili: 0.50
+  madinat_zayed: 0.60
+  ruwais: 0.55
+  ghayathi: 0.70
+
+languages:                              # preferred language by nationality; ASSUMPTION
+  emirati: {ar: 1.0}
+  indian: {ml: 0.35, hi: 0.40, en: 0.25}
+  pakistani: {ur: 0.90, en: 0.10}
+  bangladeshi: {bn: 0.85, en: 0.15}     # bn is NOT in the message library: falls back to en (documented gap)
+  filipino: {tl: 0.70, en: 0.30}
+  other_arab: {ar: 0.95, en: 0.05}
+  western: {en: 1.0}
+  other: {en: 0.70, ar: 0.10, tl: 0.05, hi: 0.15}
+
+literacy_proxy:                         # P(low, med, high); ASSUMPTION
+  labour: [0.35, 0.50, 0.15]
+  default: [0.08, 0.37, 0.55]
+
+phone_type:                             # P(smartphone, basic, none); ASSUMPTION
+  labour: [0.55, 0.42, 0.03]
+  elderly: [0.60, 0.30, 0.10]           # age >= 70
+  default: [0.96, 0.03, 0.01]
+
+insurance_tier:                         # P(Thiqa, Enhanced, Basic); ASSUMPTION
+  emirati: [0.96, 0.04, 0.0]
+  labour: [0.0, 0.03, 0.97]
+  default: [0.0, 0.62, 0.38]
+
+has_regular_clinic:                     # P(has a regular clinic); ASSUMPTION
+  labour: 0.25
+  emirati: 0.80
+  default: 0.60
+
+# --- Latent conditions (ground truth; never shown to models or the API) -----------------------
+bmi:                                    # true BMI ~ Normal(mean + age_slope*(age-30), sd); ASSUMPTION
+  adult: {mean: 26.5, sd: 4.8, age_slope: 0.06, min: 16, max: 50}
+  group_shift: {emirati: 1.8, other_arab: 1.2, filipino: -0.6, western: -0.3}
+  child_obesity_prob: 0.13              # P(BMI-for-age >= 95th pct) ages 2-17; ASSUMPTION
+
+# logit(p) = intercept + age*(age-40) + bmi*(bmi-25) + fhx*family_history + group effect
+latent_models:                          # ASSUMPTION – placeholder coefficients, tuned for plausible prevalence
+  t2d:            {intercept: -2.6, age: 0.055, bmi: 0.10, fhx: 0.9, group: {indian: 0.6, pakistani: 0.6, bangladeshi: 0.6, emirati: 0.5}}
+  prediabetes:    {intercept: -1.4, age: 0.035, bmi: 0.08, fhx: 0.5, group: {indian: 0.4, pakistani: 0.4, bangladeshi: 0.4, emirati: 0.3}}
+  hypertension:   {intercept: -1.6, age: 0.065, bmi: 0.08, fhx: 0.6, group: {}}
+  dyslipidaemia:  {intercept: -1.0, age: 0.040, bmi: 0.06, fhx: 0.4, group: {indian: 0.3, emirati: 0.2}}
+  cervical_cin2plus: {rate: 0.006}      # women 21-65; ASSUMPTION
+  colorectal_advanced_neoplasia: {intercept: -4.4, age: 0.06, bmi: 0.03, fhx: 0.7, group: {}}   # ages 45+
+  developmental_delay: {rate: 0.06}     # children < 6; ASSUMPTION
+diagnosed_before_history:               # share of latent cases already diagnosed before the history period; ASSUMPTION
+  t2d: 0.45
+  hypertension: 0.40
+  dyslipidaemia: 0.30
+  prediabetes: 0.10
+family_history_prob:                    # P(family history recorded | relevant condition in family); ASSUMPTION
+  t2d: 0.30
+  premature_cvd: 0.10
+  colorectal: 0.04
+  breast: 0.05
+
+fh:
+  founder_prevalence: 0.004             # ~1 in 250; ASSUMPTION – literature estimate, to be cited
+  consanguinity_founder_multiplier: 2.0 # ASSUMPTION – modelling assumption only
+  inheritance_prob: 0.5                 # first-degree relative of a carrier carries with p=0.5 (autosomal dominant)
+  diagnosed_share: 0.15                 # carriers with an FH diagnosis on record; ASSUMPTION
+consanguinity_share_emirati: 0.35       # ASSUMPTION – modelling assumption, documented as such
+hbb_carrier_prob: 0.06                  # ASSUMPTION
+hbb_carrier_prob_if_consanguineous_spouse_carrier: 0.25   # ASSUMPTION
+brca_prob: 0.003                        # ASSUMPTION
+
+genome_programme:                       # who has a simulated genome-programme result; ASSUMPTION
+  participation: {emirati: 0.30, default: 0.01}
+  # Findings are reported for FH carriers, HBB carriers and BRCA among participants.
+
+siblings:
+  adult_sibling_target: 0.30            # ~30% of adults have a sibling in the cohort (per brief)
+  same_district_prob: 0.60
+
+consent:                                # P(granted), P(denied); remainder = not_asked; ASSUMPTION
+  clinical_data: [0.97, 0.02]
+  family_links: [0.80, 0.08]
+  genomic: [0.70, 0.12]                 # among people with findings
+  contact_sms: [0.92, 0.04]
+  contact_whatsapp: [0.90, 0.05]        # smartphone only
+  contact_call: [0.85, 0.06]
+  chw_visit: [0.70, 0.08]
+
+behaviour:                              # history-period behaviour; ASSUMPTION
+  wcv_attend_prob: {base: 0.72, emirati: 0.82, labour: 0.5}
+  walk_in_screen_rate_per_year: {has_clinic: 0.35, no_clinic: 0.08}
+  acute_visit_rate_per_year: 1.2
+  opportunistic_bp_at_acute: 0.6
+  measurement_noise: {hba1c: 0.15, sbp: 7.0, dbp: 5.0, ldl: 12.0, bmi: 0.6}
+  test_sensitivity: {hba1c_t2d: 0.92, hba1c_pre: 0.80, bp: 0.85, lipid: 0.90, cervical: 0.80, fit: 0.70, dev: 0.75, autism: 0.70}
+  test_specificity: {cervical: 0.95, fit: 0.93, dev: 0.90, autism: 0.92}

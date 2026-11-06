@@ -1,0 +1,25 @@
+id: IMMUNISATION_CATCHUP
+version: 1.0.0
+title: Childhood immunisation catch-up
+pathway: immunisation
+kind: immunisation
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "PLACEHOLDER schedule modelled on CDC – Child and Adolescent Immunization Schedule by Age; replace with the Abu Dhabi immunisation schedule (DOH/ADPHC Circular 2026/77, Appendix 1)"
+  year: 2025
+  url: "https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-age.html"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  verification_url: "https://www.doh.gov.ae/-/media/950546F00B64465CA91D7729996B3487.ashx"
+  key_facts: ["An Abu Dhabi schedule updated April 2026 exists (DOH/ADPHC Circular 2026/77); not yet encoded"]
+message_pathway: immunisation
+slot_type: child
+applies_to:
+  age_years: {min: 0, max: 18}
+schedule_ref: immunisation
+data_required: [birth_date, immunizations]
+output_codes: {gap_code: "local:gap-immunisation"}
+assumptions:
+  - "The dose table in config/schedules.yaml is a placeholder, not the UAE national schedule."

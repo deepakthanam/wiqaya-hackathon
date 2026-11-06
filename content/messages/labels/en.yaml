@@ -1,0 +1,35 @@
+# Slot-value labels rendered inside messages. Keys are fixed; values are translated per language.
+language: en
+review_status: source
+visit_labels:
+  newborn: newborn check-up
+  m1: 1-month check-up
+  m2: 2-month check-up
+  m4: 4-month check-up
+  m6: 6-month check-up
+  m9: 9-month check-up
+  m12: 12-month check-up
+  m15: 15-month check-up
+  m18: 18-month check-up
+  m24: 2-year check-up
+  m30: 30-month check-up
+  yearly: "{years}-year check-up"
+pathway_labels:
+  wcv: routine child check-up
+  developmental: play and growth check
+  immunisation: routine vaccines
+  child_growth_followup: growth follow-up visit
+  adult_t2d: blood sugar check
+  adult_bp: blood pressure check
+  adult_lipid: heart-health blood test
+  cervical: cervical screening
+  colorectal: bowel screening
+  breast: breast screening
+  followup_retest: repeat check
+  cascade_family: family heart-health check
+  household_bundle: family check-up day
+  mobile_van: health van visit
+words:
+  and: and
+  or: or
+  free_health_van: free health van

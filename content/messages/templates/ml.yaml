@@ -1,0 +1,1200 @@
+# Malayalam templates. Machine draft of templates/en.yaml; needs native review before use.
+# Simple everyday Malayalam for Keralite workers in the Gulf. Never name a condition.
+language: ml
+review_status: machine_draft
+templates:
+
+# ---------------------------------------------------------------- Well-Child Visit
+- id: WCV_PARENT_WHATSAPP
+  pathway: wcv
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. {child_first_name}-ന്റെ പതിവ്
+    ചെക്കപ്പിന് ({visit_label}) സമയമായി. കുട്ടിയുടെ വളർച്ച നോക്കാൻ ഈ സന്ദർശനങ്ങൾ സഹായിക്കും.
+    നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2,
+    ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for {child_first_name}'s routine
+    check-up ({visit_label}). These visits help to see the child's growth. Times kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: WCV_PARENT_SMS
+  pathway: wcv
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name}-ന് പതിവ് ചെക്കപ്പ്. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: routine check-up for {child_first_name}. Time: {slot_short}. 1=book 2=other time
+    3=STOP
+- id: WCV_PARENT_CALL
+  pathway: wcv
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? എന്റെ പേര് {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ് വിളിക്കുന്നത്. {child_first_name}-ന്റെ പതിവ് ചെക്കപ്പിന്, അതായത് {visit_label}-ന്,
+    സമയമായതുകൊണ്ടാണ് വിളിക്കുന്നത്. ഈ സന്ദർശനങ്ങളിൽ കുട്ടിയുടെ വളർച്ച നോക്കുകയും എടുക്കേണ്ട
+    കുത്തിവെപ്പുകൾ നൽകുകയും ചെയ്യും. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ്
+    സൗകര്യം? വേറെ ദിവസമാണ് നല്ലതെങ്കിൽ ഞാൻ കണ്ടെത്തിത്തരാം. ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? My name is {caller_name}, calling from {clinic_name}. I
+    am calling because it is time for {child_first_name}'s routine check-up, the {visit_label}. In
+    these visits we check the child's growth and give vaccines that are due. We have these times:
+    {slot_options}. Which suits you? If another day is better I can find one. If you do not want
+    these reminders, just tell me and we will stop these calls.
+- id: WCV_PARENT_CHW
+  pathway: wcv
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നുള്ള കമ്മ്യൂണിറ്റി ഹെൽത്ത്
+    വർക്കർ ആണെന്ന് പരിചയപ്പെടുത്തുക. {child_first_name}-ന്റെ പതിവ് ചെക്കപ്പിന് ({visit_label})
+    സമയമായെന്നും, ഈ സന്ദർശനങ്ങളിൽ വളർച്ച നോക്കുകയും എടുക്കേണ്ട കുത്തിവെപ്പുകൾ നൽകുകയും
+    ചെയ്യുമെന്നും പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. യാത്രയെക്കുറിച്ചുള്ള ചോദ്യങ്ങളിൽ
+    സഹായിക്കുക. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക,
+    വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself as a community health worker from
+    {clinic_name}. Say it is time for {child_first_name}'s routine check-up ({visit_label}) and that
+    these visits check growth and give due vaccines. Offer these times: {slot_options}. Help with
+    travel questions. If they do not wish to take part, thank them, record "declined", do not ask
+    again.
+
+# ---------------------------------------------------------------- Developmental check
+- id: DEV_PARENT_WHATSAPP
+  pathway: developmental
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. {child_first_name}-ന്റെ പ്രായത്തിലുള്ള
+    എല്ലാ കുട്ടികൾക്കും കളി, സംസാരം, ചലനം എന്നിവ നോക്കുന്ന ഒരു ചെറിയ പരിശോധന ഞങ്ങൾ നൽകുന്നു.
+    കുട്ടിയുടെ വളർച്ചയെക്കുറിച്ച് എന്തും ചോദിക്കാം. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ:
+    {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന്
+    മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. We offer all children of
+    {child_first_name}'s age a short check of play, talking and movement. You can ask anything about
+    your child's growth. Times kept for you: {slot_options}. Reply 1 to book, 2 for another time, 3
+    if you do not want these reminders.
+- id: DEV_PARENT_SMS
+  pathway: developmental
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name}-ന് കളി-വളർച്ച പരിശോധന. സമയം: {slot_short}. 1=ബുക്ക്
+    2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: play-and-growth check for {child_first_name}. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: DEV_PARENT_CALL
+  pathway: developmental
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. {child_first_name}-ന്റെ പ്രായത്തിലുള്ള എല്ലാ കുട്ടികൾക്കും കളി, സംസാരം, ചലനം എന്നിവ
+    നോക്കുന്ന ഒരു ചെറിയ പരിശോധന ഞങ്ങൾ നൽകുന്നു. ഏകദേശം 20 മിനിറ്റ് എടുക്കും, ഡോക്ടറോട് എന്തും
+    ചോദിക്കാം. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ് സൗകര്യം? ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. We offer all
+    children of {child_first_name}'s age a short check of play, talking and movement. It takes about
+    20 minutes and you can ask the doctor anything. We have these times: {slot_options}. Which
+    suits you? If you do not want these reminders, just tell me and we will stop these calls.
+- id: DEV_PARENT_CHW
+  pathway: developmental
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    {child_first_name}-ന്റെ പ്രായത്തിലുള്ള എല്ലാ കുട്ടികൾക്കും കളി, സംസാരം, ചലനം എന്നിവ നോക്കുന്ന
+    ഒരു ചെറിയ പതിവ് പരിശോധന ഉണ്ടെന്നും, മാതാപിതാക്കൾക്ക് എന്തും ചോദിക്കാമെന്നും പറയുക. ഈ
+    സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined"
+    എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say that all children of
+    {child_first_name}'s age have a short routine check of play, talking and movement, and parents
+    can ask anything. Offer these times: {slot_options}. If they do not wish to take part, thank
+    them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Immunisation catch-up
+- id: IMM_PARENT_WHATSAPP
+  pathway: immunisation
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. ഞങ്ങളുടെ രേഖ പ്രകാരം
+    {child_first_name}-ന് ഒരു പതിവ് കുത്തിവെപ്പ് എടുക്കാൻ സമയമായി. കുത്തിവെപ്പുകൾ കുട്ടികളെ
+    സംരക്ഷിക്കുന്നു. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ഞങ്ങളുടെ രേഖ ശരിയല്ലെന്ന്
+    തോന്നുന്നെങ്കിൽ ദയവായി അറിയിക്കുക. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Our record says {child_first_name} is due a
+    routine vaccine. Vaccines protect children. Times kept for you: {slot_options}. If you think our
+    record is not right, please tell us. Reply 1 to book, 2 for another time, 3 if you do not want
+    these reminders.
+- id: IMM_PARENT_SMS
+  pathway: immunisation
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name}-ന് പതിവ് കുത്തിവെപ്പ്. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: routine vaccine for {child_first_name}. Time: {slot_short}. 1=book 2=other time
+    3=STOP
+- id: IMM_PARENT_CALL
+  pathway: immunisation
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഞങ്ങളുടെ രേഖ പ്രകാരം {child_first_name}-ന് ഒരു പതിവ് കുത്തിവെപ്പ് എടുക്കാൻ സമയമായി.
+    കുത്തിവെപ്പ് വേറെ എവിടെയെങ്കിലും എടുത്തിട്ടുണ്ടെങ്കിൽ, രേഖ പുതുക്കാൻ ദയവായി അറിയിക്കുക.
+    ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ് സൗകര്യം? ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. Our record says
+    {child_first_name} is due a routine vaccine. If it was given somewhere else, please tell us so
+    we can update the record. We have these times: {slot_options}. Which suits you? If you do not
+    want these reminders, just tell me and we will stop these calls.
+- id: IMM_PARENT_CHW
+  pathway: immunisation
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    {child_first_name}-ന് ഒരു പതിവ് കുത്തിവെപ്പ് എടുക്കാൻ സമയമായെന്ന് പറയുക. വാക്സിൻ കാർഡ്
+    ഉണ്ടെങ്കിൽ കാണിക്കാൻ ചോദിക്കുക, വേറെ എവിടെയെങ്കിലും എടുത്ത കുത്തിവെപ്പുകൾ രേഖപ്പെടുത്തുക. ഈ
+    സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined"
+    എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say {child_first_name} is
+    due a routine vaccine. Ask to see the vaccine card if they have one, and note vaccines given
+    elsewhere. Offer these times: {slot_options}. If they do not wish to take part, thank them,
+    record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Child growth follow-up
+- id: GROWTH_PARENT_WHATSAPP
+  pathway: child_growth_followup
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. ഒരു പതിവ് വളർച്ച ഫോളോ-അപ്പ്
+    സന്ദർശനത്തിനായി {child_first_name}-നെ കാണാൻ ഞങ്ങൾ ആഗ്രഹിക്കുന്നു. കുടുംബത്തിന് മുഴുവനുമുള്ള
+    നല്ല ഭക്ഷണം, ഉറക്കം, കളി എന്നിവയെക്കുറിച്ച് സംസാരിക്കും. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ:
+    {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന്
+    മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. We would like to see {child_first_name} for
+    a routine growth follow-up visit. We will talk about healthy food, sleep and play for the whole
+    family. Times kept for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not
+    want these reminders.
+- id: GROWTH_PARENT_SMS
+  pathway: child_growth_followup
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name}-ന് വളർച്ച ഫോളോ-അപ്പ്. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: growth follow-up for {child_first_name}. Time: {slot_short}. 1=book 2=other time
+    3=STOP
+- id: GROWTH_PARENT_CALL
+  pathway: child_growth_followup
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഒരു പതിവ് വളർച്ച ഫോളോ-അപ്പ് സന്ദർശനത്തിന് {child_first_name}-നെ ക്ഷണിക്കാനാണ്
+    വിളിക്കുന്നത്. കുടുംബത്തിന് മുഴുവനുമുള്ള നല്ല ഭക്ഷണം, ഉറക്കം, കളി എന്നിവയെക്കുറിച്ച് ഡോക്ടർ
+    നിങ്ങളോട് സംസാരിക്കും. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. I am calling to
+    invite {child_first_name} for a routine growth follow-up visit. The doctor will talk with you
+    about healthy food, sleep and play for the whole family. We have these times: {slot_options}.
+    If you do not want these reminders, just tell me and we will stop these calls.
+- id: GROWTH_PARENT_CHW
+  pathway: child_growth_followup
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    ഒരു പതിവ് വളർച്ച ഫോളോ-അപ്പ് സന്ദർശനത്തിന് {child_first_name}-നെ ക്ഷണിക്കുക. സംസാരം
+    പോസിറ്റീവായും കുടുംബത്തിന്റെ മൊത്തം ശീലങ്ങളെക്കുറിച്ചും ആക്കുക; കുട്ടിയുടെ ശരീരത്തെക്കുറിച്ച്
+    അഭിപ്രായം പറയരുത്. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി
+    പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Invite
+    {child_first_name} for a routine growth follow-up visit. Keep the talk positive and about the
+    whole family's habits; do not comment on the child's body. Offer these times: {slot_options}.
+    If they do not wish to take part, thank them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood sugar check
+- id: T2D_ADULT_WHATSAPP
+  pathway: adult_t2d
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് ബ്ലഡ് ഷുഗർ
+    പരിശോധനയ്ക്ക് സമയമായി. ഇത് ഒരു ലളിതമായ രക്തപരിശോധനയാണ്, ആരോഗ്യത്തോടെ ഇരിക്കാനുള്ള ഒരു
+    ഭാഗം. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2,
+    ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine blood sugar
+    check. It is a simple blood test, part of staying healthy. Times kept for you: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: T2D_ADULT_SMS
+  pathway: adult_t2d
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, ഷുഗർ പരിശോധന. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, (blood) sugar check. Time: {slot_short}. 1=book 2=other
+    time 3=STOP
+- id: T2D_ADULT_CALL
+  pathway: adult_t2d
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ പതിവ് ബ്ലഡ് ഷുഗർ പരിശോധനയ്ക്ക് സമയമായി. കുറച്ച് മിനിറ്റ് മാത്രം എടുക്കുന്ന
+    ഒരു ലളിതമായ രക്തപരിശോധനയാണ് ഇത്. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ്
+    സൗകര്യം? ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. It is time for
+    your routine blood sugar check. It is a simple blood test that takes only a few minutes. We
+    have these times: {slot_options}. Which suits you? If you do not want these reminders, just
+    tell me and we will stop these calls.
+- id: T2D_ADULT_CHW
+  pathway: adult_t2d
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    മുതിർന്നവർക്ക് ഒരു പതിവ് ബ്ലഡ് ഷുഗർ പരിശോധന ഉണ്ടെന്നും, അത് ലളിതമായ രക്തപരിശോധനയാണെന്നും
+    പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. ജോലിയിൽ നിന്നുള്ള അവധി, യാത്ര എന്നിവയെക്കുറിച്ചുള്ള
+    ചോദ്യങ്ങളിൽ സഹായിക്കുക. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say adults have a
+    routine blood sugar check, which is a simple blood test. Offer these times: {slot_options}.
+    Help with questions about leave from work or travel. If they do not wish to take part, thank
+    them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood pressure check
+- id: BP_ADULT_WHATSAPP
+  pathway: adult_bp
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് ബിപി (രക്തസമ്മർദ്ദം)
+    പരിശോധനയ്ക്ക് സമയമായി. ഇത് വേഗം കഴിയും, വേദനയില്ല. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ:
+    {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന്
+    മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine BP (blood
+    pressure) check. It is quick and does not hurt. Times kept for you: {slot_options}. Reply 1 to
+    book, 2 for another time, 3 if you do not want these reminders.
+- id: BP_ADULT_SMS
+  pathway: adult_bp
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, ബിപി പരിശോധന. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, BP check. Time: {slot_short}. 1=book 2=other time 3=STOP
+- id: BP_ADULT_CALL
+  pathway: adult_bp
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ പതിവ് ബിപി (രക്തസമ്മർദ്ദം) പരിശോധനയ്ക്ക് സമയമായി. കുറച്ച് മിനിറ്റ് മാത്രം
+    എടുക്കും, വേദനയില്ല. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ് സൗകര്യം? ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. It is time for
+    your routine BP (blood pressure) check. It takes only a few minutes and does not hurt. We have
+    these times: {slot_options}. Which suits you? If you do not want these reminders, just tell me
+    and we will stop these calls.
+- id: BP_ADULT_CHW
+  pathway: adult_bp
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    മുതിർന്നവർക്ക് ഒരു പതിവ് ബിപി പരിശോധന ഉണ്ടെന്നും, അത് വേഗം കഴിയുമെന്നും വേദനയില്ലെന്നും
+    പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക,
+    "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say adults have a
+    routine BP check that is quick and painless. Offer these times: {slot_options}. If they do not
+    wish to take part, thank them, record "declined", do not ask again.
+- id: BP_CAREGIVER_WHATSAPP
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. {member_names}-ന്റെ പതിവ് ബിപി
+    പരിശോധനയ്ക്ക് സമയമായി. സഹായകരമെങ്കിൽ നിങ്ങൾക്കും കൂടെ വരാം. മാറ്റിവെച്ച സമയങ്ങൾ:
+    {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന്
+    മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for {member_names}'s routine BP
+    check. If it helps, you can come along too. Times kept: {slot_options}. Reply 1 to book, 2 for
+    another time, 3 if you do not want these reminders.
+- id: BP_CAREGIVER_SMS
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {member_names}-ന് ബിപി പരിശോധന. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ സമയം
+    3=STOP
+  english_gloss: >-
+    {clinic_short}: BP check for {member_names}. Time: {slot_short}. 1=book 2=other time 3=STOP
+- id: BP_CAREGIVER_CALL
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. {member_names}-ന്റെ പതിവ് ബിപി പരിശോധനയ്ക്ക് സമയമായതുകൊണ്ടാണ് വിളിക്കുന്നത്.
+    നിങ്ങൾക്കും കൂടെ വരാം. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഇതിൽ ഏതെങ്കിലും നിങ്ങൾ
+    രണ്ടുപേർക്കും സൗകര്യമാണോ? ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ
+    കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. I am calling
+    because it is time for {member_names}'s routine BP check. You can come along too. We have these
+    times: {slot_options}. Does one of these suit you both? If you do not want these reminders, just
+    tell me and we will stop these calls.
+- id: BP_CAREGIVER_CHW
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    {member_names}-ന്റെ പതിവ് ബിപി പരിശോധനയ്ക്ക് സമയമായെന്ന് പറയുക, യാത്രയ്ക്കോ കൂടെ വരാൻ
+    ആരെങ്കിലുമോ സഹായം വേണോ എന്ന് ചോദിക്കുക. പ്രായമായ ആളോടും നേരിട്ട് സംസാരിക്കുക. ഈ സമയങ്ങൾ
+    നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say it is time for
+    {member_names}'s routine BP check, and ask if they need help with travel or someone to come
+    along. Speak directly to the older person too. Offer these times: {slot_options}. If they do
+    not wish to take part, thank them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: lipid check
+- id: LIPID_ADULT_WHATSAPP
+  pathway: adult_lipid
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് ഹൃദയാരോഗ്യ
+    രക്തപരിശോധനയ്ക്ക് (കൊളസ്ട്രോൾ ചെക്ക്) സമയമായി. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ:
+    {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന്
+    മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine heart-health
+    blood test (cholesterol check). Times kept for you: {slot_options}. Reply 1 to book, 2 for
+    another time, 3 if you do not want these reminders.
+- id: LIPID_ADULT_SMS
+  pathway: adult_lipid
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, ഹൃദയാരോഗ്യ രക്തപരിശോധന. സമയം: {slot_short}. 1=ബുക്ക്
+    2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, heart-health blood test. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: LIPID_ADULT_CALL
+  pathway: adult_lipid
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ പതിവ് ഹൃദയാരോഗ്യ രക്തപരിശോധനയ്ക്ക്, അതായത് കൊളസ്ട്രോൾ ചെക്കിന്, സമയമായി.
+    ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ് സൗകര്യം? ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. It is time for
+    your routine heart-health blood test, that is, a cholesterol check. We have these times:
+    {slot_options}. Which suits you? If you do not want these reminders, just tell me and we will
+    stop these calls.
+- id: LIPID_ADULT_CHW
+  pathway: adult_lipid
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    മുതിർന്നവർക്ക് ഒരു പതിവ് ഹൃദയാരോഗ്യ രക്തപരിശോധന (കൊളസ്ട്രോൾ ചെക്ക്) ഉണ്ടെന്ന് പറയുക. ഈ
+    സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined"
+    എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say adults have a
+    routine heart-health blood test (cholesterol check). Offer these times: {slot_options}. If they
+    do not wish to take part, thank them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: cervical screening
+- id: CERVICAL_ADULT_WHATSAPP
+  pathway: cervical
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് ഗർഭാശയമുഖ
+    സ്ക്രീനിംഗിന് (സ്മിയർ ടെസ്റ്റ്) സമയമായി. ഒരു വനിതാ നഴ്സോ ഡോക്ടറോ ആണ് ചെയ്യുക, കുറച്ച്
+    മിനിറ്റ് മാത്രം എടുക്കും. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1,
+    വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine cervical
+    screening (smear test). A female nurse or doctor does it and it takes only a few minutes. Times
+    kept for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not want these
+    reminders.
+- id: CERVICAL_ADULT_SMS
+  pathway: cervical
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, സ്മിയർ ടെസ്റ്റ്, വനിതാ നഴ്സ്. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, smear test, female nurse. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: CERVICAL_ADULT_CALL
+  pathway: cervical
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഇതൊരു സ്വകാര്യ കോൾ ആണ്. നിങ്ങളുടെ പതിവ് ഗർഭാശയമുഖ സ്ക്രീനിംഗിന്, അതായത് സ്മിയർ
+    ടെസ്റ്റിന്, സമയമായി. ഒരു വനിതാ നഴ്സോ ഡോക്ടറോ ആണ് ചെയ്യുക, കുറച്ച് മിനിറ്റ് മാത്രം എടുക്കും.
+    ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട്
+    പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a private
+    call. It is time for your routine cervical screening, that is, a smear test. A female nurse or
+    doctor does it and it takes only a few minutes. We have these times: {slot_options}. If you do
+    not want these reminders, just tell me and we will stop these calls.
+- id: CERVICAL_ADULT_CHW
+  pathway: cervical
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നോട് സ്വകാര്യമായി സംസാരിക്കുക, കഴിയുമെങ്കിൽ ഒരു വനിതാ ഹെൽത്ത് വർക്കർ.
+    {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക. അവരുടെ പ്രായത്തിലുള്ള സ്ത്രീകൾക്ക് പതിവ്
+    ഗർഭാശയമുഖ സ്ക്രീനിംഗ് (സ്മിയർ ടെസ്റ്റ്) ഉണ്ടെന്നും, അത് വനിതാ നഴ്സോ ഡോക്ടറോ ആണ്
+    ചെയ്യുന്നതെന്നും പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ
+    നന്ദി പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Say women of her age have routine cervical screening (smear test)
+    done by a female nurse or doctor. Offer these times: {slot_options}. If she does not wish to
+    take part, thank her, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: bowel screening
+- id: COLORECTAL_ADULT_WHATSAPP
+  pathway: colorectal
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് കുടൽ സ്ക്രീനിംഗിന്
+    സമയമായി. ഒരു ലളിതമായ ഹോം ടെസ്റ്റ് കിറ്റ് വാങ്ങി വീട്ടിൽ സ്വകാര്യമായി ചെയ്യാം. കിറ്റ് വാങ്ങാനോ
+    നഴ്സിനോട് സംസാരിക്കാനോ ഉള്ള സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine bowel
+    screening. You can collect a simple home test kit and do it privately at home. Times to collect
+    the kit or talk to a nurse: {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not
+    want these reminders.
+- id: COLORECTAL_ADULT_SMS
+  pathway: colorectal
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, കുടൽ സ്ക്രീനിംഗ് ഹോം കിറ്റ്. വാങ്ങാൻ: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, bowel screening home kit. Collect: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: COLORECTAL_ADULT_CALL
+  pathway: colorectal
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ പതിവ് കുടൽ സ്ക്രീനിംഗിന് സമയമായി. വീട്ടിൽ സ്വകാര്യമായി ഉപയോഗിക്കാവുന്ന
+    ഒരു ലളിതമായ ടെസ്റ്റ് കിറ്റ് ആണ് ഇത്. ഈ സമയങ്ങളിൽ വാങ്ങാം: {slot_options}. ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. It is time for
+    your routine bowel screening. It is a simple test kit you can use privately at home. You can
+    collect it at these times: {slot_options}. If you do not want these reminders, just tell me and
+    we will stop these calls.
+- id: COLORECTAL_ADULT_CHW
+  pathway: colorectal
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    പതിവ് കുടൽ സ്ക്രീനിംഗ് ഒരു ലളിതമായ ഹോം ടെസ്റ്റ് കിറ്റ് ആണെന്ന് പറയുക. ചോദ്യങ്ങളുണ്ടെങ്കിൽ കിറ്റ്
+    എങ്ങനെ ഉപയോഗിക്കാമെന്ന് കാണിക്കുക. കിറ്റ് വാങ്ങാനുള്ള ഈ സമയങ്ങൾ നൽകുക: {slot_options}.
+    പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും
+    ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say routine bowel
+    screening is a simple home test kit. If they have questions, show how the kit is used. Offer
+    these collection times: {slot_options}. If they do not wish to take part, thank them, record
+    "declined", do not ask again.
+- id: COLORECTAL_CAREGIVER_WHATSAPP
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. {member_names}-ന്റെ പതിവ് കുടൽ
+    സ്ക്രീനിംഗിന് സമയമായി, ഇത് ഒരു ലളിതമായ ഹോം ടെസ്റ്റ് കിറ്റ് ആണ്. അവർക്കായി ഈ സമയങ്ങളിൽ
+    നിങ്ങൾക്ക് വാങ്ങാം: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for {member_names}'s routine
+    bowel screening, a simple home test kit. You can collect it for them at these times:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: COLORECTAL_CAREGIVER_SMS
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {member_names}-ന് കുടൽ സ്ക്രീനിംഗ് കിറ്റ്. വാങ്ങാൻ: {slot_short}. 1=ബുക്ക്
+    2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: bowel screening kit for {member_names}. Collect: {slot_short}. 1=book 2=other
+    time 3=STOP
+- id: COLORECTAL_CAREGIVER_CALL
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. {member_names}-ന്റെ പതിവ് കുടൽ സ്ക്രീനിംഗിന് സമയമായതുകൊണ്ടാണ് വിളിക്കുന്നത്. ഇത് ഒരു
+    ലളിതമായ ഹോം ടെസ്റ്റ് കിറ്റ് ആണ്, അവർക്കായി ഈ സമയങ്ങളിൽ നിങ്ങൾക്ക് വാങ്ങാം: {slot_options}. ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. I am calling
+    because it is time for {member_names}'s routine bowel screening. It is a simple home test kit,
+    and you can collect it for them at these times: {slot_options}. If you do not want these
+    reminders, just tell me and we will stop these calls.
+- id: COLORECTAL_CAREGIVER_CHW
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    {member_names}-ന്റെ പതിവ് കുടൽ സ്ക്രീനിംഗിന് (ഹോം ടെസ്റ്റ് കിറ്റ്) സമയമായെന്ന് പറയുക, രണ്ടുപേർക്കും
+    കിറ്റ് വിശദീകരിച്ചുകൊടുക്കാമെന്ന് പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ
+    താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say it is time for
+    {member_names}'s routine bowel screening (home test kit), and offer to explain the kit to both.
+    Offer these times: {slot_options}. If they do not wish to take part, thank them, record
+    "declined", do not ask again.
+
+# ---------------------------------------------------------------- Adult: breast screening
+- id: BREAST_ADULT_WHATSAPP
+  pathway: breast
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ പതിവ് സ്തന സ്ക്രീനിംഗിന്
+    (മാമോഗ്രാം) സമയമായി. വനിതാ ജീവനക്കാരാണ് ചെയ്യുക, ഏകദേശം 15 മിനിറ്റ് എടുക്കും. നിങ്ങൾക്കായി
+    മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. It is time for your routine breast
+    screening (mammogram). Female staff do it and it takes about 15 minutes. Times kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: BREAST_ADULT_SMS
+  pathway: breast
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, സ്തന സ്ക്രീനിംഗ്, വനിതാ സ്റ്റാഫ്. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, breast screening, female staff. Time: {slot_short}.
+    1=book 2=other time 3=STOP
+- id: BREAST_ADULT_CALL
+  pathway: breast
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഇതൊരു സ്വകാര്യ കോൾ ആണ്. നിങ്ങളുടെ പതിവ് സ്തന സ്ക്രീനിംഗിന്, അതായത് മാമോഗ്രാമിന്,
+    സമയമായി. വനിതാ ജീവനക്കാരാണ് ചെയ്യുക, ഏകദേശം 15 മിനിറ്റ് എടുക്കും. ഞങ്ങളുടെ പക്കൽ ഈ
+    സമയങ്ങളുണ്ട്: {slot_options}. ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ
+    ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a private
+    call. It is time for your routine breast screening, that is, a mammogram. Female staff do it and
+    it takes about 15 minutes. We have these times: {slot_options}. If you do not want these
+    reminders, just tell me and we will stop these calls.
+- id: BREAST_ADULT_CHW
+  pathway: breast
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നോട് സ്വകാര്യമായി സംസാരിക്കുക, കഴിയുമെങ്കിൽ ഒരു വനിതാ ഹെൽത്ത് വർക്കർ.
+    {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക. അവരുടെ പ്രായത്തിലുള്ള സ്ത്രീകൾക്ക് പതിവ് സ്തന
+    സ്ക്രീനിംഗ് (മാമോഗ്രാം) ഉണ്ടെന്നും, അത് വനിതാ ജീവനക്കാരാണ് ചെയ്യുന്നതെന്നും പറയുക. ഈ സമയങ്ങൾ
+    നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Say women of her age have routine breast screening (mammogram) done
+    by female staff. Offer these times: {slot_options}. If she does not wish to take part, thank
+    her, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Follow-up retest
+- id: FOLLOWUP_ADULT_WHATSAPP
+  pathway: followup_retest
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധനയ്ക്കായി
+    നിങ്ങൾ വീണ്ടും വരണമെന്ന് ഡോക്ടർ ആഗ്രഹിക്കുന്നു. ഇത് ചികിത്സയുടെ ഒരു സാധാരണ ഭാഗമാണ്.
+    നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Your doctor would like you to come again for
+    a routine repeat check. This is a normal part of care. Times kept for you: {slot_options}. Reply
+    1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: FOLLOWUP_ADULT_SMS
+  pathway: followup_retest
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, ഡോക്ടർ പറഞ്ഞ പതിവ് റീചെക്ക്. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, routine re-check the doctor asked for. Time:
+    {slot_short}. 1=book 2=other time 3=STOP
+- id: FOLLOWUP_ADULT_CALL
+  pathway: followup_retest
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധനയ്ക്കായി നിങ്ങൾ വീണ്ടും വരണമെന്ന് ഡോക്ടർ
+    ആഗ്രഹിക്കുന്നു. ഇത് ചികിത്സയുടെ ഒരു സാധാരണ ഭാഗമാണ്, നിങ്ങളുടെ ചോദ്യങ്ങൾക്ക് ഡോക്ടർ മറുപടി
+    തരും. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട്
+    പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. Your doctor would
+    like you to come again for a routine repeat check. This is a normal part of care, and the doctor
+    will answer your questions. We have these times: {slot_options}. If you do not want these
+    reminders, just tell me and we will stop these calls.
+- id: FOLLOWUP_ADULT_CHW
+  pathway: followup_retest
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    ഡോക്ടർ ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധന ആവശ്യപ്പെട്ടിട്ടുണ്ടെന്നും, ഇത് ചികിത്സയുടെ സാധാരണ
+    ഭാഗമാണെന്നും പറയുക. ഫലങ്ങളെക്കുറിച്ച് സംസാരിക്കരുത്; അത് ഡോക്ടർ ചെയ്യും. ഈ സമയങ്ങൾ നൽകുക:
+    {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say the doctor has asked
+    for a routine repeat check, a normal part of care. Do not talk about results; the doctor will do
+    that. Offer these times: {slot_options}. If they do not wish to take part, thank them, record
+    "declined", do not ask again.
+- id: FOLLOWUP_CAREGIVER_WHATSAPP
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധനയ്ക്കായി
+    {member_names} വീണ്ടും വരണമെന്ന് ഡോക്ടർ ആഗ്രഹിക്കുന്നു. നിങ്ങൾക്കും കൂടെ വരാം. മാറ്റിവെച്ച
+    സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. The doctor would like {member_names} to come
+    again for a routine repeat check. You can come along too. Times kept: {slot_options}. Reply 1 to
+    book, 2 for another time, 3 if you do not want these reminders.
+- id: FOLLOWUP_CAREGIVER_SMS
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {member_names}-ന് ഡോക്ടർ പറഞ്ഞ റീചെക്ക്. സമയം: {slot_short}. 1=ബുക്ക് 2=വേറെ
+    സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: re-check the doctor asked for, for {member_names}. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: FOLLOWUP_CAREGIVER_CALL
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധനയ്ക്കായി {member_names} വീണ്ടും വരണമെന്ന് ഡോക്ടർ
+    ആഗ്രഹിക്കുന്നു. നിങ്ങൾക്കും കൂടെ വരാം. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഈ
+    ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. The doctor would
+    like {member_names} to come again for a routine repeat check. You can come along too. We have
+    these times: {slot_options}. If you do not want these reminders, just tell me and we will stop
+    these calls.
+- id: FOLLOWUP_CAREGIVER_CHW
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    ഒരു പതിവ് വീണ്ടുമുള്ള പരിശോധനയ്ക്കായി {member_names} വീണ്ടും വരണമെന്ന് ഡോക്ടർ
+    ആവശ്യപ്പെട്ടിട്ടുണ്ടെന്ന് പറയുക. യാത്രാസൗകര്യമോ കൂടെ വരാൻ ആരെങ്കിലുമോ വേണോ എന്ന് ചോദിക്കുക.
+    ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined"
+    എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say the doctor has asked
+    {member_names} to come again for a routine repeat check. Ask if they need transport or someone
+    to come along. Offer these times: {slot_options}. If they do not wish to take part, thank them,
+    record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Household bundle
+- id: BUNDLE_ADULT_WHATSAPP
+  pathway: household_bundle
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. കുടുംബത്തിലെ {n_members} പേരെ
+    ({member_names}) ഒരേ ദിവസം കാണാം, അതിനാൽ ഒരു യാത്ര മതി. നിങ്ങളുടെ കുടുംബത്തിനായി മാറ്റിവെച്ച
+    സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. {n_members} family members ({member_names})
+    can be seen on the same day, so one trip is enough. Times kept for your family: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: BUNDLE_ADULT_SMS
+  pathway: household_bundle
+  audience: adult
+  channel: sms
+  slots: [n_members, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: കുടുംബത്തിലെ {n_members} പേർക്ക് ഒരേ ദിവസം ചെക്കപ്പ്. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: check-up for {n_members} family members on one day. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: BUNDLE_ADULT_CALL
+  pathway: household_bundle
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ കുടുംബത്തിലെ {n_members} പേരെ, {member_names}, ഒരേ ദിവസം കാണാം, അതിനാൽ
+    ഒരു യാത്ര മതി. ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഏതാണ് കുടുംബത്തിന് സൗകര്യം?
+    ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. We can see
+    {n_members} of your family members, {member_names}, on the same day, so one trip is enough. We
+    have these times: {slot_options}. Which suits your family? If you do not want these reminders,
+    just tell me and we will stop these calls.
+- id: BUNDLE_ADULT_CHW
+  pathway: household_bundle
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    കുടുംബത്തിലെ {n_members} പേർക്ക് ({member_names}) പതിവ് പരിശോധനകൾക്ക് സമയമായെന്നും, എല്ലാവരെയും
+    ഒരേ ദിവസം കാണാമെന്നും പറയുക. ഈ സമയങ്ങൾ നൽകുക: {slot_options}. പങ്കെടുക്കാൻ
+    താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say {n_members} family
+    members ({member_names}) are due routine checks and can all be seen on one day. Offer these
+    times: {slot_options}. If they do not wish to take part, thank them, record "declined", do not
+    ask again.
+
+# ---------------------------------------------------------------- Mobile van
+- id: VAN_ADULT_WHATSAPP
+  pathway: mobile_van
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}. സൗജന്യ ഹെൽത്ത് വാൻ {van_date}-ന് {van_location}-ൽ ഉണ്ടാകും.
+    നിങ്ങൾ താമസിക്കുന്നതിന് അടുത്ത് തന്നെ നിങ്ങളുടെ {pathway_label} ചെയ്യാം. അപ്പോയിന്റ്മെന്റ്
+    വേണ്ട, പക്ഷേ സമയം റിസർവ് ചെയ്യാൻ 1, വേറെ ദിവസത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3
+    എന്ന് മറുപടി അയക്കാം.
+  english_gloss: >-
+    Hello {recipient_first_name}. The free health van will be at {van_location} on {van_date}. You
+    can have your {pathway_label} close to where you live. No appointment needed, but you can reply
+    1 to reserve a time, 2 for another day, 3 if you do not want these reminders.
+- id: VAN_ADULT_SMS
+  pathway: mobile_van
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, van_location, van_date]
+  decline_text: "3=STOP"
+  text: >-
+    {recipient_first_name}, സൗജന്യ ഹെൽത്ത് വാൻ: {van_location}, {van_date}. 1=റിസർവ് 2=വേറെ
+    ദിവസം 3=STOP
+  english_gloss: >-
+    {recipient_first_name}, free health van: {van_location}, {van_date}. 1=reserve 2=other day
+    3=STOP
+- id: VAN_ADULT_CALL
+  pathway: mobile_van
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, കമ്മ്യൂണിറ്റി ഹെൽത്ത്
+    ടീമിൽ നിന്നാണ്. ഞങ്ങളുടെ സൗജന്യ ഹെൽത്ത് വാൻ {van_date}-ന് {van_location}-ൽ ഉണ്ടാകും. ജോലിയിൽ
+    നിന്ന് അധികം സമയം കളയാതെ, നിങ്ങൾ താമസിക്കുന്നതിന് അടുത്ത് തന്നെ നിങ്ങളുടെ {pathway_label}
+    ചെയ്യാം. ഞാൻ നിങ്ങൾക്കായി ഒരു സമയം റിസർവ് ചെയ്യട്ടെ? ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട്
+    പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from the community health team. Our
+    free health van will be at {van_location} on {van_date}. You can have your {pathway_label} close
+    to where you live without losing much time from work. Shall I reserve a time for you? If you do
+    not want these reminders, just tell me and we will stop these calls.
+- id: VAN_ADULT_CHW
+  pathway: mobile_van
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, കമ്മ്യൂണിറ്റി ഹെൽത്ത് ടീമിൽ നിന്നാണെന്ന്
+    പരിചയപ്പെടുത്തുക. സൗജന്യ ഹെൽത്ത് വാൻ {van_date}-ന് {van_location}-ൽ പതിവ് പരിശോധനകൾക്കായി
+    ഉണ്ടാകുമെന്നും, അതിൽ അവരുടെ {pathway_label}-ഉം ഉൾപ്പെടുമെന്നും പറയുക. അവരുടെ ജോലി ഷിഫ്റ്റിന്
+    ഏത് സമയമാണ് സൗകര്യമെന്ന് ചോദിക്കുക. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക,
+    "declined" എന്ന് രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from the community health team. Say the free
+    health van will be at {van_location} on {van_date} for routine checks, including their
+    {pathway_label}. Ask what time suits their work shift. If they do not wish to take part, thank
+    them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Cascade (clinician-approved only)
+- id: CASCADE_ADULT_WHATSAPP
+  pathway: cascade_family
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. നിങ്ങളുടെ കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ
+    പരിശോധന ഡോക്ടർ നിർദ്ദേശിക്കുന്നു. ഇത് ഒരു ലളിതമായ രക്തപരിശോധനയാണ്. നിങ്ങൾക്കായി മാറ്റിവെച്ച
+    സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ
+    വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. The doctor recommends a heart-health check
+    for your family. It is a simple blood test. Times kept for you: {slot_options}. Reply 1 to book,
+    2 for another time, 3 if you do not want these reminders.
+- id: CASCADE_ADULT_SMS
+  pathway: cascade_family
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, കുടുംബ ഹൃദയാരോഗ്യ പരിശോധന. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, family heart-health check. Time: {slot_short}. 1=book
+    2=other time 3=STOP
+- id: CASCADE_ADULT_CALL
+  pathway: cascade_family
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. നിങ്ങളുടെ കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ പരിശോധന ഡോക്ടർ നിർദ്ദേശിക്കുന്നു. ഇത് ഒരു
+    ലളിതമായ രക്തപരിശോധനയാണ്. മറ്റാരുടെയും ആരോഗ്യ വിവരങ്ങൾ എനിക്ക് പങ്കുവെക്കാൻ കഴിയില്ല, പക്ഷേ
+    നിങ്ങളുടെ സ്വന്തം ചോദ്യങ്ങൾക്ക് സന്ദർശന സമയത്ത് ഡോക്ടർ മറുപടി തരും. ഞങ്ങളുടെ പക്കൽ ഈ
+    സമയങ്ങളുണ്ട്: {slot_options}. ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ
+    ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. The doctor
+    recommends a heart-health check for your family. It is a simple blood test. I cannot share
+    anyone else's health information, but the doctor will answer your own questions at the visit.
+    We have these times: {slot_options}. If you do not want these reminders, just tell me and we
+    will stop these calls.
+- id: CASCADE_ADULT_CHW
+  pathway: cascade_family
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ പരിശോധന (ലളിതമായ രക്തപരിശോധന) ഡോക്ടർ നിർദ്ദേശിക്കുന്നു എന്ന്
+    മാത്രം പറയുക. മറ്റൊരാളുടെയും ആരോഗ്യത്തെക്കുറിച്ച് ഒരിക്കലും സംസാരിക്കരുത്. ഈ സമയങ്ങൾ നൽകുക:
+    {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that the doctor
+    recommends a heart-health check (a simple blood test) for the family. Never talk about any other
+    person's health. Offer these times: {slot_options}. If they do not wish to take part, thank
+    them, record "declined", do not ask again.
+- id: CASCADE_PARENT_WHATSAPP
+  pathway: cascade_family
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3"
+  text: >-
+    നമസ്കാരം {recipient_first_name}, ഇത് {clinic_name} ആണ്. {child_first_name} ഉൾപ്പെടെ നിങ്ങളുടെ
+    കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ പരിശോധന ഡോക്ടർ നിർദ്ദേശിക്കുന്നു. ഇത് ഒരു ലളിതമായ
+    രക്തപരിശോധനയാണ്. നിങ്ങൾക്കായി മാറ്റിവെച്ച സമയങ്ങൾ: {slot_options}. ബുക്ക് ചെയ്യാൻ 1, വേറെ
+    സമയത്തിന് 2, ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ 3 എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Hello {recipient_first_name}, this is {clinic_name}. The doctor recommends a heart-health check
+    for your family, including {child_first_name}. It is a simple blood test. Times kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you do not want these reminders.
+- id: CASCADE_PARENT_SMS
+  pathway: cascade_family
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name} ഉൾപ്പെടെ കുടുംബ ഹൃദയാരോഗ്യ പരിശോധന. സമയം: {slot_short}.
+    1=ബുക്ക് 2=വേറെ സമയം 3=STOP
+  english_gloss: >-
+    {clinic_short}: family heart-health check, including {child_first_name}. Time: {slot_short}.
+    1=book 2=other time 3=STOP
+- id: CASCADE_PARENT_CALL
+  pathway: cascade_family
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "എന്നോട് പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം"
+  text: >-
+    നമസ്കാരം, {recipient_first_name} ആണോ സംസാരിക്കുന്നത്? ഞാൻ {caller_name}, {clinic_name}-ൽ
+    നിന്നാണ്. {child_first_name} ഉൾപ്പെടെ നിങ്ങളുടെ കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ പരിശോധന ഡോക്ടർ
+    നിർദ്ദേശിക്കുന്നു. ഇത് ഒരു ലളിതമായ രക്തപരിശോധനയാണ്, സന്ദർശന സമയത്ത് ഡോക്ടർ വിശദീകരിക്കും.
+    ഞങ്ങളുടെ പക്കൽ ഈ സമയങ്ങളുണ്ട്: {slot_options}. ഈ ഓർമ്മപ്പെടുത്തലുകൾ വേണ്ടെങ്കിൽ എന്നോട്
+    പറഞ്ഞാൽ മതി, ഞങ്ങൾ ഈ കോളുകൾ നിർത്താം.
+  english_gloss: >-
+    Hello, is this {recipient_first_name}? I am {caller_name} from {clinic_name}. The doctor
+    recommends a heart-health check for your family, including {child_first_name}. It is a simple
+    blood test, and the doctor will explain it at the visit. We have these times: {slot_options}.
+    If you do not want these reminders, just tell me and we will stop these calls.
+- id: CASCADE_PARENT_CHW
+  pathway: cascade_family
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "വീണ്ടും ചോദിക്കരുത്"
+  text: >-
+    {recipient_first_name}-നെ അഭിവാദ്യം ചെയ്യുക, {clinic_name}-ൽ നിന്നാണെന്ന് പരിചയപ്പെടുത്തുക.
+    {child_first_name} ഉൾപ്പെടെ കുടുംബത്തിന് ഒരു ഹൃദയാരോഗ്യ പരിശോധന ഡോക്ടർ നിർദ്ദേശിക്കുന്നു
+    എന്ന് മാത്രം പറയുക. മറ്റൊരാളുടെയും ആരോഗ്യത്തെക്കുറിച്ച് ഒരിക്കലും സംസാരിക്കരുത്. ഈ സമയങ്ങൾ
+    നൽകുക: {slot_options}. പങ്കെടുക്കാൻ താൽപ്പര്യമില്ലെങ്കിൽ നന്ദി പറയുക, "declined" എന്ന്
+    രേഖപ്പെടുത്തുക, വീണ്ടും ചോദിക്കരുത്.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that the doctor
+    recommends a heart-health check for the family, including {child_first_name}. Never talk about
+    any other person's health. Offer these times: {slot_options}. If they do not wish to take part,
+    thank them, record "declined", do not ask again.
+
+# ---------------------------------------------------------------- Confirmations
+- id: PREF_CONFIRM_WHATSAPP
+  pathway: preference_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name]
+  decline_text: "STOP എന്ന് മറുപടി അയക്കുക"
+  text: >-
+    നന്ദി, {recipient_first_name}. നിങ്ങളുടെ ബന്ധപ്പെടൽ മുൻഗണനകൾ ഞങ്ങൾ സേവ് ചെയ്തു. എപ്പോൾ
+    വേണമെങ്കിലും ഇവ മാറ്റാം. എല്ലാ ഓർമ്മപ്പെടുത്തലുകളും നിർത്താൻ STOP എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We have saved your contact preferences. You can change them
+    at any time. To stop all reminders, reply STOP.
+- id: PREF_CONFIRM_SMS
+  pathway: preference_confirm
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name]
+  decline_text: "STOP"
+  text: >-
+    നന്ദി {recipient_first_name}. നിങ്ങളുടെ മുൻഗണനകൾ സേവ് ചെയ്തു. എല്ലാം നിർത്താൻ STOP അയക്കുക.
+  english_gloss: >-
+    Thank you {recipient_first_name}. Your preferences are saved. To stop everything, send STOP.
+- id: OPTOUT_CONFIRM_WHATSAPP
+  pathway: optout_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, pathway_label]
+  decline_text: "STOP എന്ന് മറുപടി അയക്കുക"
+  text: >-
+    നന്ദി, {recipient_first_name}. {pathway_label}-നെക്കുറിച്ച് ഇനി ഓർമ്മപ്പെടുത്തലുകൾ വരില്ല.
+    ഇത് നിങ്ങളുടെ ചികിത്സയെ ബാധിക്കില്ല. മനസ്സ് മാറിയാൽ ക്ലിനിക്കിനോട് പറഞ്ഞാൽ മതി. എല്ലാ
+    ഓർമ്മപ്പെടുത്തലുകളും നിർത്താൻ STOP എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. You will not get more reminders about {pathway_label}. This
+    does not affect your care. If you change your mind, just tell the clinic. To stop all reminders,
+    reply STOP.
+- id: OPTOUT_CONFIRM_SMS
+  pathway: optout_confirm
+  audience: adult
+  channel: sms
+  slots: [pathway_label]
+  decline_text: "STOP"
+  text: >-
+    {pathway_label}: ഇനി ഓർമ്മപ്പെടുത്തൽ ഇല്ല. ചികിത്സ മാറില്ല. എല്ലാം നിർത്താൻ STOP അയക്കുക.
+  english_gloss: >-
+    {pathway_label}: no more reminders. Your care does not change. To stop everything, send STOP.
+- id: LATER_CONFIRM_WHATSAPP
+  pathway: remind_later_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, until_date]
+  decline_text: "STOP എന്ന് മറുപടി അയക്കുക"
+  text: >-
+    നന്ദി, {recipient_first_name}. {until_date}-ന് ശേഷം ഞങ്ങൾ വീണ്ടും ഓർമ്മിപ്പിക്കാം. എല്ലാ
+    ഓർമ്മപ്പെടുത്തലുകളും നിർത്താൻ STOP എന്ന് മറുപടി അയക്കുക.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We will remind you again after {until_date}. To stop all
+    reminders, reply STOP.
+- id: LATER_CONFIRM_SMS
+  pathway: remind_later_confirm
+  audience: adult
+  channel: sms
+  slots: [until_date]
+  decline_text: "STOP"
+  text: >-
+    ശരി, {until_date}-ന് ശേഷം വീണ്ടും ഓർമ്മിപ്പിക്കാം. എല്ലാം നിർത്താൻ STOP അയക്കുക.
+  english_gloss: >-
+    OK, we will remind you again after {until_date}. To stop everything, send STOP.

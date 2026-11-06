@@ -1,0 +1,35 @@
+# Slot-value labels (Malayalam). Machine draft of labels/en.yaml; needs native review.
+language: ml
+review_status: machine_draft
+visit_labels:
+  newborn: നവജാത ശിശു ചെക്കപ്പ്
+  m1: 1 മാസത്തെ ചെക്കപ്പ്
+  m2: 2 മാസത്തെ ചെക്കപ്പ്
+  m4: 4 മാസത്തെ ചെക്കപ്പ്
+  m6: 6 മാസത്തെ ചെക്കപ്പ്
+  m9: 9 മാസത്തെ ചെക്കപ്പ്
+  m12: 12 മാസത്തെ ചെക്കപ്പ്
+  m15: 15 മാസത്തെ ചെക്കപ്പ്
+  m18: 18 മാസത്തെ ചെക്കപ്പ്
+  m24: 2 വയസ്സിലെ ചെക്കപ്പ്
+  m30: 30 മാസത്തെ ചെക്കപ്പ്
+  yearly: "{years} വയസ്സിലെ ചെക്കപ്പ്"
+pathway_labels:
+  wcv: കുട്ടിയുടെ പതിവ് ചെക്കപ്പ്
+  developmental: കളിയും വളർച്ചയും നോക്കുന്ന പരിശോധന
+  immunisation: പതിവ് കുത്തിവെപ്പുകൾ
+  child_growth_followup: വളർച്ച ഫോളോ-അപ്പ് സന്ദർശനം
+  adult_t2d: ബ്ലഡ് ഷുഗർ പരിശോധന
+  adult_bp: ബിപി പരിശോധന
+  adult_lipid: ഹൃദയാരോഗ്യ രക്തപരിശോധന
+  cervical: ഗർഭാശയമുഖ സ്ക്രീനിംഗ്
+  colorectal: കുടൽ സ്ക്രീനിംഗ്
+  breast: സ്തന സ്ക്രീനിംഗ്
+  followup_retest: വീണ്ടുമുള്ള പരിശോധന
+  cascade_family: കുടുംബ ഹൃദയാരോഗ്യ പരിശോധന
+  household_bundle: കുടുംബ ചെക്കപ്പ് ദിനം
+  mobile_van: ഹെൽത്ത് വാൻ സന്ദർശനം
+words:
+  and: ഒപ്പം
+  or: അല്ലെങ്കിൽ
+  free_health_van: സൗജന്യ ഹെൽത്ത് വാൻ

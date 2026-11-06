@@ -1,0 +1,28 @@
+id: CERVICAL_SCREEN
+version: 1.0.0
+title: Cervical screening (ages 21-65)
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Cervical Cancer: Screening"
+  year: 2018
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cervical-cancer-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["21-29: cytology every 3 years", "30-65: cytology every 3 years, hrHPV alone every 5 years, or co-testing every 5 years", "A draft update exists but is not final; the 2018 statement is encoded"]
+message_pathway: cervical
+slot_type: women
+applies_to:
+  age_years: {min: 21, max: 65}
+  sex: female
+  exclude_conditions: [cin2plus]
+interval_months: 36
+interval_by_test: {cytology: 36, hpv: 60}
+data_required: [birth_date, sex, conditions, "obs:cytology", "obs:hpv"]
+satisfied_by: ["obs:cytology", "obs:hpv"]
+output_codes: {gap_code: "local:gap-cervical"}
+assumptions:
+  - "Hysterectomy and adequate prior screening over 65 are not modelled."

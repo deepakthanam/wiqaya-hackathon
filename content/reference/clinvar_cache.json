@@ -1,0 +1,261 @@
+{
+  "retrieved_on": "2026-11-07",
+  "source": "NCBI ClinVar via E-utilities",
+  "attribution": "ClinVar, National Center for Biotechnology Information (NCBI), U.S. National Library of Medicine; https://www.ncbi.nlm.nih.gov/clinvar/. Illustrative reference only, not for clinical use.",
+  "illustrative_only": true,
+  "query_template": "{gene}[gene] AND \"clinsig pathogenic\"[Properties] AND \"reviewed by expert panel\"[RVST]  (fallback: {gene}[gene] AND \"clinsig pathogenic\"[Properties])",
+  "genes": {
+    "LDLR": [
+      {
+        "gene": "LDLR",
+        "variation_id": "3775024",
+        "accession": "VCV003775024.1",
+        "name": "NC_000019.9:g.(11218191_11221327)_(11224438_11225603)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "LDLR",
+        "variation_id": "3341162",
+        "accession": "VCV003341162.1",
+        "name": "NC_000019.10:g.(11089616_11100222)_(11107515_11110651)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "LDLR",
+        "variation_id": "2574178",
+        "accession": "VCV002574178.1",
+        "name": "NC_000019.9:g.(?_11240188)_(11240347_?)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "LDLR",
+        "variation_id": "2574175",
+        "accession": "VCV002574175.1",
+        "name": "NC_000019.10:g.(?_11110652)_(11110771_?)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "LDLR",
+        "variation_id": "1703194",
+        "accession": "VCV001703194.1",
+        "name": "NC_000019.9:g.(?_11200038)_(11211022_11213339)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      }
+    ],
+    "APOB": [
+      {
+        "gene": "APOB",
+        "variation_id": "5027963",
+        "accession": "VCV005027963.1",
+        "name": "NM_000384.3(APOB):c.2345_2346del (p.Glu782fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      },
+      {
+        "gene": "APOB",
+        "variation_id": "4888099",
+        "accession": "VCV004888099.1",
+        "name": "NM_000384.3(APOB):c.694-13A>G",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      },
+      {
+        "gene": "APOB",
+        "variation_id": "4862565",
+        "accession": "VCV004862565.1",
+        "name": "NM_000384.3(APOB):c.10783C>T (p.Gln3595Ter)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      },
+      {
+        "gene": "APOB",
+        "variation_id": "4862395",
+        "accession": "VCV004862395.1",
+        "name": "NM_000384.3(APOB):c.5409C>G (p.Tyr1803Ter)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      },
+      {
+        "gene": "APOB",
+        "variation_id": "4851852",
+        "accession": "VCV004851852.1",
+        "name": "NM_000384.3(APOB):c.4473_4474del (p.Arg1491fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      }
+    ],
+    "PCSK9": [
+      {
+        "gene": "PCSK9",
+        "variation_id": "2027927",
+        "accession": "VCV002027927.4",
+        "name": "NM_174936.4(PCSK9):c.381T>G (p.Ser127Arg)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "criteria provided, single submitter"
+      },
+      {
+        "gene": "PCSK9",
+        "variation_id": "440725",
+        "accession": "VCV000440725.2",
+        "name": "NM_174936.4(PCSK9):c.2005G>C (p.Glu669Gln)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "no assertion criteria provided"
+      },
+      {
+        "gene": "PCSK9",
+        "variation_id": "440722",
+        "accession": "VCV000440722.2",
+        "name": "NM_174936.4(PCSK9):c.1411G>T (p.Ala471Ser)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "no assertion criteria provided"
+      },
+      {
+        "gene": "PCSK9",
+        "variation_id": "440721",
+        "accession": "VCV000440721.2",
+        "name": "NM_174936.4(PCSK9):c.1402A>G (p.Thr468Ala)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "no assertion criteria provided"
+      },
+      {
+        "gene": "PCSK9",
+        "variation_id": "440715",
+        "accession": "VCV000440715.1",
+        "name": "NM_174936.4(PCSK9):c.323T>C (p.Leu108Pro)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "no assertion criteria provided"
+      }
+    ],
+    "BRCA1": [
+      {
+        "gene": "BRCA1",
+        "variation_id": "624568",
+        "accession": "VCV000624568.3",
+        "name": "NC_000017.10:g.[41201181C>T;41201185A>T]",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA1",
+        "variation_id": "548322",
+        "accession": "VCV000548322.2",
+        "name": "NM_007294.4(BRCA1):c.5008_5009insC (p.Arg1670fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA1",
+        "variation_id": "548321",
+        "accession": "VCV000548321.2",
+        "name": "NM_007294.4(BRCA1):c.1085dup (p.Asn363fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA1",
+        "variation_id": "548320",
+        "accession": "VCV000548320.2",
+        "name": "NM_007294.4(BRCA1):c.71_72insA (p.Cys24Ter)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA1",
+        "variation_id": "548319",
+        "accession": "VCV000548319.2",
+        "name": "NM_007294.4(BRCA1):c.2493_2494insGT (p.Pro832fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      }
+    ],
+    "BRCA2": [
+      {
+        "gene": "BRCA2",
+        "variation_id": "1005003",
+        "accession": "VCV001005003.16",
+        "name": "NM_000059.4(BRCA2):c.7892T>C (p.Leu2631Pro)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA2",
+        "variation_id": "940222",
+        "accession": "VCV000940222.15",
+        "name": "NM_000059.4(BRCA2):c.8754+5G>C",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA2",
+        "variation_id": "812555",
+        "accession": "VCV000812555.4",
+        "name": "NM_000059.4(BRCA2):c.7806-2_7806-1dup",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA2",
+        "variation_id": "812554",
+        "accession": "VCV000812554.2",
+        "name": "NC_000013.11:g.(?_32315480)_(32316527_?)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "BRCA2",
+        "variation_id": "812550",
+        "accession": "VCV000812550.2",
+        "name": "NC_000013.11:g.(?_32394689)_(32398771_?)del",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      }
+    ],
+    "HBB": [
+      {
+        "gene": "HBB",
+        "variation_id": "36312",
+        "accession": "VCV000036312.19",
+        "name": "NM_000518.5(HBB):c.316-146T>G",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "HBB",
+        "variation_id": "15488",
+        "accession": "VCV000015488.32",
+        "name": "NM_000518.5(HBB):c.*111A>G",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "HBB",
+        "variation_id": "15470",
+        "accession": "VCV000015470.124",
+        "name": "NM_000518.5(HBB):c.-78A>C",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "HBB",
+        "variation_id": "15464",
+        "accession": "VCV000015464.125",
+        "name": "NM_000518.5(HBB):c.-137C>G",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      },
+      {
+        "gene": "HBB",
+        "variation_id": "15458",
+        "accession": "VCV000015458.126",
+        "name": "NM_000518.5(HBB):c.316-197C>T",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+# Allowed slots and the maximum rendered length used for length checks.
+# Length tests replace each slot with a string of this many characters.
+slots:
+  recipient_first_name: 12
+  child_first_name: 12
+  visit_label: 22
+  clinic_name: 42
+  clinic_short: 14
+  slot_options: 60
+  slot_short: 12
+  n_members: 2
+  member_names: 40
+  van_location: 30
+  van_date: 12
+  caller_name: 12
+  pathway_label: 24
+  until_date: 10

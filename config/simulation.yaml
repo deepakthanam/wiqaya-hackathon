@@ -1,0 +1,76 @@
+# Simulation, model and prioritisation parameters. Values are ASSUMPTIONS unless noted.
+seeds:
+  generator: 42            # overridden by `make data SEED=...`
+  models: 7
+  simulate: 1234           # common random numbers shared by both policies
+  reviewer: 99
+
+evaluation:
+  start: "2026-11-01"      # = T0
+  weeks: 12
+  lookahead_days: 90       # a gap counts as "due" if due within this many days
+
+history:
+  baseline_invite_prob_per_year: 0.35   # share of eligible adults invited each year under the baseline policy
+  random_invite_prob: 0.05              # randomised channel invites in history (supports the uplift model)
+  risk_label_window_months: 12          # Model R label window
+
+# ---- Response model (ground truth; Wiqaya's models NEVER read this section) -------------------
+response_model:
+  base_logit_by_channel: {whatsapp: -0.9, sms: -1.5, call_script: -0.5, chw_script: 0.3}
+  person_effect_sd: 0.8
+  language_match: 0.9          # added when message language == preferred language
+  literacy_low_text_penalty: -0.5
+  distance_per_km: -0.06
+  bundle_effect: 0.5
+  van_effect: 0.6              # van at the accommodation removes travel cost
+  repeat_touch_decay: -0.3     # per previous non-response
+  show_given_booked: 0.85
+  generic_reminder_penalty: -0.2   # baseline generic SMS
+
+sensitivity_scenarios:
+  weak_language: {language_match: 0.3}
+  weak_bundling: {bundle_effect: 0.1, van_effect: 0.2}
+  strong_distance: {distance_per_km: -0.15}
+
+policies:
+  baseline:
+    channel: sms
+    languages: [ar, en]          # Arabic for Arabic speakers, else English
+    ordering: due_date
+    bundling: false
+    max_touches: 1
+  wiqaya:
+    max_touches: 3
+    chw_after_non_responses: 2
+    reviewer_accept_rate: 0.90
+  invites_per_slot: 1.5          # outreach volume: invites sent per available slot (both policies)
+
+# ---- Prioritisation --------------------------------------------------------------------------
+priority:
+  weights: {risk: 0.40, time_sensitivity: 0.35, no_show: 0.15, household_bundle: 0.10}
+  bands: {high: 0.66, medium: 0.40}      # priority score cut-offs for display bands (quantiles)
+  time_sensitivity:                      # by pathway; ASSUMPTION – clinical reviewer to confirm
+    cascade: 0.90
+    followup: 0.85
+    developmental: 0.85
+    wcv: 0.70
+    immunisation: 0.75
+    adult_screening: 0.40
+  overdue_boost_days: 90                 # overdue by > 90 days adds the boost below
+  overdue_boost: 0.20
+  infant_boost: 0.15                     # under 2 years
+
+models:
+  test_share: 0.20
+  calibration_share: 0.20
+  lightgbm: {n_estimators: 200, learning_rate: 0.05, num_leaves: 15, min_child_samples: 30, subsample: 0.8, colsample_bytree: 0.8}
+
+capacity_fit:
+  time_limit_seconds: 30
+  candidate_sites: 2               # nearest N sites per person (+ van if eligible)
+  max_km:                          # travel-distance limit by profile
+    labour_no_smartphone: 6
+    labour: 10
+    default: 25
+  household_same_day_bonus: 0.15

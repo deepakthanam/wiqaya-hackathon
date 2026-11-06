@@ -1,0 +1,23 @@
+id: AUTISM_SCREEN
+version: 1.0.0
+title: Autism screening at 18 and 24 months
+pathway: developmental
+kind: schedule
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "AAP – Identification, Evaluation, and Management of Children With Autism Spectrum Disorder (Hyman et al.)"
+  year: 2020
+  url: "https://pubmed.ncbi.nlm.nih.gov/31843864/"
+  retrieved_on: "2026-11-07"
+  licence: "© AAP; cited, not reproduced"
+  verified: true
+  http_status: 200
+  key_facts: ["Standardized screening for ASD at 18 and 24 months"]
+message_pathway: developmental
+slot_type: child
+applies_to:
+  age_years: {min: 1.25, max: 2.75}
+schedule_ref: autism
+data_required: [birth_date, "obs:autism_screen"]
+satisfied_by: ["obs:autism_screen"]
+output_codes: {gap_code: "local:gap-autism-screen"}

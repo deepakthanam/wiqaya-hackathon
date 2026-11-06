@@ -1,0 +1,28 @@
+id: FOLLOWUP_PREDIABETES
+version: 1.0.0
+title: Repeat HbA1c after a prediabetes-range result (5.7-6.4%)
+pathway: followup
+kind: followup
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "ADA – 2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes—2026"
+  year: 2026
+  url: "https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes"
+  retrieved_on: "2026-11-07"
+  licence: "© American Diabetes Association; cited, not reproduced"
+  verified: true
+  http_status: 403
+  verification_url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690183/"
+  key_facts: ["Table 2.2: prediabetes A1C 5.7-6.4%", "Table 2.5: people with prediabetes should be tested yearly"]
+message_pathway: followup_retest
+slot_type: adult
+applies_to:
+  age_years: {min: 18}
+  exclude_conditions: [t2d, t1d]
+trigger:
+  any_of: [{obs: hba1c, min: 5.7, max: 6.4}]
+  lookback_months: 36
+followup_window_months: 12
+data_required: [birth_date, conditions, "obs:hba1c"]
+satisfied_by: ["obs:hba1c"]
+output_codes: {gap_code: "local:gap-followup-prediabetes"}

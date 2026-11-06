@@ -1,0 +1,47 @@
+# Which templates must exist. tests/test_messages.py checks that every (pathway, audience, channel)
+# below exists in every language listed under `languages`.
+languages: [en, ar, ur, hi, ml, tl]
+source_language: en
+script:                # used for SMS length limits
+  en: latin
+  tl: latin
+  ar: arabic
+  ur: arabic
+  hi: indic
+  ml: indic
+rtl: [ar, ur]
+
+limits:
+  whatsapp: 600
+  sms: {latin: 320, arabic: 140, indic: 140}   # at most 2 segments: 2x160 Latin, 2x70 Arabic/Indic
+  call_script: 1200
+  chw_script: 1200
+
+outreach_channels: [whatsapp, sms, call_script, chw_script]
+confirmation_channels: [whatsapp, sms]
+
+pathways:
+  wcv:                    {audiences: [parent], kind: outreach}
+  developmental:          {audiences: [parent], kind: outreach}
+  immunisation:           {audiences: [parent], kind: outreach}
+  child_growth_followup:  {audiences: [parent], kind: outreach}
+  adult_t2d:              {audiences: [adult], kind: outreach}
+  adult_bp:               {audiences: [adult, caregiver_of_elder], kind: outreach}
+  adult_lipid:            {audiences: [adult], kind: outreach}
+  cervical:               {audiences: [adult], kind: outreach}
+  colorectal:             {audiences: [adult, caregiver_of_elder], kind: outreach}
+  breast:                 {audiences: [adult], kind: outreach}
+  followup_retest:        {audiences: [adult, caregiver_of_elder], kind: outreach}
+  household_bundle:       {audiences: [adult], kind: outreach}
+  mobile_van:             {audiences: [adult], kind: outreach}
+  # Clinician-approved only. Generic wording; never names the relative or any condition.
+  cascade_family:         {audiences: [adult, parent], kind: outreach, clinician_approved_only: true}
+  preference_confirm:     {audiences: [adult], kind: confirmation}
+  optout_confirm:         {audiences: [adult], kind: confirmation}
+  remind_later_confirm:   {audiences: [adult], kind: confirmation}
+
+# CASCADE_BRCA deliberately has no outreach templates (clinician-only genetic counselling referral).
+no_templates_for_rules: [CASCADE_BRCA]
+
+# Slots that cascade templates may never use (they would identify the index person or relative).
+cascade_forbidden_slots: [relative_name, index_name, relationship, condition, gene, diagnosis]

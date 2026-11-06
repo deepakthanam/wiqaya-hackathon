@@ -1,0 +1,35 @@
+# Slot-value labels (Tagalog/Filipino machine draft). Keys are fixed; values translated.
+language: tl
+review_status: machine_draft
+visit_labels:
+  newborn: check-up ng bagong silang
+  m1: check-up sa 1 buwan
+  m2: check-up sa 2 buwan
+  m4: check-up sa 4 na buwan
+  m6: check-up sa 6 na buwan
+  m9: check-up sa 9 na buwan
+  m12: check-up sa 12 buwan
+  m15: check-up sa 15 buwan
+  m18: check-up sa 18 buwan
+  m24: check-up sa 2 taon
+  m30: check-up sa 30 buwan
+  yearly: "check-up sa {years} taon"
+pathway_labels:
+  wcv: regular na check-up ng bata
+  developmental: check sa laro at paglaki
+  immunisation: mga regular na bakuna
+  child_growth_followup: follow-up sa paglaki
+  adult_t2d: blood sugar check
+  adult_bp: blood pressure check
+  adult_lipid: blood test para sa puso
+  cervical: cervical screening
+  colorectal: bowel screening
+  breast: breast screening
+  followup_retest: ulit na check
+  cascade_family: heart check ng pamilya
+  household_bundle: araw ng check-up ng pamilya
+  mobile_van: pagbisita sa health van
+words:
+  and: at
+  or: o
+  free_health_van: libreng health van

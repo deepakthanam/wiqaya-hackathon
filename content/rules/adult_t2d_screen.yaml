@@ -1,0 +1,37 @@
+id: ADULT_T2D_SCREEN
+version: 1.0.0
+title: Prediabetes and type 2 diabetes screening
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Screening for Prediabetes and Type 2 Diabetes"
+  year: 2021
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Adults aged 35 to 70 years who have overweight or obesity (Grade B)", "Screening every 3 years may be reasonable"]
+message_pathway: adult_t2d
+slot_type: adult
+applies_to:
+  age_years: {min: 35, max: 70}
+  any_of:
+    - bmi_min: 25
+  exclude_conditions: [t2d, t1d]
+interval_months: 36
+interval_overrides:
+  - obs: hba1c
+    range: {min: 5.7, max: 6.4}
+    interval_months: 12
+    reason: "Last HbA1c in the prediabetes range: yearly testing (ADA Standards of Care 2026, Table 2.5)"
+eligible_early:
+  - reason: "Family history of type 2 diabetes (guideline allows earlier screening)"
+    when: {family_history_any: [t2d]}
+    age_years: {min: 25}
+data_required: [birth_date, bmi_latest, conditions, family_history, "obs:hba1c"]
+satisfied_by: ["obs:hba1c"]
+output_codes: {gap_code: "local:gap-t2d-screen"}
+assumptions:
+  - "Earlier eligibility from age 25 with family history is a local ASSUMPTION for a clinical reviewer to confirm (not in the USPSTF text)."

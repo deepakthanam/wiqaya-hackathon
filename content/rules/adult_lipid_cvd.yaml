@@ -1,0 +1,26 @@
+id: ADULT_LIPID_CVD
+version: 1.0.0
+title: Lipid assessment for cardiovascular risk (ages 40-75)
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication"
+  year: 2022
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Adults 40-75 with >=1 CVD risk factor and 10-year risk >=10%: statin (B); 7.5 to <10%: selectively (C)", "Risk estimated with Pooled Cohort Equations, which need cholesterol", "Excludes LDL-C >190 mg/dL and known FH", "No lipid testing interval given"]
+message_pathway: adult_lipid
+slot_type: adult
+applies_to:
+  age_years: {min: 40, max: 75}
+  exclude_conditions: [dyslipidaemia, fh]
+interval_months: 60
+data_required: [birth_date, conditions, "obs:ldl"]
+satisfied_by: ["obs:ldl"]
+output_codes: {gap_code: "local:gap-lipid"}
+assumptions:
+  - "The 60-month repeat interval is a local ASSUMPTION; USPSTF gives no testing interval."

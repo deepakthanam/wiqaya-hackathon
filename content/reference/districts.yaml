@@ -1,0 +1,113 @@
+# District centroids for the Wiqaya synthetic population (see PROMPT.md §4).
+# Each centroid is the lat/lon Nominatim returned for the named OSM object (looked up 2026-11-07,
+# https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=ae&q=...).
+# name_ar is the OSM name:ar tag of the same object (Arabic diacritics removed where OSM had them).
+# Centroids are approximate and only used to place synthetic households and clinics.
+attribution: "Centroids from OpenStreetMap Nominatim. © OpenStreetMap contributors, ODbL 1.0"
+retrieved_on: "2026-11-07"
+districts:
+  - id: abu_dhabi_island
+    name: Abu Dhabi Island
+    name_ar: جزيرة أبو ظبي
+    region: abu_dhabi
+    lat: 24.4688
+    lon: 54.3710
+    # The island relation centroid sits mid-island (around the Al Nahyan / Al Manhal area), a sensible
+    # central point for the dense downtown grid. The city relation/4479763 point (24.4538, 54.3774) is
+    # an alternative; we use the island object because the district is "the island".
+    centroid_source: "OSM Nominatim relation/13027505 'Abu Dhabi Island' (place=island)"
+    verified: true
+  - id: al_reem_island
+    name: Al Reem Island
+    name_ar: جزيرة الريم
+    region: abu_dhabi
+    lat: 24.4936
+    lon: 54.4078
+    centroid_source: "OSM Nominatim relation/13251308 'Al Reem Island' (boundary=administrative)"
+    verified: true
+  - id: khalifa_city
+    name: Khalifa City
+    name_ar: مدينة خليفة
+    region: abu_dhabi
+    lat: 24.4201
+    lon: 54.5750
+    centroid_source: "OSM Nominatim relation/13251355 'Khalifa City' (boundary=administrative)"
+    verified: true
+  - id: mbz_city
+    name: Mohammed Bin Zayed City
+    name_ar: مدينة محمد بن زايد
+    region: abu_dhabi
+    lat: 24.3404
+    lon: 54.5516
+    centroid_source: "OSM Nominatim relation/13251449 'Mohamed Bin Zayed City' (boundary=administrative)"
+    verified: true
+  - id: musaffah
+    name: Musaffah
+    name_ar: مصفح
+    region: abu_dhabi
+    lat: 24.3489
+    lon: 54.4904
+    centroid_source: "OSM Nominatim relation/13251450 'Musaffah' (boundary=administrative)"
+    verified: true
+  - id: al_shamkha
+    name: Al Shamkha
+    name_ar: الشامخة
+    region: abu_dhabi
+    lat: 24.3867
+    lon: 54.7075
+    centroid_source: "OSM Nominatim way/873221050 'Al Shamkha' (place=suburb; no admin boundary returned)"
+    verified: true
+  - id: yas_island
+    name: Yas Island
+    name_ar: جزيرة ياس
+    region: abu_dhabi
+    lat: 24.4884
+    lon: 54.6072
+    centroid_source: "OSM Nominatim relation/13251334 'Yas Island' (boundary=administrative)"
+    verified: true
+  - id: al_ain_city
+    name: Al Ain City
+    name_ar: العين
+    region: al_ain
+    lat: 24.2249
+    lon: 55.7452
+    # The Al Ain admin relation/13249272 covers the whole Al Ain region and its centroid
+    # (23.709, 55.285) is in the desert, so we use the OSM place=city node, which marks the town centre.
+    centroid_source: "OSM Nominatim node/82799640 'Al Ain' (place=city)"
+    verified: true
+  - id: al_hili
+    name: Al Hili
+    name_ar: هيلي
+    region: al_ain
+    lat: 24.2871
+    lon: 55.7675
+    centroid_source: "OSM Nominatim node/12278452815 'Al Hili' (place=town)"
+    verified: true
+  - id: madinat_zayed
+    name: Madinat Zayed
+    name_ar: مدينة زايد
+    region: al_dhafra
+    lat: 23.6515
+    lon: 53.7020
+    # OSM names it "Zayed City" (Al Dhafrah Region); not to be confused with the Abu Dhabi suburb
+    # relation/13251357 also called "Zayed City".
+    centroid_source: "OSM Nominatim relation/13251490 'Zayed City' (Al Dhafrah Region, boundary=administrative)"
+    verified: true
+  - id: ruwais
+    name: Ruwais
+    name_ar: الرويس
+    region: al_dhafra
+    lat: 24.0858
+    lon: 52.7208
+    # Searching "Ruwais" in Nominatim returns "Al Dhannah" (relation/11900266, 24.1121, 52.7426), the
+    # adjacent residential town; we use the OSM place node actually named "Al Ruwais".
+    centroid_source: "OSM Nominatim node/6279196240 'Al Ruwais' (place=town)"
+    verified: true
+  - id: ghayathi
+    name: Ghayathi
+    name_ar: غياثي
+    region: al_dhafra
+    lat: 23.8824
+    lon: 52.7896
+    centroid_source: "OSM Nominatim relation/13251478 'Ghiyathi' (boundary=administrative)"
+    verified: true

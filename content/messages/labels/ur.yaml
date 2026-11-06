@@ -1,0 +1,35 @@
+# Urdu slot-value labels (machine draft; needs native review). Keys match labels/en.yaml.
+language: ur
+review_status: machine_draft
+visit_labels:
+  newborn: نوزائیدہ بچے کا چیک اپ
+  m1: 1 ماہ کا چیک اپ
+  m2: 2 ماہ کا چیک اپ
+  m4: 4 ماہ کا چیک اپ
+  m6: 6 ماہ کا چیک اپ
+  m9: 9 ماہ کا چیک اپ
+  m12: 12 ماہ کا چیک اپ
+  m15: 15 ماہ کا چیک اپ
+  m18: 18 ماہ کا چیک اپ
+  m24: 2 سال کا چیک اپ
+  m30: 30 ماہ کا چیک اپ
+  yearly: "{years} سال کا چیک اپ"
+pathway_labels:
+  wcv: بچے کا معمول کا چیک اپ
+  developmental: کھیل اور نشوونما کا چیک
+  immunisation: معمول کے ٹیکے
+  child_growth_followup: نشوونما کا فالو اپ وزٹ
+  adult_t2d: خون میں شوگر کا ٹیسٹ
+  adult_bp: بلڈ پریشر کا چیک
+  adult_lipid: دل کی صحت کا خون کا ٹیسٹ
+  cervical: سروائیکل اسکریننگ
+  colorectal: آنتوں کی اسکریننگ
+  breast: چھاتی کی اسکریننگ
+  followup_retest: دوبارہ چیک
+  cascade_family: خاندان کے لیے دل کی صحت کا چیک
+  household_bundle: فیملی چیک اپ کا دن
+  mobile_van: ہیلتھ وین کا دورہ
+words:
+  and: اور
+  or: یا
+  free_health_van: مفت ہیلتھ وین

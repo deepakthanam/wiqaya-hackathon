@@ -1,0 +1,26 @@
+id: ADULT_BP_SCREEN
+version: 1.0.0
+title: Blood pressure screening in adults
+pathway: adult_screening
+kind: periodic
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Hypertension in Adults: Screening"
+  year: 2021
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Screen adults 18 years or older (Grade A)", "Annual screening for adults 40+ and those at increased risk; every 3 to 5 years for adults 18-39 not at increased risk"]
+message_pathway: adult_bp
+slot_type: adult
+applies_to:
+  age_years: {min: 18}
+  exclude_conditions: [hypertension]
+interval_by_age:
+  - {age_years: {min: 18, max: 39.99}, interval_months: 36}
+  - {age_years: {min: 40}, interval_months: 12}
+data_required: [birth_date, conditions, "obs:sbp"]
+satisfied_by: ["obs:sbp"]
+output_codes: {gap_code: "local:gap-bp-screen"}

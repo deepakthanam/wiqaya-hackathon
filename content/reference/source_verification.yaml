@@ -1,0 +1,344 @@
+# Guideline source verification for Wiqaya rules.
+# Retrieved 2026-11-07. Each entry was fetched by curl, WebFetch, PubMed E-utilities or an
+# archived copy (Wayback Machine), as stated in `notes`. key_facts give the source's own
+# wording (quoted or closely paraphrased). They are NOT clinical validation of the encoding.
+# verified: true  -> page fetched and the key_facts were read on it (or on the named mirror).
+# verified: false -> the page could not be fetched; facts are unconfirmed.
+
+- rule_id: WCV_SCHEDULE
+  name: "Bright Futures/AAP – Recommendations for Preventive Pediatric Health Care (Periodicity Schedule)"
+  publisher: American Academy of Pediatrics / Bright Futures
+  year: 2025
+  url: https://downloads.aap.org/AAP/PDF/periodicity_schedule.pdf
+  final_url: https://downloads.aap.org/AAP/PDF/periodicity_schedule.pdf
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "© 2025 American Academy of Pediatrics; cited, not reproduced"
+  verified: true
+  key_facts:
+    - "Copyright © 2025 by the American Academy of Pediatrics, updated February 2025"
+    - "Age columns: Prenatal, Newborn, 3-5 d, By 1 mo, 2 mo, 4 mo, 6 mo, 9 mo, 12 mo, 15 mo, 18 mo, 24 mo, 30 mo, 3 y, 4 y ... yearly to 21 y"
+    - "The Bright Futures/American Academy of Pediatrics Recommendations for Preventive Pediatric Health Care are updated annually"
+    - "This schedule reflects recommendations approved in December 2024"
+  notes: >-
+    PDF text was extracted with pdftotext. Landing page
+    https://www.aap.org/en/practice-management/care-delivery-approaches/periodicity-schedule/ (200; WebFetch shows
+    "Last updated 02/06/2025"). The brief's list (newborn, 1, 2, 4, 6, 9, 12, 15, 18, 24, 30 months, then yearly)
+    matches the column headers. AAP also lists a 3-5 day visit and a prenatal visit, which the brief leaves out.
+    The schedule is configurable; replace it with the DOH WCV schedule.
+
+- rule_id: DEV_SCREEN
+  name: "AAP – Promoting Optimal Development: Identifying Infants and Young Children With Developmental Disorders Through Developmental Surveillance and Screening (Lipkin et al.)"
+  publisher: American Academy of Pediatrics (Pediatrics 2020;145(1):e20193449)
+  year: 2020
+  url: https://publications.aap.org/pediatrics/article/145/1/e20193449/36971
+  final_url: https://pubmed.ncbi.nlm.nih.gov/31843861/
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "© AAP; cited, not reproduced"
+  verified: true
+  key_facts:
+    - "Developmental surveillance is supported at every health supervision visit, as is the administration of standardized screening tests at the 9-, 18-, and 30-month visits"
+    - "Developmental concerns elicited on surveillance at any visit should be followed by standardized developmental screening testing or direct referral"
+    - "AAP periodicity schedule footnote 12: 'Screening should occur per \"Promoting Optimal Development...\"' (doi 10.1542/peds.2019-3449)"
+  notes: >-
+    publications.aap.org returned 403 to curl and WebFetch. Facts were read from the PubMed abstract (PMID 31843861,
+    via NCBI E-utilities, DOI 10.1542/peds.2019-3449). The periodicity PDF has a Developmental Screening row
+    with 3 visit markers, but the column positions could not be reliably mapped from the extracted text.
+
+- rule_id: AUTISM_SCREEN
+  name: "AAP – Identification, Evaluation, and Management of Children With Autism Spectrum Disorder (Hyman et al.)"
+  publisher: American Academy of Pediatrics (Pediatrics 2020;145(1):e20193447)
+  year: 2020
+  url: https://publications.aap.org/pediatrics/article/145/1/e20193447/36917
+  final_url: https://pubmed.ncbi.nlm.nih.gov/31843864/
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "© AAP; cited, not reproduced"
+  verified: true
+  key_facts:
+    - "Standardized screening for ASD at 18 and 24 months of age with ongoing developmental surveillance continues to be recommended in primary care"
+  notes: >-
+    publications.aap.org returned 403. Facts come from the PubMed abstract (PMID 31843864, DOI 10.1542/peds.2019-3447).
+    The periodicity PDF row "Autism Spectrum Disorder Screening" (footnote 13) cites this article and has 2 markers.
+
+- rule_id: IMMUNISATION_CATCHUP
+  name: "CDC – Child and Adolescent Immunization Schedule by Age"
+  publisher: US Centers for Disease Control and Prevention
+  year: 2025
+  url: https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-age.html
+  final_url: https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-age.html
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Title as fetched: 'Child and Adolescent Immunization Schedule by Age (Addendum updated July 2, 2025)'"
+    - "HepB: birth; 1–2 mo; 6–18 mo"
+    - "RV: 2 mo, 4 mo (3rd dose depends on product, see Notes)"
+    - "DTaP: 2, 4, 6 mo; 15–18 mo; 4–6 y"
+    - "Hib: 2, 4 mo (± 6 mo by product); 12–15 mo"
+    - "PCV15/PCV20: 2, 4, 6 mo; 12–15 mo"
+    - "IPV: 2, 4 mo; 6–18 mo; 4–6 y"
+    - "MMR and VAR: 12–15 mo; 4–6 y"
+    - "HepA: 2-dose series from 12–23 mo"
+    - "Tdap: 11–12 y; MenACWY: 11–12 y and 16 y; Influenza: annually from 6 mo"
+  notes: >-
+    curl returned 403; WebFetch returned 200 with the content above. WebFetch may have served a cached copy, so a
+    2026 edition may exist. HPV dose ages were not extracted cleanly ("See Notes"). This is a placeholder only;
+    the Abu Dhabi schedule below is the intended replacement.
+
+- rule_id: IMMUNISATION_CATCHUP_UAE_REFERENCE
+  name: "DOH Abu Dhabi / ADPHC Circular No. 2026/77 – Updates to the Immunization Program (Childhood and School Vaccination), Appendix 1: The Immunization Schedule – Updated April 2026"
+  publisher: Department of Health – Abu Dhabi (Abu Dhabi Public Health Centre)
+  year: 2026
+  url: https://www.doh.gov.ae/-/media/950546F00B64465CA91D7729996B3487.ashx
+  final_url: https://www.doh.gov.ae/-/media/950546F00B64465CA91D7729996B3487.ashx
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "© Department of Health – Abu Dhabi; regulatory circular, cited not reproduced ('should not be used as content for media publication')"
+  verified: true
+  key_facts:
+    - "Circular dated 2026/05/14; updates previous circulars USO/37/2026 and USO/39/2024"
+    - "Birth: BCG, HepB"
+    - "End of month 2: Hexavalent (DTaP-Hib-HepB-IPV), PCV20, RV1"
+    - "End of month 4: Hexavalent, PCV20, RV1"
+    - "End of month 6: Hexavalent, bOPV"
+    - "End of month 12: MMR, Varicella, MCV4 (MenACWY conjugate)"
+    - "End of month 18: DTaP-Hib-IPV, bOPV, MMR, PCV20"
+    - "Grade 1: DTaP-IPV, bOPV, Varicella; Grade 5: MCV4 (from 2026–2027 academic year); Grade 8: HPV9 (2 doses if <15 y: 0, 6 months; 3 doses if ≥15 y); Grade 11: Tdap, MCV4"
+    - "Healthy children <5 y: PCV is a 3-dose series at 2, 4 and 18 months; preterm <28 weeks or at-risk children: 4 doses at 2, 4, 6, 18 months"
+    - "RSV long-acting monoclonal antibody: single dose for all newborns born during the RSV season (1 September to 1 March)"
+    - "Providers must review and update children's vaccination status against the Abu Dhabi schedule, including follow-up of delayed children; document in Malaffi"
+  notes: >-
+    PDF text was extracted with pdftotext. The two-column (Arabic/English) table layout makes the age-to-vaccine rows
+    slightly ambiguous; check them against the original PDF before encoding. An older related circular
+    (No. 2022/257, 'Tracing Defaulters of Childhood Immunization Program', 200 OK):
+    https://www.doh.gov.ae/-/media/D24C9A53ACBE41C6ADCFFAD15D3278C9.ashx. The MOHAP federal programme page
+    (https://mohap.gov.ae/en/w/ministry-of-health-and-prevention-adopted-4-updates-on-the-national-immunization-program)
+    did not respond to curl (connection failed), so it is not verified.
+
+- rule_id: CHILD_BMI_FOLLOWUP
+  name: "USPSTF – High Body Mass Index in Children and Adolescents: Interventions"
+  publisher: USPSTF
+  year: 2024
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, June 18, 2024 (Grade B)"
+    - "Clinicians provide or refer children and adolescents 6 years or older with a high BMI (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions"
+    - "Intensive = 26 or more contact hours"
+  notes: >-
+    Supporting CDC definition page (verified via WebFetch; curl got 403):
+    https://www.cdc.gov/bmi/child-teen-calculator/bmi-categories.html: ages 2 through 19; obesity = ≥95th percentile;
+    severe obesity = ≥120% of the 95th percentile or BMI ≥35; overweight = 85th to <95th percentile; page dated
+    June 28, 2024. The 6-month follow-up window in the brief is a local operational choice and is not stated by
+    these sources.
+
+- rule_id: ADULT_T2D_SCREEN
+  name: "USPSTF – Screening for Prediabetes and Type 2 Diabetes"
+  publisher: USPSTF
+  year: 2021
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, August 24, 2021"
+    - "Screening for prediabetes and type 2 diabetes in adults aged 35 to 70 years who have overweight or obesity (Grade B)"
+    - "Screening every 3 years may be a reasonable approach for adults with normal blood glucose levels"
+    - "HbA1c 5.7% to 6.4% (or FPG 100–125 mg/dL, or 2-h OGTT 140–199 mg/dL) is consistent with prediabetes"
+  notes: "The family-history early-eligibility at age 25 in the brief is NOT stated in these extracts; keep it marked as an ASSUMPTION."
+
+- rule_id: ADULT_BP_SCREEN
+  name: "USPSTF – Hypertension in Adults: Screening"
+  publisher: USPSTF
+  year: 2021
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, April 27, 2021 (Grade A)"
+    - "Screen for hypertension in adults 18 years or older without known hypertension with office blood pressure measurement (OBPM)"
+    - "Obtain BP measurements outside the clinical setting for diagnostic confirmation before starting treatment (ABPM or home BP monitoring)"
+    - "Reasonable intervals: every year for adults 40 years or older and adults at increased risk (eg, Black persons, high-normal BP, overweight or obesity)"
+    - "Every 3 to 5 years for adults aged 18 to 39 years not at increased risk and with a prior normal BP reading"
+  notes: ""
+
+- rule_id: ADULT_LIPID_CVD
+  name: "USPSTF – Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication"
+  publisher: USPSTF
+  year: 2022
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, August 23, 2022"
+    - "Adults 40 to 75 years with ≥1 CVD risk factor (dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk ≥10%: prescribe a statin (Grade B)"
+    - "Same group with an estimated 10-year risk of 7.5% to <10%: selectively offer a statin (Grade C)"
+    - "Adults 76 years or older: insufficient evidence (Grade I)"
+    - "Does not apply to adults with LDL-C >190 mg/dL (4.92 mmol/L) or known familial hypercholesterolemia"
+    - "Implementation: determine whether the patient has a CV risk factor; estimate CVD risk with a risk estimator (ACC/AHA Pooled Cohort Equations may be used; inputs include cholesterol levels)"
+  notes: >-
+    The page does NOT state a lipid-testing interval. Any repeat-lipid interval in the rule (e.g. 5 years) is a
+    local ASSUMPTION and needs clinical sign-off.
+
+- rule_id: CERVICAL_SCREEN
+  name: "USPSTF – Cervical Cancer: Screening"
+  publisher: USPSTF
+  year: 2018
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cervical-cancer-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cervical-cancer-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, August 21, 2018 (still the final statement on the canonical page as of 2026-11-07)"
+    - "Women aged 21 to 29: cervical cytology alone every 3 years (Grade A)"
+    - "Women aged 30 to 65: cytology alone every 3 years, OR hrHPV testing alone every 5 years, OR hrHPV + cytology cotesting every 5 years (Grade A)"
+    - "Recommends against screening women younger than 21 (Grade D)"
+    - "Recommends against screening after hysterectomy with removal of the cervix and no history of CIN 2/3 or cervical cancer (Grade D)"
+    - "Recommends against screening women older than 65 with adequate prior screening who are not otherwise at high risk (Grade D)"
+  notes: >-
+    A draft update exists at
+    https://www.uspreventiveservicestaskforce.org/uspstf/draft-recommendation/cervical-cancer-screening-adults-adolescents
+    (200). Secondary sources describe it as the December 2024 draft: cytology every 3 years at 21–29; primary hrHPV
+    (clinician- or self-collected) every 5 years at 30–65 as the preferred strategy. It was NOT shown as final on the
+    canonical page, so encode the 2018 final statement.
+
+- rule_id: COLORECTAL_SCREEN
+  name: "USPSTF – Colorectal Cancer: Screening"
+  publisher: USPSTF
+  year: 2021
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, May 18, 2021"
+    - "Screen all adults aged 50 to 75 (Grade A) and adults aged 45 to 49 (Grade B); selectively screen adults aged 76 to 85 (Grade C)"
+    - "Applies to average-risk adults: no prior CRC, adenomatous polyps or IBD; no known high-risk genetic syndrome (eg Lynch, FAP)"
+    - "Intervals: HSgFOBT or FIT every year; sDNA-FIT every 1 to 3 years; CT colonography every 5 years; flexible sigmoidoscopy every 5 years; flexible sigmoidoscopy every 10 years + annual FIT; colonoscopy every 10 years"
+  notes: ""
+
+- rule_id: BREAST_SCREEN
+  name: "USPSTF – Breast Cancer: Screening"
+  publisher: USPSTF
+  year: 2024
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, April 30, 2024"
+    - "Biennial screening mammography for women aged 40 to 74 years (Grade B)"
+    - "Women 75 years or older: insufficient evidence (Grade I)"
+    - "Supplemental ultrasound/MRI for dense breasts: insufficient evidence (Grade I)"
+  notes: ""
+
+- rule_id: FOLLOWUP_PREDIABETES
+  name: "ADA – 2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes—2026"
+  publisher: American Diabetes Association (Diabetes Care 2026;49(Suppl 1):S27–S49)
+  year: 2026
+  url: https://doi.org/10.2337/dc26-S002
+  final_url: https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes
+  http_status: 403
+  retrieved_on: "2026-11-07"
+  licence: "© American Diabetes Association; cited, not reproduced"
+  verified: true
+  key_facts:
+    - "Table 2.2 criteria defining prediabetes: A1C 5.7–6.4% (39–47 mmol/mol)"
+    - "Table 2.5 footnote: 'People with prediabetes (A1C ≥5.7% [≥39 mmol/mol], IGT, or IFG) should be tested yearly.'"
+    - "Rec 2.12c: for normal results, repeat screening at a minimum of 3-year intervals is reasonable"
+  notes: >-
+    The DOI resolves to diabetesjournals.org, which returns 403 to automated clients. Content was read from the PMC copy
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC12690183/ (WebFetch 200). The phrase "at least annually" was NOT found;
+    the source says "tested yearly". Supporting CDC page (WebFetch 200, curl 403):
+    https://www.cdc.gov/diabetes/diabetes-testing/prediabetes-a1c-test.html says "Prediabetes: 5.7% to 6.4%" and
+    "They'll likely recommend you repeat your A1C every 1 to 2 years" (updated May 15, 2024). USPSTF 2021 (above)
+    also states 5.7–6.4% is consistent with prediabetes.
+
+- rule_id: FOLLOWUP_BP_ELEVATED
+  name: "USPSTF – Hypertension in Adults: Screening (out-of-office confirmation)"
+  publisher: USPSTF
+  year: 2021
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Obtain BP measurements outside the clinical setting (ABPM or HBPM) for diagnostic confirmation before starting treatment"
+    - "Thresholds used by various organizations to define hypertension range from ≥130/80 mm Hg to ≥140/90 mm Hg"
+    - "Evidence compared OBPM 140/90 with reference 24-h ABPM 130/80 or daytime ABPM 135/85"
+    - "Persons with high-normal BP are at increased risk: annual screening is a reasonable option"
+  notes: >-
+    The 2025 AHA/ACC et al. Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure
+    in Adults (Hypertension 2025;82(10):e212–e316, DOI 10.1161/HYP.0000000000000249, PMID 40811516) replaces the
+    2017 ACC/AHA guideline. Its existence was verified via PubMed; ahajournals.org full text returned 403. The PMC
+    commentary (PMC12425457, Hypertension 2025;82(10):1538–1540) states "BP categories remain the same as in 2017",
+    stage 1 = 130–139/80–89, stage 2 ≥140/90, and that drug therapy is recommended for low-risk stage 1 when BP
+    stays ≥130/80 after 3–6 months of lifestyle change. The numeric 'elevated' range (120–129/<80) was NOT read on
+    a primary page. The recheck window in the rule is configurable and is a local ASSUMPTION.
+
+- rule_id: CASCADE_FH
+  name: "NICE CG71 – Familial hypercholesterolaemia: identification and management"
+  publisher: NICE
+  year: 2008
+  url: https://www.nice.org.uk/guidance/cg71/chapter/Recommendations
+  final_url: http://web.archive.org/web/20261010100045/https://www.nice.org.uk/guidance/cg71/chapter/Recommendations
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "© NICE; cited, not reproduced"
+  verified: true
+  key_facts:
+    - "Published 27 August 2008; last updated 04 October 2019 (per archived page header)"
+    - "1.2.1 Carry out cascade testing using DNA testing to identify affected first- and second- and, when possible, third-degree biological relatives of people with a genetic diagnosis of FH. [2017]"
+    - "1.2.2 Offer all people with FH a referral to a specialist with expertise in FH for confirmation of diagnosis and initiation of cascade testing. [2008]"
+    - "1.2.4 Healthcare professionals should be aware of the latest guidance on data protection when undertaking cascade testing. [2008]"
+    - "1.1.15 In children aged 0 to 10 years at risk of FH because of 1 affected parent, offer a DNA test at the earliest opportunity. If testing of a child at risk has not been undertaken by the age of 10 years, offer an additional opportunity for a DNA test. [2017]"
+    - "1.1.16 Children at risk of homozygous FH (2 affected parents or clinical signs e.g. xanthomata): measure LDL-C before the age of 5 years or at the earliest opportunity thereafter; LDL-C >11 mmol/l -> consider homozygous FH. [2008]"
+    - "1.3.1.20 Offer statins to children with FH by the age of 10 years or at the earliest opportunity thereafter. [2017]"
+  notes: >-
+    nice.org.uk returns 403 to curl and WebFetch (bot protection, not bypassed). The text was read from the Internet
+    Archive snapshot dated 2026-10-10. A search result says NICE plans to update the case-finding and diagnosis
+    recommendations; re-check before go-live. NICE QS41 statement 5 (cascade testing) is related but was not fetched (403).
+
+- rule_id: CASCADE_BRCA
+  name: "USPSTF – BRCA-Related Cancer: Risk Assessment, Genetic Counseling, and Genetic Testing"
+  publisher: USPSTF
+  year: 2019
+  url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/brca-related-cancer-risk-assessment-genetic-counseling-and-genetic-testing
+  final_url: https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/brca-related-cancer-risk-assessment-genetic-counseling-and-genetic-testing
+  http_status: 200
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  key_facts:
+    - "Final Recommendation Statement, August 20, 2019"
+    - "Assess women with a personal or family history of breast, ovarian, tubal, or peritoneal cancer, or an ancestry associated with BRCA1/2 mutations, with an appropriate brief familial risk assessment tool (Grade B)"
+    - "Women with a positive result on the risk assessment tool should receive genetic counseling and, if indicated after counseling, genetic testing"
+    - "Recommends against routine risk assessment, counseling or testing for women without such history or ancestry (Grade D)"
+  notes: >-
+    The slug '...genetic-counseling-and-testing' (without 'genetic-' before testing) returns 404. Alternative source:
+    NICE CG164 'Familial breast cancer' (published 25 June 2013, last updated 14 November 2023), read from the
+    Wayback snapshot http://web.archive.org/web/20261016205029/https://www.nice.org.uk/guidance/CG164 (overview only;
+    recommendations not read).

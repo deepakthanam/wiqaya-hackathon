@@ -1,0 +1,125 @@
+{
+  "checked_on": "2026-11-07",
+  "results": [
+    {
+      "rule": "ADULT_BP_SCREEN@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "ADULT_LIPID_CVD@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "ADULT_T2D_SCREEN@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "AUTISM_SCREEN@1.0.0",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31843864/",
+      "status": 203,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "BREAST_SCREEN@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "CASCADE_BRCA@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/brca-related-cancer-risk-assessment-genetic-counseling-and-genetic-testing",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "CASCADE_FH@1.0.0",
+      "url": "https://www.nice.org.uk/guidance/cg71",
+      "status": 403,
+      "state": "OK",
+      "verification_url": "http://web.archive.org/web/20261010100045/https://www.nice.org.uk/guidance/cg71/chapter/Recommendations",
+      "verification_status": 200
+    },
+    {
+      "rule": "CERVICAL_SCREEN@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cervical-cancer-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "CHILD_BMI_FOLLOWUP@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "COLORECTAL_SCREEN@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "DEV_SCREEN@1.0.0",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31843861/",
+      "status": 203,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "FOLLOWUP_BP_ELEVATED@1.0.0",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "status": 200,
+      "state": "OK",
+      "verification_url": null,
+      "verification_status": null
+    },
+    {
+      "rule": "FOLLOWUP_PREDIABETES@1.0.0",
+      "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes",
+      "status": 403,
+      "state": "OK",
+      "verification_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690183/",
+      "verification_status": 200
+    },
+    {
+      "rule": "IMMUNISATION_CATCHUP@1.0.0",
+      "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-age.html",
+      "status": 200,
+      "state": "OK",
+      "verification_url": "https://www.doh.gov.ae/-/media/950546F00B64465CA91D7729996B3487.ashx",
+      "verification_status": 0
+    },
+    {
+      "rule": "WCV_SCHEDULE@1.0.0",
+      "url": "https://downloads.aap.org/AAP/PDF/periodicity_schedule.pdf",
+      "status": 403,
+      "state": "BLOCKED",
+      "verification_url": null,
+      "verification_status": null
+    }
+  ]
+}

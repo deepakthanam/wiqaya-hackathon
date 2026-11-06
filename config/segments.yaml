@@ -1,0 +1,17 @@
+# Monitoring segments for the equity console. Segments are NEVER model features for Model R.
+min_cell_n: 11            # small-cell suppression threshold (governance.suppress)
+min_eval_n: 100           # below this many held-out people: "Model not validated for this segment"
+segments:
+  nationality_group: {column: nationality_group, label: Nationality group}
+  language: {column: preferred_language, label: Preferred language}
+  age_band:
+    label: Age band
+    bins: [0, 6, 18, 40, 65, 120]
+    labels: ["0-5", "6-17", "18-39", "40-64", "65+"]
+  sex: {column: sex, label: Sex}
+  district: {column: district_id, label: District}
+  housing_type: {column: housing_type, label: Housing type}
+  insurance_tier: {column: insurance_tier, label: Insurance tier}
+fairness:
+  floor_ratio: 0.8        # segment slot share must be >= 0.8 x its need-adjusted share
+  segments: [nationality_group, language, district, housing_type, insurance_tier]

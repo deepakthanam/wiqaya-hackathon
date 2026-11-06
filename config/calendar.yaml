@@ -1,0 +1,128 @@
+# Wiqaya calendar and cultural-timing rules (PROMPT.md §5.3). Covers 2024-11-01 -> 2027-12-31
+# (24-month history period before T0 = 2026-11-01, the 12-week evaluation period, and Ramadan 2027).
+# Compiled 2026-11-07.
+#
+# status values:
+#   verified              - date confirmed by an official announcement (UAE Presidential Court / FAHR / MoHRE
+#                           as reported by WAM, Aletihad or national press) or fixed by Cabinet Resolution
+#                           No. 27 of 2024 (Gregorian-dated holidays). For past dates this is what was observed.
+#   estimated             - Hijri-dependent future date: from astronomical forecasts or arithmetic
+#                           (one lunar year ~ 354 days after the verified 2026 date). Can move +/- 1 day after
+#                           moon sighting, and non-Eid holidays may be transferred by the Cabinet to the start or
+#                           end of the week. Re-check before use.
+#   astronomical_estimate - Ramadan start/end from astronomers' forecasts; official start depends on sighting.
+#   placeholder           - invented for the prototype; NOT a real calendar. Replace with ADEK / school data.
+#   observance            - marked day that is not a day off under the current official holiday list.
+#
+# Holiday dates follow the private-sector announcement (MoHRE) where federal (FAHR) and private differ;
+# where they differ, the note says so and no_send_periods use the wider window.
+timezone: Asia/Dubai
+quiet_hours: {start: "21:00", end: "08:00"}
+# Verified: u.ae "Working hours in the public sector" - federal government works Mon-Thu 07:30-15:30 and
+# Fri 07:30-12:00; Saturday and Sunday are the official weekend (effective 2022-01-01). Abu Dhabi Government
+# uses the same system. Private-sector employers are not obliged to follow it (many work Mon-Fri).
+weekend: [saturday, sunday]
+weekend_source_url: "https://u.ae/en/information-and-services/jobs/Sector-of-employment/working-in-uae-government-sector/working-hours-in-the-public-sector"
+friday_half_day_government: {end: "12:00"}
+friday_midday_no_send: {start: "11:30", end: "14:00"}   # Friday (Jumu'ah) prayer window - product rule
+
+public_holidays:                  # clinic closed + no sends
+  # --- 2024 (history period) ---
+  - {date: "2024-12-02", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://www.arabianbusiness.com/culture-society/eid-al-etihad-uae-declares-two-day-private-sector-holiday-for-national-day-2024"}
+  - {date: "2024-12-03", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://www.arabianbusiness.com/culture-society/eid-al-etihad-uae-declares-two-day-private-sector-holiday-for-national-day-2024"}
+  # --- 2025 ---
+  - {date: "2025-01-01", name: "New Year's Day", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  - {date: "2025-06-27", name: "Hijri New Year 1447", status: verified,
+     source_url: "https://gulfnews.com/uae/government/hijri-new-year-2025-uae-announces-islamic-new-year-holiday-for-private-sector-1.500165428"}
+  - {date: "2025-09-05", name: "Prophet Mohammed's Birthday", status: verified,
+     source_url: "https://www.khaleejtimes.com/uae/public-holiday-government-employees-prophets-birthday-2025"}
+  - {date: "2025-12-02", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  - {date: "2025-12-03", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  # --- 2026 ---
+  - {date: "2026-01-01", name: "New Year's Day", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  # 1 Muharram 1448 fell on Tue 16 Jun; the UAE holiday was set for Mon 15 Jun (FAHR/MoHRE, 3 Jun 2026).
+  - {date: "2026-06-15", name: "Hijri New Year 1448", status: verified,
+     source_url: "https://en.aletihad.ae/news/uae/4670030/uae-announces-hijri-new-year-holiday-on-june-15"}
+  # 12 Rabi' al-Awwal 1448 = Tue 25 Aug; holiday transferred to Fri 28 Aug (FAHR Circular No. 11 of 2026).
+  - {date: "2026-08-28", name: "Prophet Mohammed's Birthday (transferred)", status: verified,
+     source_url: "https://www.thenationalnews.com/news/uae/2026/08/14/prophet-mohammeds-birthday-confirmed-after-rabea-al-awwal-moon-spotted/"}
+  - {date: "2026-12-02", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  - {date: "2026-12-03", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  # --- 2027 ---
+  - {date: "2027-01-01", name: "New Year's Day", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  # Arithmetic estimate (1448 + ~354 days); 5/6 Jun 2027 is a weekend, so likely no weekday off.
+  - {date: "2027-06-06", name: "Hijri New Year 1449", status: estimated, method: "1448 date + 354 days",
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  # Arithmetic estimate (1448 + ~354 days); 14/15 Aug 2027 is a weekend. Cabinet may transfer.
+  - {date: "2027-08-15", name: "Prophet Mohammed's Birthday", status: estimated, method: "1448 date + 354 days",
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  - {date: "2027-12-02", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+  - {date: "2027-12-03", name: "National Day (Eid Al Etihad)", status: verified,
+     source_url: "https://u.ae/en/information-and-services/public-holidays-and-religious-affairs/public-holidays"}
+
+# Commemoration Day (30 Nov) is NOT on the current official holiday list (u.ae public-holidays page,
+# updated 29 Oct 2026; Cabinet Resolution No. 27 of 2024). Treated as an observance: sends allowed,
+# but message templates may avoid celebratory tone.
+observances:
+  - {date: "2024-11-30", name: "Commemoration Day", status: observance}
+  - {date: "2025-11-30", name: "Commemoration Day", status: observance}
+  - {date: "2026-11-30", name: "Commemoration Day", status: observance}
+  - {date: "2027-11-30", name: "Commemoration Day", status: observance}
+
+no_send_periods:                  # Eid holidays: no sends, clinics closed
+  - {start: "2025-03-30", end: "2025-04-01", name: "Eid al-Fitr 2025", status: verified, clinic_closed: true,
+     source_url: "https://mohre.gov.ae/en/media-center/news/19/3/2025/eid-al-fitr-holiday-announced-for-private-sector"}
+  - {start: "2025-06-05", end: "2025-06-08", name: "Arafah Day + Eid al-Adha 2025", status: verified,
+     clinic_closed: true,
+     source_url: "https://www.thenationalnews.com/news/uae/2025/05/29/eid-al-adha-2025-holiday-confirmed-for-private-sector"}
+  # Ramadan 1447 lasted 30 days (Eid = Fri 20 Mar), so day 30 (19 Mar) is part of the holiday.
+  - {start: "2026-03-19", end: "2026-03-22", name: "Eid al-Fitr 2026", status: verified, clinic_closed: true,
+     source_url: "https://www.khaleejtimes.com/uae/uae-eid-al-fitr-2026-holiday-dates-private-sector-employees"}
+  # Private sector 26-29 May; federal government 25-29 May. Wider window used.
+  - {start: "2026-05-25", end: "2026-05-29", name: "Arafah Day + Eid al-Adha 2026", status: verified,
+     clinic_closed: true,
+     source_url: "https://en.aletihad.ae/news/uae/4666606/uae-announces-paid-eid-al-adha-holiday-for-private-sector-fr"}
+  # Eid expected Tue 9 or Wed 10 Mar 2027; window covers both cases (incl. 30th of Ramadan rule).
+  - {start: "2027-03-09", end: "2027-03-12", name: "Eid al-Fitr 2027", status: estimated, clinic_closed: true,
+     source_url: "https://gulfnews.com/living-in-uae/ask-us/ramadan-2027-eid-al-fitr-eid-al-adha-uae-public-holidays-1.500712923"}
+  - {start: "2027-05-15", end: "2027-05-18", name: "Arafah Day + Eid al-Adha 2027", status: estimated,
+     clinic_closed: true,
+     source_url: "https://gulfnews.com/living-in-uae/ask-us/ramadan-2027-eid-al-fitr-eid-al-adha-uae-public-holidays-1.500712923"}
+
+ramadan:
+  # 1 Ramadan 1446 = Sat 1 Mar 2025 (Presidential Court); 29 days, Eid Sun 30 Mar.
+  - {year: 2025, start: "2025-03-01", end: "2025-03-29", status: verified,
+     source_url: "https://gulftoday.ae/news/2025/02/28/crescent-moon-sighted-in-uae-holy-month-to-begin-on-march-1",
+     rules: {no_daytime_appointments_for_fasting_adults: true, preferred_appointment_window: ["19:30", "23:00"],
+             send_after_iftar: true}}
+  # 1 Ramadan 1447 = Wed 18 Feb 2026; Presidential Court: Thu 19 Mar completes Ramadan, Eid Fri 20 Mar.
+  - {year: 2026, start: "2026-02-18", end: "2026-03-19", status: verified,
+     source_url: "https://www.wam.ae/en/article/bysbidd-breaking-wednesday-first-day-ramadan-uae",
+     rules: {no_daytime_appointments_for_fasting_adults: true, preferred_appointment_window: ["19:30", "23:00"],
+             send_after_iftar: true}}
+  # Expected Mon 8 Feb 2027 (Emirates Astronomical Society via Gulf News); ends 8 or 9 Mar (29/30 days).
+  # End set to the later date so rules cover both cases.
+  - {year: 2027, start: "2027-02-08", end: "2027-03-09", status: astronomical_estimate,
+     source_url: "https://gulfnews.com/living-in-uae/ask-us/ramadan-2027-eid-al-fitr-eid-al-adha-uae-public-holidays-1.500712923",
+     rules: {no_daytime_appointments_for_fasting_adults: true, preferred_appointment_window: ["19:30", "23:00"],
+             send_after_iftar: true}}
+
+school_exam_windows:              # PLACEHOLDER dates - not taken from any school calendar
+  - {start: "2026-12-07", end: "2026-12-18", label: "Term 1 exams (placeholder)", status: placeholder,
+     avoid_audiences: [teen, child]}
+  - {start: "2027-03-15", end: "2027-03-26", label: "Term 2 exams (placeholder)", status: placeholder,
+     avoid_audiences: [teen, child]}
+  - {start: "2027-06-07", end: "2027-06-25", label: "Term 3 / final exams (placeholder)", status: placeholder,
+     avoid_audiences: [teen, child]}
+
+summer_heat: {months: [6, 7, 8, 9], avoid_van_window: ["11:00", "16:00"], prefer_indoor_clinics: true}

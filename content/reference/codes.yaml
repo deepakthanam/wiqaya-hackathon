@@ -1,0 +1,79 @@
+# Internal keys -> FHIR codings (verified 2026-11-07 on tx.fhir.org; see codes_verification.yaml). Standard codes are used only where verified (see codes_verification.yaml);
+# everything else uses the local code system. Every local code is listed in docs/CODES.md.
+local_system: "http://wiqaya.health/CodeSystem/local"
+systems:
+  loinc: "http://loinc.org"
+  snomed: "http://snomed.info/sct"
+  cvx: "http://hl7.org/fhir/sid/cvx"
+  rolecode: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+
+observations:     # key -> codings (first = primary); unit; value_type numeric|coded
+  hba1c:      {codings: [{system: loinc, code: "4548-4", display: "Hemoglobin A1c/Hemoglobin.total in Blood"}], unit: "%", value_type: numeric}
+  bmi:        {codings: [{system: loinc, code: "39156-5", display: "Body mass index (BMI) [Ratio]"}], unit: "kg/m2", value_type: numeric}
+  sbp:        {codings: [{system: loinc, code: "8480-6", display: "Systolic blood pressure"}], unit: "mm[Hg]", value_type: numeric}
+  dbp:        {codings: [{system: loinc, code: "8462-4", display: "Diastolic blood pressure"}], unit: "mm[Hg]", value_type: numeric}
+  ldl:        {codings: [{system: loinc, code: "13457-7", display: "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"}], unit: "mg/dL", value_type: numeric}
+  total_chol: {codings: [{system: loinc, code: "2093-3", display: "Cholesterol [Mass/volume] in Serum or Plasma"}], unit: "mg/dL", value_type: numeric}
+  bmi_pct:    {codings: [{system: loinc, code: "59576-9", display: "Body mass index (BMI) [Percentile] Per age and sex"}], unit: "%", value_type: numeric}
+  dev_screen: {codings: [{system: local, code: "obs-developmental-screen", display: "Developmental screening result (1=refer, 0=pass)"}], unit: "", value_type: coded}
+  autism_screen: {codings: [{system: local, code: "obs-autism-screen", display: "Autism screening result (1=refer, 0=pass)"}], unit: "", value_type: coded}
+  cytology:   {codings: [{system: local, code: "obs-cervical-cytology", display: "Cervical cytology result (1=abnormal, 0=normal)"}, {system: loinc, code: "19762-4", display: "General categories [Interpretation] of Cervical or vaginal smear or scraping by Cyto stain"}], unit: "", value_type: coded}
+  hpv:        {codings: [{system: local, code: "obs-hpv-test", display: "High-risk HPV test (1=detected, 0=not detected)"}, {system: loinc, code: "59420-0", display: "Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe with signal amplification"}], unit: "", value_type: coded}
+  fit:        {codings: [{system: local, code: "obs-fit", display: "Faecal immunochemical test (1=positive, 0=negative)"}, {system: loinc, code: "29771-3", display: "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"}], unit: "", value_type: coded}
+  mammogram:  {codings: [{system: local, code: "obs-mammogram-birads", display: "Mammogram BI-RADS assessment category"}, {system: loinc, code: "24606-6", display: "MG Breast Screening"}], unit: "", value_type: numeric}
+
+genomic:
+  panel:   {system: loinc, code: "69548-6", display: "Genetic variant assessment"}
+  gene:    {system: loinc, code: "48018-6", display: "Gene studied [ID]"}
+  variant: {system: local, code: "obs-variant-ref", display: "Variant reference (ClinVar variation id; illustrative)"}
+  significance: {system: local, code: "obs-variant-significance", display: "Variant clinical significance"}
+
+conditions:       # key -> codings
+  t2d:              {codings: [{system: local, code: "cond-t2d", display: "Type 2 diabetes mellitus"}, {system: snomed, code: "44054006", display: "Type 2 diabetes mellitus"}]}
+  t1d:              {codings: [{system: local, code: "cond-t1d", display: "Type 1 diabetes mellitus"}]}
+  prediabetes:      {codings: [{system: local, code: "cond-prediabetes", display: "Prediabetes"}, {system: snomed, code: "714628002", display: "Prediabetes"}]}
+  hypertension:     {codings: [{system: local, code: "cond-hypertension", display: "Hypertension"}, {system: snomed, code: "38341003", display: "Hypertensive disorder"}]}
+  dyslipidaemia:    {codings: [{system: local, code: "cond-dyslipidaemia", display: "Dyslipidaemia"}, {system: snomed, code: "55822004", display: "Hyperlipidemia"}]}
+  fh:               {codings: [{system: local, code: "cond-fh", display: "Familial hypercholesterolaemia"}, {system: snomed, code: "398036000", display: "Familial hypercholesterolemia"}]}
+  developmental_delay: {codings: [{system: local, code: "cond-developmental-delay", display: "Developmental delay (suspected, referred)"}, {system: snomed, code: "248290002", display: "Developmental delay"}]}
+  cin2plus:         {codings: [{system: local, code: "cond-cin2plus", display: "Cervical intraepithelial neoplasia grade 2 or worse"}]}
+  colorectal_neoplasia: {codings: [{system: local, code: "cond-colorectal-adv-neoplasia", display: "Advanced colorectal neoplasia"}]}
+  child_obesity:    {codings: [{system: local, code: "cond-child-high-bmi", display: "BMI-for-age at or above 95th percentile"}]}
+
+family_history:   # key -> local code (FamilyMemberHistory.condition)
+  t2d: {system: local, code: "fhx-t2d", display: "Family history: type 2 diabetes"}
+  premature_cvd: {system: local, code: "fhx-premature-cvd", display: "Family history: premature cardiovascular disease"}
+  colorectal: {system: local, code: "fhx-colorectal", display: "Family history: colorectal neoplasia"}
+  breast: {system: local, code: "fhx-breast", display: "Family history: breast/ovarian neoplasia"}
+
+vaccines:         # local code first; CVX added only where verified. Combination vaccines stay local-only.
+  hepb: {codings: [{system: local, code: "vax-hepb", display: "Hepatitis B"}, {system: cvx, code: "08", display: "Hep B, adolescent or pediatric"}]}
+  dtap_ipv_hib: {codings: [{system: local, code: "vax-dtap-ipv-hib", display: "DTaP-IPV-Hib (combination)"}]}
+  dtap_ipv: {codings: [{system: local, code: "vax-dtap-ipv", display: "DTaP-IPV booster"}]}
+  pcv: {codings: [{system: local, code: "vax-pcv", display: "Pneumococcal conjugate"}, {system: cvx, code: "152", display: "Pneumococcal Conjugate, unspecified formulation"}]}
+  rotavirus: {codings: [{system: local, code: "vax-rotavirus", display: "Rotavirus"}, {system: cvx, code: "122", display: "rotavirus, unspecified formulation"}]}
+  mmr: {codings: [{system: local, code: "vax-mmr", display: "Measles, mumps, rubella"}, {system: cvx, code: "03", display: "MMR"}]}
+  varicella: {codings: [{system: local, code: "vax-varicella", display: "Varicella"}, {system: cvx, code: "21", display: "varicella"}]}
+  hepa: {codings: [{system: local, code: "vax-hepa", display: "Hepatitis A"}, {system: cvx, code: "85", display: "Hep A, unspecified formulation"}]}
+  tdap: {codings: [{system: local, code: "vax-tdap", display: "Tdap"}, {system: cvx, code: "115", display: "Tdap"}]}
+  hpv: {codings: [{system: local, code: "vax-hpv", display: "HPV"}, {system: cvx, code: "165", display: "HPV9"}]}
+
+encounter_types:  # local codes
+  wcv: "enc-wcv"
+  adult_screen: "enc-adult-screen"
+  acute: "enc-acute"
+  chronic_review: "enc-chronic-review"
+  mobile_van: "enc-mobile-van"
+
+relationships:    # internal type -> v3-RoleCode (verified codes only; see codes_verification.yaml)
+  mother: MTH
+  father: FTH
+  child: CHILD
+  sibling: SIB
+  spouse: SPS
+  grandparent: GRPRN
+  aunt_uncle: FAMMEMB
+  cousin: COUSN
+
+care_gap_codes:   # DetectedIssue.code per rule (local)
+  prefix: "gap-"

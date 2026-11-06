@@ -1,0 +1,24 @@
+# Clinic capacity for the 12-week evaluation period. ASSUMPTIONS.
+# Capacity is set deliberately well below need so that prioritisation matters (brief: ~15% of open gaps).
+target_share_of_open_gaps: 0.15
+# Relative share of capacity per slot type. Slot types map to rule pathways.
+slot_type_weights:
+  child: 0.35          # wcv, developmental, immunisation, child follow-up
+  adult: 0.50          # adult screening + follow-up + cascade
+  women: 0.15          # cervical + breast (female staff)
+pathway_slot_type:
+  wcv: child
+  developmental: child
+  immunisation: child
+  followup_child: child
+  adult_screening: adult
+  followup: adult
+  cascade: adult
+  women_screening: women
+open_weekdays: [mon, tue, wed, thu, fri]   # clinics closed Sat/Sun and public holidays in calendar.yaml
+clinic_weight_by_district_population: true # bigger districts get more slots
+mobile_van:
+  id: van_1
+  slots_per_stop: 30
+  slot_type: adult
+  weeks: all

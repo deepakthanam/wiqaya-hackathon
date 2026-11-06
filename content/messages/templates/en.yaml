@@ -1,0 +1,846 @@
+# English source templates (human-written). Other languages are machine drafts of these.
+# Plain language (about 6th-grade level), calm and respectful. Never name a condition.
+# `decline_text` must appear in `text`: every message offers a way to say no.
+language: en
+review_status: source
+templates:
+
+# ---------------------------------------------------------------- Well-Child Visit
+- id: WCV_PARENT_WHATSAPP
+  pathway: wcv
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. {child_first_name} is due for a routine
+    check-up ({visit_label}). These visits help us follow how your child is growing. We have kept
+    times for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to
+    receive these reminders.
+- id: WCV_PARENT_SMS
+  pathway: wcv
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name} is due a routine child check-up. Free time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: WCV_PARENT_CALL
+  pathway: wcv
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? My name is {caller_name} from {clinic_name}.
+    I am calling because {child_first_name} is due for a routine check-up, the {visit_label}.
+    These visits help us follow your child's growth and give any vaccines that are due. We have
+    these times: {slot_options}. Which one suits you? If another day is better, I can find one.
+    If you prefer not to get these reminders, tell me and we will stop these calls.
+- id: WCV_PARENT_CHW
+  pathway: wcv
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself as a community health worker from
+    {clinic_name}. Explain that {child_first_name} is due for a routine check-up ({visit_label})
+    and that these visits check growth and give vaccines that are due. Offer these times:
+    {slot_options}. Help with transport questions. If they prefer not to take part, thank them,
+    record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Developmental check
+- id: DEV_PARENT_WHATSAPP
+  pathway: developmental
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. At {child_first_name}'s age, we offer
+    every child a short check of how they play, talk and move. You can ask us anything about your
+    child's growth too. Times we kept for you: {slot_options}. Reply 1 to book, 2 for another time,
+    3 if you prefer not to receive these reminders.
+- id: DEV_PARENT_SMS
+  pathway: developmental
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: time for {child_first_name}'s routine play and growth check. Free time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: DEV_PARENT_CALL
+  pathway: developmental
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We offer
+    every child of {child_first_name}'s age a short check of how they play, talk and move. It takes
+    about 20 minutes, and you can ask the doctor any questions. We have these times:
+    {slot_options}. Which one suits you? If you prefer not to get these reminders, tell me and we
+    will stop these calls.
+- id: DEV_PARENT_CHW
+  pathway: developmental
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that every child
+    of {child_first_name}'s age is offered a short routine check of play, talking and movement, and
+    that parents can ask any questions. Offer these times: {slot_options}. If they prefer not to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Immunisation catch-up
+- id: IMM_PARENT_WHATSAPP
+  pathway: immunisation
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Our records show {child_first_name} has a
+    routine vaccine that is due. Vaccines keep children protected. Times we kept for you:
+    {slot_options}. If you think our record is not up to date, please tell us. Reply 1 to book,
+    2 for another time, 3 if you prefer not to receive these reminders.
+- id: IMM_PARENT_SMS
+  pathway: immunisation
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name} has a routine vaccine due. Free time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: IMM_PARENT_CALL
+  pathway: immunisation
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Our
+    records show that {child_first_name} has a routine vaccine due. If the vaccine was given
+    somewhere else, please let us know so we can update the record. We have these times:
+    {slot_options}. Which one suits you? If you prefer not to get these reminders, tell me and we
+    will stop these calls.
+- id: IMM_PARENT_CHW
+  pathway: immunisation
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {child_first_name} has a routine vaccine due. Ask to see the vaccine card if they have one, and
+    note any vaccines given elsewhere. Offer these times: {slot_options}. If they prefer not to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Child growth follow-up
+- id: GROWTH_PARENT_WHATSAPP
+  pathway: child_growth_followup
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. We would like to see {child_first_name}
+    for a routine follow-up growth visit. We will talk about healthy eating, sleep and play for the
+    whole family. Times we kept for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if
+    you prefer not to receive these reminders.
+- id: GROWTH_PARENT_SMS
+  pathway: child_growth_followup
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {child_first_name} is due a routine growth follow-up visit. Free time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: GROWTH_PARENT_CALL
+  pathway: child_growth_followup
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We would
+    like to invite {child_first_name} for a routine follow-up growth visit. The doctor will talk
+    with you about healthy eating, sleep and play for the whole family. We have these times:
+    {slot_options}. If you prefer not to get these reminders, tell me and we will stop these calls.
+- id: GROWTH_PARENT_CHW
+  pathway: child_growth_followup
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Invite
+    {child_first_name} for a routine follow-up growth visit. Keep the talk positive and about the
+    whole family's habits; do not comment on the child's body. Offer these times: {slot_options}.
+    If they prefer not to take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood sugar check
+- id: T2D_ADULT_WHATSAPP
+  pathway: adult_t2d
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for a routine blood sugar
+    check. It is a simple blood test and is part of staying well. Times we kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive these
+    reminders.
+- id: T2D_ADULT_SMS
+  pathway: adult_t2d
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due a routine blood sugar test. Free time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: T2D_ADULT_CALL
+  pathway: adult_t2d
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. You are
+    due for a routine blood sugar check. It is a simple blood test that takes a few minutes. We have
+    these times: {slot_options}. Which one suits you? If you prefer not to get these reminders, tell
+    me and we will stop these calls.
+- id: T2D_ADULT_CHW
+  pathway: adult_t2d
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine blood sugar test, which is a simple blood test. Offer these times:
+    {slot_options}, and help with any questions about time off work or transport. If they prefer
+    not to take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood pressure check
+- id: BP_ADULT_WHATSAPP
+  pathway: adult_bp
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for a routine blood pressure
+    check. It is quick and does not hurt. Times we kept for you: {slot_options}. Reply 1 to book,
+    2 for another time, 3 if you prefer not to receive these reminders.
+- id: BP_ADULT_SMS
+  pathway: adult_bp
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due a quick blood pressure check. Free time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: BP_ADULT_CALL
+  pathway: adult_bp
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. You are
+    due for a routine blood pressure check. It takes a few minutes and does not hurt. We have these
+    times: {slot_options}. Which one suits you? If you prefer not to get these reminders, tell me
+    and we will stop these calls.
+- id: BP_ADULT_CHW
+  pathway: adult_bp
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine blood pressure check, which is quick and painless. Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+- id: BP_CAREGIVER_WHATSAPP
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. {member_names} is due for a routine blood
+    pressure check. If it helps, you are welcome to come along. Times we kept: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you prefer not to receive these reminders.
+- id: BP_CAREGIVER_SMS
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {member_names} is due a quick blood pressure check. Free time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: BP_CAREGIVER_CALL
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, who is due for a routine blood pressure check. You are welcome to
+    come along. We have these times: {slot_options}. Would one of these suit you both? If you prefer
+    not to get these reminders, tell me and we will stop these calls.
+- id: BP_CAREGIVER_CHW
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {member_names} is due for a routine blood pressure check, and ask whether they need help with
+    transport or someone to come along. Speak to the older person directly too. Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: lipid check
+- id: LIPID_ADULT_WHATSAPP
+  pathway: adult_lipid
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for a routine heart-health
+    blood test (cholesterol check). Times we kept for you: {slot_options}. Reply 1 to book, 2 for
+    another time, 3 if you prefer not to receive these reminders.
+- id: LIPID_ADULT_SMS
+  pathway: adult_lipid
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due a routine heart-health blood test. Free
+    time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: LIPID_ADULT_CALL
+  pathway: adult_lipid
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. You are
+    due for a routine heart-health blood test, also called a cholesterol check. We have these times:
+    {slot_options}. Which one suits you? If you prefer not to get these reminders, tell me and we
+    will stop these calls.
+- id: LIPID_ADULT_CHW
+  pathway: adult_lipid
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine heart-health blood test (cholesterol check). Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: cervical screening
+- id: CERVICAL_ADULT_WHATSAPP
+  pathway: cervical
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for routine cervical screening
+    (a smear test). It is done by a female nurse or doctor and takes a few minutes. Times we kept
+    for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive
+    these reminders.
+- id: CERVICAL_ADULT_SMS
+  pathway: cervical
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due routine cervical screening with a female
+    nurse. Free time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CERVICAL_ADULT_CALL
+  pathway: cervical
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a
+    private call. You are due for routine cervical screening, also called a smear test. A female
+    nurse or doctor does it and it takes a few minutes. We have these times: {slot_options}. If you
+    prefer not to get these reminders, tell me and we will stop these calls.
+- id: CERVICAL_ADULT_CHW
+  pathway: cervical
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Explain that routine cervical screening (smear test) is offered to
+    women of her age and is done by a female nurse or doctor. Offer these times: {slot_options}. If
+    she prefers not to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: bowel screening
+- id: COLORECTAL_ADULT_WHATSAPP
+  pathway: colorectal
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for routine bowel screening.
+    You can collect a simple home test kit and do it in private. Times to collect the kit or talk
+    to a nurse: {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive
+    these reminders.
+- id: COLORECTAL_ADULT_SMS
+  pathway: colorectal
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due a routine bowel screening home kit. Collect:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: COLORECTAL_ADULT_CALL
+  pathway: colorectal
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. You are
+    due for routine bowel screening. It is a simple test kit you use at home, in private. You can
+    collect it at these times: {slot_options}. If you prefer not to get these reminders, tell me and
+    we will stop these calls.
+- id: COLORECTAL_ADULT_CHW
+  pathway: colorectal
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that routine
+    bowel screening is a simple home test kit. Show how the kit works if they have questions.
+    Offer these collection times: {slot_options}. If they prefer not to take part, thank them,
+    record "declined" and do not ask again.
+- id: COLORECTAL_CAREGIVER_WHATSAPP
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. {member_names} is due for routine bowel
+    screening, a simple home test kit. You can collect it for them at these times: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you prefer not to receive these reminders.
+- id: COLORECTAL_CAREGIVER_SMS
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {member_names} is due a routine bowel screening home kit. Collect: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: COLORECTAL_CAREGIVER_CALL
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, who is due for routine bowel screening. It is a simple home test
+    kit, and you can collect it for them at these times: {slot_options}. If you prefer not to get
+    these reminders, tell me and we will stop these calls.
+- id: COLORECTAL_CAREGIVER_CHW
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {member_names} is due for routine bowel screening with a home test kit, and offer to explain the
+    kit to both of them. Offer these times: {slot_options}. If they prefer not to take part, thank
+    them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: breast screening
+- id: BREAST_ADULT_WHATSAPP
+  pathway: breast
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. You are due for routine breast screening
+    (a mammogram). It is done by female staff and takes about 15 minutes. Times we kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive these
+    reminders.
+- id: BREAST_ADULT_SMS
+  pathway: breast
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, you are due routine breast screening with female staff.
+    Free time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: BREAST_ADULT_CALL
+  pathway: breast
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a
+    private call. You are due for routine breast screening, called a mammogram. Female staff do it
+    and it takes about 15 minutes. We have these times: {slot_options}. If you prefer not to get
+    these reminders, tell me and we will stop these calls.
+- id: BREAST_ADULT_CHW
+  pathway: breast
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Explain that routine breast screening (mammogram) is offered to
+    women of her age and is done by female staff. Offer these times: {slot_options}. If she prefers
+    not to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Follow-up retest
+- id: FOLLOWUP_ADULT_WHATSAPP
+  pathway: followup_retest
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Your doctor would like you to come back for
+    a routine repeat check. This is a normal part of care. Times we kept for you: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you prefer not to receive these reminders.
+- id: FOLLOWUP_ADULT_SMS
+  pathway: followup_retest
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, your doctor asks you to come for a routine repeat check.
+    Free time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: FOLLOWUP_ADULT_CALL
+  pathway: followup_retest
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor would like you to come back for a routine repeat check. This is a normal part of care,
+    and the doctor can answer your questions. We have these times: {slot_options}. If you prefer not
+    to get these reminders, tell me and we will stop these calls.
+- id: FOLLOWUP_ADULT_CHW
+  pathway: followup_retest
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that their
+    doctor has asked for a routine repeat check, which is a normal part of care. Do not discuss
+    results; the doctor will do that. Offer these times: {slot_options}. If they prefer not to take
+    part, thank them, record "declined" and do not ask again.
+- id: FOLLOWUP_CAREGIVER_WHATSAPP
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. The doctor would like {member_names} to come
+    back for a routine repeat check. You are welcome to come along. Times we kept: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you prefer not to receive these reminders.
+- id: FOLLOWUP_CAREGIVER_SMS
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: the doctor asks {member_names} to come for a routine repeat check. Free time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: FOLLOWUP_CAREGIVER_CALL
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. The doctor
+    would like {member_names} to come back for a routine repeat check. You are welcome to come along.
+    We have these times: {slot_options}. If you prefer not to get these reminders, tell me and we
+    will stop these calls.
+- id: FOLLOWUP_CAREGIVER_CHW
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that the doctor
+    has asked {member_names} to come back for a routine repeat check. Ask whether they need
+    transport or someone to come along. Offer these times: {slot_options}. If they prefer not to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Household bundle
+- id: BUNDLE_ADULT_WHATSAPP
+  pathway: household_bundle
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. {n_members} family members ({member_names})
+    can be seen on one day, so you only need to make one trip. Times we kept for your family:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive these
+    reminders.
+- id: BUNDLE_ADULT_SMS
+  pathway: household_bundle
+  audience: adult
+  channel: sms
+  slots: [n_members, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {n_members} family members can be seen on one day. Free time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: BUNDLE_ADULT_CALL
+  pathway: household_bundle
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We can see
+    {n_members} of your family members, {member_names}, on the same day, so you only need one trip.
+    We have these times: {slot_options}. Which one suits your family? If you prefer not to get these
+    reminders, tell me and we will stop these calls.
+- id: BUNDLE_ADULT_CHW
+  pathway: household_bundle
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {n_members} family members ({member_names}) have routine checks due and can all be seen on one
+    day. Offer these times: {slot_options}. If they prefer not to take part, thank them, record
+    "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Mobile van
+- id: VAN_ADULT_WHATSAPP
+  pathway: mobile_van
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}. The free health van will be at {van_location} on {van_date}. You
+    can have your {pathway_label} there, close to where you live. No appointment is needed, but you
+    can reply 1 to reserve a time, 2 for another day, 3 if you prefer not to receive these
+    reminders.
+- id: VAN_ADULT_SMS
+  pathway: mobile_van
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, van_location, van_date]
+  decline_text: "3=STOP"
+  text: >-
+    {recipient_first_name}, the free health van is at {van_location} on {van_date} for routine
+    checks. Reply 1=reserve 2=other day 3=STOP
+- id: VAN_ADULT_CALL
+  pathway: mobile_van
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from the community health
+    team. Our free health van will be at {van_location} on {van_date}. You can have your
+    {pathway_label} there, close to where you live, without taking much time off work. Shall I
+    reserve a time for you? If you prefer not to get these reminders, tell me and we will stop these
+    calls.
+- id: VAN_ADULT_CHW
+  pathway: mobile_van
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from the community health team. Explain
+    that the free health van will be at {van_location} on {van_date} for routine checks, including
+    their {pathway_label}. Ask what time suits their work shift. If they prefer not to take part,
+    thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Cascade (clinician-approved only)
+- id: CASCADE_ADULT_WHATSAPP
+  pathway: cascade_family
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Your doctor recommends a heart-health check
+    for your family. It is a simple blood test. Times we kept for you: {slot_options}. Reply 1 to
+    book, 2 for another time, 3 if you prefer not to receive these reminders.
+- id: CASCADE_ADULT_SMS
+  pathway: cascade_family
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, your doctor recommends a family heart-health check.
+    Free time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CASCADE_ADULT_CALL
+  pathway: cascade_family
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family. It is a simple blood test. I am not able
+    to share anyone else's health information, but the doctor can answer your own questions at the
+    visit. We have these times: {slot_options}. If you prefer not to get these reminders, tell me
+    and we will stop these calls.
+- id: CASCADE_ADULT_CHW
+  pathway: cascade_family
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that their
+    doctor recommends a heart-health check for the family, which is a simple blood test. Never
+    discuss any other person's health. Offer these times: {slot_options}. If they prefer not to take
+    part, thank them, record "declined" and do not ask again.
+- id: CASCADE_PARENT_WHATSAPP
+  pathway: cascade_family
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 if you prefer not to receive these reminders"
+  text: >-
+    Hello {recipient_first_name}, this is {clinic_name}. Your doctor recommends a heart-health check
+    for your family, including {child_first_name}. It is a simple blood test. Times we kept for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you prefer not to receive these
+    reminders.
+- id: CASCADE_PARENT_SMS
+  pathway: cascade_family
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: your doctor recommends a family heart-health check, including
+    {child_first_name}. Free time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CASCADE_PARENT_CALL
+  pathway: cascade_family
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "tell me and we will stop these calls"
+  text: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family, including {child_first_name}. It is a
+    simple blood test, and the doctor will explain it at the visit. We have these times:
+    {slot_options}. If you prefer not to get these reminders, tell me and we will stop these calls.
+- id: CASCADE_PARENT_CHW
+  pathway: cascade_family
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "do not ask again"
+  text: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that their
+    doctor recommends a heart-health check for the family, including {child_first_name}. Never
+    discuss any other person's health. Offer these times: {slot_options}. If they prefer not to take
+    part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Confirmations
+- id: PREF_CONFIRM_WHATSAPP
+  pathway: preference_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name]
+  decline_text: "reply STOP"
+  text: >-
+    Thank you, {recipient_first_name}. We have saved your contact preferences. You can change them
+    at any time, or reply STOP to stop all reminders.
+- id: PREF_CONFIRM_SMS
+  pathway: preference_confirm
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name]
+  decline_text: "STOP"
+  text: >-
+    Thank you {recipient_first_name}. Your contact preferences are saved. Reply STOP to stop all
+    reminders.
+- id: OPTOUT_CONFIRM_WHATSAPP
+  pathway: optout_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, pathway_label]
+  decline_text: "reply STOP"
+  text: >-
+    Thank you, {recipient_first_name}. You will not get more reminders about {pathway_label}. This
+    does not change your care. If you change your mind, just tell your clinic. To stop all
+    reminders, reply STOP.
+- id: OPTOUT_CONFIRM_SMS
+  pathway: optout_confirm
+  audience: adult
+  channel: sms
+  slots: [pathway_label]
+  decline_text: "STOP"
+  text: >-
+    You will not get more reminders about {pathway_label}. Your care does not change. Reply STOP to
+    stop all reminders.
+- id: LATER_CONFIRM_WHATSAPP
+  pathway: remind_later_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, until_date]
+  decline_text: "reply STOP"
+  text: >-
+    Thank you, {recipient_first_name}. We will remind you again after {until_date}. To stop all
+    reminders, reply STOP.
+- id: LATER_CONFIRM_SMS
+  pathway: remind_later_confirm
+  audience: adult
+  channel: sms
+  slots: [until_date]
+  decline_text: "STOP"
+  text: >-
+    OK, we will remind you after {until_date}. Reply STOP to stop all reminders.

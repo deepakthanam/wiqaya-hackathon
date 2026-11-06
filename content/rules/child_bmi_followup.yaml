@@ -1,0 +1,28 @@
+id: CHILD_BMI_FOLLOWUP
+version: 1.0.0
+title: Follow-up visit after high BMI-for-age (95th percentile or above)
+pathway: followup
+kind: followup
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – High Body Mass Index in Children and Adolescents: Interventions"
+  year: 2024
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Provide or refer children 6 years or older with high BMI (>= 95th percentile) to comprehensive, intensive behavioral interventions (B)"]
+message_pathway: child_growth_followup
+slot_type: child
+applies_to:
+  age_years: {min: 2, max: 17.99}
+trigger:
+  any_of: [{obs: bmi_pct, min: 95}]
+  lookback_months: 18
+followup_window_months: 6
+data_required: [birth_date, "obs:bmi_pct", "enc:chronic_review", "enc:wcv"]
+satisfied_by: ["enc:chronic_review", "enc:wcv"]
+output_codes: {gap_code: "local:gap-child-bmi-followup"}
+assumptions:
+  - "6-month follow-up window per the brief; any later Well-Child or review visit counts as follow-up."

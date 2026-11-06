@@ -1,0 +1,29 @@
+id: CASCADE_BRCA
+version: 1.0.0
+title: BRCA genetic counselling referral for first-degree adult relatives (clinician-only task)
+pathway: cascade
+kind: cascade
+status: demo_encoding_requires_clinical_validation
+requires_clinician: true
+source:
+  name: "USPSTF – BRCA-Related Cancer: Risk Assessment, Genetic Counseling, and Genetic Testing"
+  year: 2019
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/brca-related-cancer-risk-assessment-genetic-counseling-and-genetic-testing"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Assess women with a family history of BRCA1/2-related cancer or a known pathogenic variant in the family; refer positive assessments to genetic counselling (B)"]
+message_pathway: null
+slot_type: adult
+cascade:
+  index_genes: [BRCA1, BRCA2]
+  relationships: [parent, child, sibling]
+  child_min_age_years: 18
+  relative_min_age_years: 18
+  outreach_allowed_after_approval: false
+data_required: [birth_date, cascade_links]
+satisfied_by: []
+output_codes: {gap_code: "local:gap-cascade-brca"}
+assumptions:
+  - "No outreach templates: the clinician makes the genetic counselling referral directly."

@@ -1,0 +1,1233 @@
+# Tagalog/Filipino machine draft of en.yaml. Polite register (po/opo). Needs native review.
+language: tl
+review_status: machine_draft
+templates:
+
+# ---------------------------------------------------------------- Well-Child Visit
+- id: WCV_PARENT_WHATSAPP
+  pathway: wcv
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa
+    regular na check-up ni {child_first_name} ({visit_label}). Tinutulungan kami ng mga pagbisitang
+    ito na masubaybayan ang paglaki ng inyong anak. May mga oras po kaming inilaan para sa inyo:
+    {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong
+    makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for {child_first_name}'s
+    regular check-up ({visit_label}). These visits help us follow your child's growth. We set aside
+    times for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to
+    receive these reminders.
+- id: WCV_PARENT_SMS
+  pathway: wcv
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Panahon na po ng regular na check-up ni {child_first_name}. Bakanteng oras:
+    {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: It is time for {child_first_name}'s regular check-up. Free time: {slot_short}.
+    Reply: 1=book 2=other time 3=STOP
+- id: WCV_PARENT_CALL
+  pathway: wcv
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Tumatawag po ako dahil panahon na para sa regular na check-up ni
+    {child_first_name}, ang {visit_label}. Sa mga pagbisitang ito, nasusubaybayan namin ang paglaki
+    ng inyong anak at naibibigay ang mga bakunang nakatakda na. Ito po ang mga bakanteng oras:
+    {slot_options}. Alin po ang maginhawa sa inyo? Kung mas mabuti ang ibang araw, hahanap po ako.
+    Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na
+    namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling because it is time for {child_first_name}'s regular check-up, the {visit_label}. At these
+    visits we follow your child's growth and give vaccines that are due. These are the free times:
+    {slot_options}. Which one suits you? If another day is better, I will find one. If you no longer
+    want these reminders, just tell me and we will stop these calls.
+- id: WCV_PARENT_CHW
+  pathway: wcv
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala bilang community health worker mula sa
+    {clinic_name}. Ipaliwanag na panahon na para sa regular na check-up ni {child_first_name}
+    ({visit_label}) at na sa mga pagbisitang ito ay tinitingnan ang paglaki at ibinibigay ang mga
+    bakunang nakatakda na. Ialok ang mga oras na ito: {slot_options}. Tumulong sa mga tanong tungkol
+    sa transportasyon. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself as a community health worker from
+    {clinic_name}. Explain that it is time for {child_first_name}'s regular check-up ({visit_label})
+    and that these visits check growth and give vaccines that are due. Offer these times:
+    {slot_options}. Help with transport questions. If they do not want to take part, thank them,
+    record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Developmental check
+- id: DEV_PARENT_WHATSAPP
+  pathway: developmental
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Sa edad ni
+    {child_first_name}, nag-aalok kami sa bawat bata ng maikling check kung paano siya maglaro,
+    magsalita at gumalaw. Maaari rin po ninyo kaming tanungin tungkol sa paglaki ng inyong anak. Mga
+    oras na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa
+    ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. At {child_first_name}'s age, we offer
+    every child a short check of how they play, talk and move. You can also ask us about your child's
+    growth. Times we set aside for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you
+    no longer want to receive these reminders.
+- id: DEV_PARENT_SMS
+  pathway: developmental
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Panahon na po ng regular na check sa paglalaro at paglaki ni {child_first_name}.
+    Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: It is time for {child_first_name}'s regular play and growth check. Free time:
+    {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: DEV_PARENT_CALL
+  pathway: developmental
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Nag-aalok po kami sa bawat batang kasing-edad ni {child_first_name} ng
+    maikling check kung paano siya maglaro, magsalita at gumalaw. Mga 20 minuto po ito, at maaari
+    kayong magtanong sa doktor. Ito po ang mga bakanteng oras: {slot_options}. Alin po ang maginhawa
+    sa inyo? Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at
+    ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We offer
+    every child of {child_first_name}'s age a short check of how they play, talk and move. It takes
+    about 20 minutes, and you can ask the doctor questions. These are the free times: {slot_options}.
+    Which one suits you? If you no longer want these reminders, just tell me and we will stop these
+    calls.
+- id: DEV_PARENT_CHW
+  pathway: developmental
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na ang bawat
+    batang kasing-edad ni {child_first_name} ay inaalok ng maikling regular na check sa paglalaro,
+    pagsasalita at paggalaw, at na maaaring magtanong ang mga magulang. Ialok ang mga oras na ito:
+    {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that every child
+    of {child_first_name}'s age is offered a short regular check of play, talking and movement, and
+    that parents may ask questions. Offer these times: {slot_options}. If they do not want to take
+    part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Immunisation catch-up
+- id: IMM_PARENT_WHATSAPP
+  pathway: immunisation
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Ayon sa aming talaan, may
+    regular na bakuna si {child_first_name} na nakatakda na. Pinoprotektahan ng mga bakuna ang mga
+    bata. Mga oras na inilaan namin para sa inyo: {slot_options}. Kung sa tingin po ninyo ay hindi
+    updated ang aming talaan, pakisabi po sa amin. Sumagot po ng 1 para mag-book, 2 para sa ibang
+    oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. According to our records,
+    {child_first_name} has a regular vaccine that is due. Vaccines protect children. Times we set
+    aside for you: {slot_options}. If you think our record is not updated, please tell us. Reply 1 to
+    book, 2 for another time, 3 if you no longer want to receive these reminders.
+- id: IMM_PARENT_SMS
+  pathway: immunisation
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: May regular na bakuna po si {child_first_name} na nakatakda na. Bakanteng oras:
+    {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {child_first_name} has a regular vaccine that is due. Free time: {slot_short}.
+    Reply: 1=book 2=other time 3=STOP
+- id: IMM_PARENT_CALL
+  pathway: immunisation
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Ayon po sa aming talaan, may regular na bakuna si {child_first_name} na
+    nakatakda na. Kung naibigay na po ang bakuna sa ibang lugar, pakisabi po sa amin para ma-update
+    namin ang talaan. Ito po ang mga bakanteng oras: {slot_options}. Alin po ang maginhawa sa inyo?
+    Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na
+    namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Our
+    records show that {child_first_name} has a regular vaccine due. If the vaccine was already given
+    somewhere else, please tell us so we can update the record. These are the free times:
+    {slot_options}. Which one suits you? If you no longer want these reminders, just tell me and we
+    will stop these calls.
+- id: IMM_PARENT_CHW
+  pathway: immunisation
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na may regular
+    na bakuna si {child_first_name} na nakatakda na. Hilinging makita ang vaccine card kung mayroon
+    sila, at itala ang mga bakunang naibigay sa ibang lugar. Ialok ang mga oras na ito:
+    {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {child_first_name} has a regular vaccine due. Ask to see the vaccine card if they have one, and
+    note vaccines given elsewhere. Offer these times: {slot_options}. If they do not want to take
+    part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Child growth follow-up
+- id: GROWTH_PARENT_WHATSAPP
+  pathway: child_growth_followup
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Nais po naming makita si
+    {child_first_name} para sa regular na follow-up na pagbisita tungkol sa paglaki. Pag-uusapan po
+    natin ang masustansyang pagkain, tulog at laro para sa buong pamilya. Mga oras na inilaan namin
+    para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung ayaw na
+    po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. We would like to see {child_first_name}
+    for a regular follow-up visit about growth. We will talk about healthy food, sleep and play for
+    the whole family. Times we set aside for you: {slot_options}. Reply 1 to book, 2 for another
+    time, 3 if you no longer want to receive these reminders.
+- id: GROWTH_PARENT_SMS
+  pathway: child_growth_followup
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Panahon na po ng regular na follow-up sa paglaki ni {child_first_name}. Bakanteng
+    oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: It is time for {child_first_name}'s regular growth follow-up. Free time:
+    {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: GROWTH_PARENT_CALL
+  pathway: child_growth_followup
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Nais po naming imbitahan si {child_first_name} para sa regular na
+    follow-up na pagbisita tungkol sa paglaki. Kakausapin po kayo ng doktor tungkol sa masustansyang
+    pagkain, tulog at laro para sa buong pamilya. Ito po ang mga bakanteng oras: {slot_options}. Kung
+    ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na namin
+    ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We would
+    like to invite {child_first_name} for a regular follow-up visit about growth. The doctor will talk
+    with you about healthy food, sleep and play for the whole family. These are the free times:
+    {slot_options}. If you no longer want these reminders, just tell me and we will stop these calls.
+- id: GROWTH_PARENT_CHW
+  pathway: child_growth_followup
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Imbitahan si
+    {child_first_name} para sa regular na follow-up na pagbisita tungkol sa paglaki. Panatilihing
+    positibo ang usapan at tungkol sa mga gawi ng buong pamilya; huwag magkomento tungkol sa katawan
+    ng bata. Ialok ang mga oras na ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala
+    ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Invite {child_first_name}
+    for a regular follow-up visit about growth. Keep the talk positive and about the whole family's
+    habits; do not comment on the child's body. Offer these times: {slot_options}. If they do not
+    want to take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood sugar check
+- id: T2D_ADULT_WHATSAPP
+  pathway: adult_t2d
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na check ng blood sugar. Isa po itong simpleng blood test at bahagi ng pananatiling
+    malusog. Mga oras na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2
+    para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular blood sugar
+    check. It is a simple blood test and part of staying healthy. Times we set aside for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive these
+    reminders.
+- id: T2D_ADULT_SMS
+  pathway: adult_t2d
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong regular na blood sugar test.
+    Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your regular blood sugar test. Free time:
+    {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: T2D_ADULT_CALL
+  pathway: adult_t2d
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Panahon na po para sa inyong regular na check ng blood sugar. Isa po itong
+    simpleng blood test na ilang minuto lang. Ito po ang mga bakanteng oras: {slot_options}. Alin po
+    ang maginhawa sa inyo? Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po
+    sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your regular blood sugar check. It is a simple blood test that takes only a few minutes.
+    These are the free times: {slot_options}. Which one suits you? If you no longer want these
+    reminders, just tell me and we will stop these calls.
+- id: T2D_ADULT_CHW
+  pathway: adult_t2d
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na inaalok ang
+    mga adult ng regular na blood sugar test, na isang simpleng blood test. Ialok ang mga oras na ito:
+    {slot_options}, at tumulong sa mga tanong tungkol sa pagliban sa trabaho o transportasyon. Kung
+    ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a regular blood sugar test, which is a simple blood test. Offer these times:
+    {slot_options}, and help with questions about time off work or transport. If they do not want to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood pressure check
+- id: BP_ADULT_WHATSAPP
+  pathway: adult_bp
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na check ng blood pressure. Mabilis lang po ito at hindi masakit. Mga oras na inilaan
+    namin para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung
+    ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular blood
+    pressure check. It is quick and does not hurt. Times we set aside for you: {slot_options}. Reply
+    1 to book, 2 for another time, 3 if you no longer want to receive these reminders.
+- id: BP_ADULT_SMS
+  pathway: adult_bp
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong mabilis na blood pressure check.
+    Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your quick blood pressure check. Free
+    time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: BP_ADULT_CALL
+  pathway: adult_bp
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Panahon na po para sa inyong regular na check ng blood pressure. Ilang
+    minuto lang po ito at hindi masakit. Ito po ang mga bakanteng oras: {slot_options}. Alin po ang
+    maginhawa sa inyo? Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa
+    akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your regular blood pressure check. It takes only a few minutes and does not hurt. These
+    are the free times: {slot_options}. Which one suits you? If you no longer want these reminders,
+    just tell me and we will stop these calls.
+- id: BP_ADULT_CHW
+  pathway: adult_bp
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na inaalok ang
+    mga adult ng regular na blood pressure check, na mabilis at hindi masakit. Ialok ang mga oras na
+    ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a regular blood pressure check, which is quick and does not hurt. Offer these times:
+    {slot_options}. If they do not want to take part, thank them, record "declined" and do not ask
+    again.
+- id: BP_CAREGIVER_WHATSAPP
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa regular
+    na blood pressure check ni {member_names}. Kung makatutulong, malugod po kayong sumama. Mga oras
+    na inilaan namin: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung
+    ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for {member_names}'s regular
+    blood pressure check. If it helps, you are welcome to come along. Times we set aside:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive these
+    reminders.
+- id: BP_CAREGIVER_SMS
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Panahon na po ng mabilis na blood pressure check ni {member_names}. Bakanteng
+    oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: It is time for {member_names}'s quick blood pressure check. Free time:
+    {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: BP_CAREGIVER_CALL
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Tumatawag po ako tungkol kay {member_names}, na panahon na para sa regular
+    na blood pressure check. Malugod po kayong sumama. Ito po ang mga bakanteng oras: {slot_options}.
+    Mayroon po bang isa rito na maginhawa sa inyong dalawa? Kung ayaw na po ninyong makatanggap ng
+    mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, who is due for a regular blood pressure check. You are welcome to
+    come along. These are the free times: {slot_options}. Does one of these suit you both? If you no
+    longer want these reminders, just tell me and we will stop these calls.
+- id: BP_CAREGIVER_CHW
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na panahon na
+    para sa regular na blood pressure check ni {member_names}, at itanong kung kailangan nila ng
+    tulong sa transportasyon o ng makakasama. Kausapin din nang direkta ang nakatatanda. Ialok ang mga
+    oras na ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag
+    nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that it is time
+    for {member_names}'s regular blood pressure check, and ask whether they need help with transport
+    or someone to come along. Speak directly to the older person too. Offer these times:
+    {slot_options}. If they do not want to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: lipid check
+- id: LIPID_ADULT_WHATSAPP
+  pathway: adult_lipid
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na blood test para sa kalusugan ng puso (cholesterol check). Mga oras na inilaan namin
+    para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung ayaw na
+    po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular blood test
+    for heart health (cholesterol check). Times we set aside for you: {slot_options}. Reply 1 to
+    book, 2 for another time, 3 if you no longer want to receive these reminders.
+- id: LIPID_ADULT_SMS
+  pathway: adult_lipid
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong regular na blood test para sa
+    kalusugan ng puso. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your regular blood test for heart health.
+    Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: LIPID_ADULT_CALL
+  pathway: adult_lipid
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Panahon na po para sa inyong regular na blood test para sa kalusugan ng
+    puso, na tinatawag ding cholesterol check. Ito po ang mga bakanteng oras: {slot_options}. Alin po
+    ang maginhawa sa inyo? Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin lang po
+    sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your regular blood test for heart health, also called a cholesterol check. These are the
+    free times: {slot_options}. Which one suits you? If you no longer want these reminders, just tell
+    me and we will stop these calls.
+- id: LIPID_ADULT_CHW
+  pathway: adult_lipid
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na inaalok ang
+    mga adult ng regular na blood test para sa kalusugan ng puso (cholesterol check). Ialok ang mga
+    oras na ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag
+    nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a regular blood test for heart health (cholesterol check). Offer these times:
+    {slot_options}. If they do not want to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: cervical screening
+- id: CERVICAL_ADULT_WHATSAPP
+  pathway: cervical
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na cervical screening (Pap smear). Babaeng nars o doktor po ang gagawa nito at ilang
+    minuto lang. Mga oras na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para
+    mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular cervical
+    screening (Pap smear). A female nurse or doctor will do it and it takes only a few minutes. Times
+    we set aside for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer
+    want to receive these reminders.
+- id: CERVICAL_ADULT_SMS
+  pathway: cervical
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong regular na cervical screening sa
+    babaeng nars. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your regular cervical screening with a
+    female nurse. Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: CERVICAL_ADULT_CALL
+  pathway: cervical
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Pribado po ang tawag na ito. Panahon na po para sa inyong regular na
+    cervical screening, na tinatawag ding Pap smear. Babaeng nars o doktor po ang gagawa nito at ilang
+    minuto lang. Ito po ang mga bakanteng oras: {slot_options}. Kung ayaw na po ninyong makatanggap ng
+    mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is
+    a private call. It is time for your regular cervical screening, also called a Pap smear. A female
+    nurse or doctor will do it and it takes only a few minutes. These are the free times:
+    {slot_options}. If you no longer want these reminders, just tell me and we will stop these calls.
+- id: CERVICAL_ADULT_CHW
+  pathway: cervical
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Kausapin si {recipient_first_name} nang pribado, mas mabuti kung babaeng health worker ka.
+    Magpakilala mula sa {clinic_name}. Ipaliwanag na ang regular na cervical screening (Pap smear) ay
+    inaalok sa mga babaeng kasing-edad niya at ginagawa ng babaeng nars o doktor. Ialok ang mga oras
+    na ito: {slot_options}. Kung ayaw niyang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Speak with {recipient_first_name} privately, ideally if you are a female health worker. Introduce
+    yourself from {clinic_name}. Explain that regular cervical screening (Pap smear) is offered to
+    women her age and is done by a female nurse or doctor. Offer these times: {slot_options}. If she
+    does not want to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: bowel screening
+- id: COLORECTAL_ADULT_WHATSAPP
+  pathway: colorectal
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na bowel screening. Maaari po kayong kumuha ng simpleng test kit na gagamitin sa bahay
+    nang pribado. Mga oras para kunin ang kit o makausap ang nars: {slot_options}. Sumagot po ng 1
+    para mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular bowel
+    screening. You can pick up a simple test kit to use at home in private. Times to pick up the kit
+    or talk to a nurse: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want
+    to receive these reminders.
+- id: COLORECTAL_ADULT_SMS
+  pathway: colorectal
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong regular na bowel screening home
+    kit. Kunin: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your regular bowel screening home kit.
+    Pick up: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: COLORECTAL_ADULT_CALL
+  pathway: colorectal
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Panahon na po para sa inyong regular na bowel screening. Isa po itong
+    simpleng test kit na gagamitin ninyo sa bahay, nang pribado. Maaari po ninyo itong kunin sa mga
+    oras na ito: {slot_options}. Kung ayaw na po ninyong makatanggap ng mga paalalang ito, sabihin
+    lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your regular bowel screening. It is a simple test kit you use at home, in private. You
+    can pick it up at these times: {slot_options}. If you no longer want these reminders, just tell
+    me and we will stop these calls.
+- id: COLORECTAL_ADULT_CHW
+  pathway: colorectal
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na ang regular
+    na bowel screening ay isang simpleng test kit na ginagamit sa bahay. Ipakita kung paano gamitin
+    ang kit kung may mga tanong sila. Ialok ang mga oras na ito para kunin ang kit: {slot_options}.
+    Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that regular
+    bowel screening is a simple test kit used at home. Show how to use the kit if they have
+    questions. Offer these times to pick up the kit: {slot_options}. If they do not want to take
+    part, thank them, record "declined" and do not ask again.
+- id: COLORECTAL_CAREGIVER_WHATSAPP
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa regular
+    na bowel screening ni {member_names}, isang simpleng test kit na gagamitin sa bahay. Maaari po
+    ninyo itong kunin para sa kanila sa mga oras na ito: {slot_options}. Sumagot po ng 1 para
+    mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for {member_names}'s regular
+    bowel screening, a simple test kit used at home. You can pick it up for them at these times:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive these
+    reminders.
+- id: COLORECTAL_CAREGIVER_SMS
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Panahon na po ng regular na bowel screening home kit ni {member_names}. Kunin:
+    {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: It is time for {member_names}'s regular bowel screening home kit. Pick up:
+    {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: COLORECTAL_CAREGIVER_CALL
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Tumatawag po ako tungkol kay {member_names}, na panahon na para sa regular
+    na bowel screening. Isa po itong simpleng test kit na gagamitin sa bahay, at maaari po ninyo itong
+    kunin para sa kanila sa mga oras na ito: {slot_options}. Kung ayaw na po ninyong makatanggap ng
+    mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, who is due for regular bowel screening. It is a simple test kit
+    used at home, and you can pick it up for them at these times: {slot_options}. If you no longer
+    want these reminders, just tell me and we will stop these calls.
+- id: COLORECTAL_CAREGIVER_CHW
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na panahon na
+    para sa regular na bowel screening ni {member_names} gamit ang home test kit, at mag-alok na
+    ipaliwanag ang kit sa kanilang dalawa. Ialok ang mga oras na ito: {slot_options}. Kung ayaw
+    nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that it is time
+    for {member_names}'s regular bowel screening with a home test kit, and offer to explain the kit to
+    both of them. Offer these times: {slot_options}. If they do not want to take part, thank them,
+    record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: breast screening
+- id: BREAST_ADULT_WHATSAPP
+  pathway: breast
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Panahon na po para sa inyong
+    regular na breast screening (mammogram). Mga babaeng staff po ang gagawa nito at mga 15 minuto
+    lang. Mga oras na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2
+    para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. It is time for your regular breast
+    screening (mammogram). Female staff will do it and it takes about 15 minutes. Times we set aside
+    for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive
+    these reminders.
+- id: BREAST_ADULT_SMS
+  pathway: breast
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, panahon na po ng inyong regular na breast screening sa
+    babaeng staff. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your regular breast screening with female
+    staff. Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: BREAST_ADULT_CALL
+  pathway: breast
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Pribado po ang tawag na ito. Panahon na po para sa inyong regular na breast
+    screening, na tinatawag na mammogram. Mga babaeng staff po ang gagawa nito at mga 15 minuto lang.
+    Ito po ang mga bakanteng oras: {slot_options}. Kung ayaw na po ninyong makatanggap ng mga
+    paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is
+    a private call. It is time for your regular breast screening, called a mammogram. Female staff
+    will do it and it takes about 15 minutes. These are the free times: {slot_options}. If you no
+    longer want these reminders, just tell me and we will stop these calls.
+- id: BREAST_ADULT_CHW
+  pathway: breast
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Kausapin si {recipient_first_name} nang pribado, mas mabuti kung babaeng health worker ka.
+    Magpakilala mula sa {clinic_name}. Ipaliwanag na ang regular na breast screening (mammogram) ay
+    inaalok sa mga babaeng kasing-edad niya at ginagawa ng mga babaeng staff. Ialok ang mga oras na
+    ito: {slot_options}. Kung ayaw niyang sumali, magpasalamat, itala ang "tumanggi" at huwag nang
+    magtanong muli.
+  english_gloss: >-
+    Speak with {recipient_first_name} privately, ideally if you are a female health worker. Introduce
+    yourself from {clinic_name}. Explain that regular breast screening (mammogram) is offered to
+    women her age and is done by female staff. Offer these times: {slot_options}. If she does not
+    want to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Follow-up retest
+- id: FOLLOWUP_ADULT_WHATSAPP
+  pathway: followup_retest
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Nais po ng inyong doktor na
+    bumalik kayo para sa regular na ulit na check. Karaniwang bahagi po ito ng pangangalaga. Mga oras
+    na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang
+    oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. Your doctor would like you to come back
+    for a regular repeat check. This is a normal part of care. Times we set aside for you:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive these
+    reminders.
+- id: FOLLOWUP_ADULT_SMS
+  pathway: followup_retest
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, hinihiling po ng inyong doktor na bumalik kayo para sa
+    regular na ulit na check. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, your doctor asks you to come back for a regular repeat
+    check. Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: FOLLOWUP_ADULT_CALL
+  pathway: followup_retest
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Nais po ng inyong doktor na bumalik kayo para sa regular na ulit na check.
+    Karaniwang bahagi po ito ng pangangalaga, at masasagot ng doktor ang inyong mga tanong. Ito po ang
+    mga bakanteng oras: {slot_options}. Kung ayaw na po ninyong makatanggap ng mga paalalang ito,
+    sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor would like you to come back for a regular repeat check. This is a normal part of care, and
+    the doctor can answer your questions. These are the free times: {slot_options}. If you no longer
+    want these reminders, just tell me and we will stop these calls.
+- id: FOLLOWUP_ADULT_CHW
+  pathway: followup_retest
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na hiniling ng
+    kanilang doktor ang isang regular na ulit na check, na karaniwang bahagi ng pangangalaga. Huwag
+    pag-usapan ang mga resulta; ang doktor ang gagawa nito. Ialok ang mga oras na ito: {slot_options}.
+    Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that their doctor
+    has asked for a regular repeat check, which is a normal part of care. Do not discuss results; the
+    doctor will do that. Offer these times: {slot_options}. If they do not want to take part, thank
+    them, record "declined" and do not ask again.
+- id: FOLLOWUP_CAREGIVER_WHATSAPP
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Nais po ng doktor na bumalik
+    si {member_names} para sa regular na ulit na check. Malugod po kayong sumama. Mga oras na inilaan
+    namin: {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung ayaw na po
+    ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. The doctor would like {member_names} to
+    come back for a regular repeat check. You are welcome to come along. Times we set aside:
+    {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive these
+    reminders.
+- id: FOLLOWUP_CAREGIVER_SMS
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Hinihiling po ng doktor na bumalik si {member_names} para sa regular na ulit na
+    check. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: The doctor asks {member_names} to come back for a regular repeat check. Free
+    time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: FOLLOWUP_CAREGIVER_CALL
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Nais po ng doktor na bumalik si {member_names} para sa regular na ulit na
+    check. Malugod po kayong sumama. Ito po ang mga bakanteng oras: {slot_options}. Kung ayaw na po
+    ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga
+    tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. The
+    doctor would like {member_names} to come back for a regular repeat check. You are welcome to come
+    along. These are the free times: {slot_options}. If you no longer want these reminders, just
+    tell me and we will stop these calls.
+- id: FOLLOWUP_CAREGIVER_CHW
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na hiniling ng
+    doktor na bumalik si {member_names} para sa regular na ulit na check. Itanong kung kailangan nila
+    ng transportasyon o ng makakasama. Ialok ang mga oras na ito: {slot_options}. Kung ayaw nilang
+    sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that the doctor
+    has asked {member_names} to come back for a regular repeat check. Ask whether they need transport
+    or someone to come along. Offer these times: {slot_options}. If they do not want to take part,
+    thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Household bundle
+- id: BUNDLE_ADULT_WHATSAPP
+  pathway: household_bundle
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Maaari pong makita ang
+    {n_members} miyembro ng inyong pamilya ({member_names}) sa iisang araw, kaya isang biyahe lang
+    ang kailangan. Mga oras na inilaan namin para sa inyong pamilya: {slot_options}. Sumagot po ng 1
+    para mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. {n_members} members of your family
+    ({member_names}) can be seen on one day, so only one trip is needed. Times we set aside for your
+    family: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to receive
+    these reminders.
+- id: BUNDLE_ADULT_SMS
+  pathway: household_bundle
+  audience: adult
+  channel: sms
+  slots: [n_members, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Maaari pong makita ang {n_members} miyembro ng pamilya sa iisang araw. Bakanteng
+    oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {n_members} family members can be seen on one day. Free time: {slot_short}.
+    Reply: 1=book 2=other time 3=STOP
+- id: BUNDLE_ADULT_CALL
+  pathway: household_bundle
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Makikita po namin ang {n_members} miyembro ng inyong pamilya,
+    {member_names}, sa iisang araw, kaya isang biyahe lang ang kailangan. Ito po ang mga bakanteng
+    oras: {slot_options}. Alin po ang maginhawa sa inyong pamilya? Kung ayaw na po ninyong makatanggap
+    ng mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We can
+    see {n_members} members of your family, {member_names}, on the same day, so only one trip is
+    needed. These are the free times: {slot_options}. Which one suits your family? If you no longer
+    want these reminders, just tell me and we will stop these calls.
+- id: BUNDLE_ADULT_CHW
+  pathway: household_bundle
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Ipaliwanag na ang
+    {n_members} miyembro ng pamilya ({member_names}) ay may mga regular na check na nakatakda na at
+    maaaring makita lahat sa iisang araw. Ialok ang mga oras na ito: {slot_options}. Kung ayaw nilang
+    sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that {n_members}
+    family members ({member_names}) have regular checks due and can all be seen on one day. Offer
+    these times: {slot_options}. If they do not want to take part, thank them, record "declined" and
+    do not ask again.
+
+# ---------------------------------------------------------------- Mobile van
+- id: VAN_ADULT_WHATSAPP
+  pathway: mobile_van
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}. Ang libreng health van ay nasa {van_location} sa
+    {van_date}. Maaari po ninyong gawin doon ang inyong {pathway_label}, malapit sa inyong tirahan.
+    Hindi kailangan ng appointment, pero maaari po kayong sumagot ng 1 para magpareserba ng oras, 2
+    para sa ibang araw, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}. The free health van will be at {van_location} on {van_date}.
+    You can have your {pathway_label} there, close to where you live. No appointment is needed, but
+    you can reply 1 to reserve a time, 2 for another day, 3 if you no longer want to receive these
+    reminders.
+- id: VAN_ADULT_SMS
+  pathway: mobile_van
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, van_location, van_date]
+  decline_text: "3=STOP"
+  text: >-
+    {recipient_first_name}, ang libreng health van ay nasa {van_location} sa {van_date} para sa mga
+    regular na check. Sumagot: 1=magpareserba 2=ibang araw 3=STOP
+  english_gloss: >-
+    {recipient_first_name}, the free health van is at {van_location} on {van_date} for regular
+    checks. Reply: 1=reserve 2=other day 3=STOP
+- id: VAN_ADULT_CALL
+  pathway: mobile_van
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa community health team. Ang aming libreng health van ay nasa {van_location} sa {van_date}.
+    Maaari po ninyong gawin doon ang inyong {pathway_label}, malapit sa inyong tirahan, nang hindi
+    kailangang lumiban nang matagal sa trabaho. Ipagrereserba ko po ba kayo ng oras? Kung ayaw na po
+    ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga
+    tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from the community health
+    team. Our free health van will be at {van_location} on {van_date}. You can have your
+    {pathway_label} there, close to where you live, without being away from work for long. Shall I
+    reserve a time for you? If you no longer want these reminders, just tell me and we will stop
+    these calls.
+- id: VAN_ADULT_CHW
+  pathway: mobile_van
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa community health team. Ipaliwanag na ang
+    libreng health van ay nasa {van_location} sa {van_date} para sa mga regular na check, kasama ang
+    kanilang {pathway_label}. Itanong kung anong oras ang bagay sa kanilang shift sa trabaho. Kung
+    ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from the community health team. Explain that
+    the free health van will be at {van_location} on {van_date} for regular checks, including their
+    {pathway_label}. Ask what time fits their work shift. If they do not want to take part, thank
+    them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Cascade (clinician-approved only)
+- id: CASCADE_ADULT_WHATSAPP
+  pathway: cascade_family
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Inirerekomenda po ng inyong
+    doktor ang isang check para sa kalusugan ng puso para sa inyong pamilya. Isa po itong simpleng
+    blood test. Mga oras na inilaan namin para sa inyo: {slot_options}. Sumagot po ng 1 para
+    mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. Your doctor recommends a heart-health
+    check for your family. It is a simple blood test. Times we set aside for you: {slot_options}.
+    Reply 1 to book, 2 for another time, 3 if you no longer want to receive these reminders.
+- id: CASCADE_ADULT_SMS
+  pathway: cascade_family
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}, inirerekomenda po ng inyong doktor ang check sa kalusugan
+    ng puso para sa pamilya. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, your doctor recommends a heart-health check for the
+    family. Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: CASCADE_ADULT_CALL
+  pathway: cascade_family
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Inirerekomenda po ng inyong doktor ang isang check para sa kalusugan ng
+    puso para sa inyong pamilya. Isa po itong simpleng blood test. Hindi ko po maibabahagi ang
+    impormasyong pangkalusugan ng ibang tao, pero masasagot ng doktor ang sarili ninyong mga tanong sa
+    pagbisita. Ito po ang mga bakanteng oras: {slot_options}. Kung ayaw na po ninyong makatanggap ng
+    mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family. It is a simple blood test. I cannot share
+    other people's health information, but the doctor can answer your own questions at the visit.
+    These are the free times: {slot_options}. If you no longer want these reminders, just tell me and
+    we will stop these calls.
+- id: CASCADE_ADULT_CHW
+  pathway: cascade_family
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Sabihin lamang na
+    inirerekomenda ng kanilang doktor ang isang check para sa kalusugan ng puso para sa pamilya, na
+    isang simpleng blood test. Huwag kailanman pag-usapan ang kalusugan ng ibang tao. Ialok ang mga
+    oras na ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at huwag
+    nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that their doctor
+    recommends a heart-health check for the family, which is a simple blood test. Never discuss any
+    other person's health. Offer these times: {slot_options}. If they do not want to take part, thank
+    them, record "declined" and do not ask again.
+- id: CASCADE_PARENT_WHATSAPP
+  pathway: cascade_family
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 kung ayaw na po ninyong makatanggap ng mga paalalang ito"
+  text: >-
+    Magandang araw po, {recipient_first_name}, ito po ang {clinic_name}. Inirerekomenda po ng inyong
+    doktor ang isang check para sa kalusugan ng puso para sa inyong pamilya, kasama si
+    {child_first_name}. Isa po itong simpleng blood test. Mga oras na inilaan namin para sa inyo:
+    {slot_options}. Sumagot po ng 1 para mag-book, 2 para sa ibang oras, 3 kung ayaw na po ninyong
+    makatanggap ng mga paalalang ito.
+  english_gloss: >-
+    Good day, {recipient_first_name}, this is {clinic_name}. Your doctor recommends a heart-health
+    check for your family, including {child_first_name}. It is a simple blood test. Times we set
+    aside for you: {slot_options}. Reply 1 to book, 2 for another time, 3 if you no longer want to
+    receive these reminders.
+- id: CASCADE_PARENT_SMS
+  pathway: cascade_family
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: Inirerekomenda po ng inyong doktor ang check sa kalusugan ng puso para sa pamilya,
+    kasama si {child_first_name}. Bakanteng oras: {slot_short}. Sumagot: 1=book 2=ibang oras 3=STOP
+  english_gloss: >-
+    {clinic_short}: Your doctor recommends a heart-health check for the family, including
+    {child_first_name}. Free time: {slot_short}. Reply: 1=book 2=other time 3=STOP
+- id: CASCADE_PARENT_CALL
+  pathway: cascade_family
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "sabihin lang po sa akin at ititigil na namin ang mga tawag na ito"
+  text: >-
+    Magandang araw po, maaari ko po bang makausap si {recipient_first_name}? Ako po si {caller_name}
+    mula sa {clinic_name}. Inirerekomenda po ng inyong doktor ang isang check para sa kalusugan ng
+    puso para sa inyong pamilya, kasama si {child_first_name}. Isa po itong simpleng blood test, at
+    ipapaliwanag ito ng doktor sa pagbisita. Ito po ang mga bakanteng oras: {slot_options}. Kung ayaw
+    na po ninyong makatanggap ng mga paalalang ito, sabihin lang po sa akin at ititigil na namin ang
+    mga tawag na ito.
+  english_gloss: >-
+    Good day, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family, including {child_first_name}. It is a
+    simple blood test, and the doctor will explain it at the visit. These are the free times:
+    {slot_options}. If you no longer want these reminders, just tell me and we will stop these calls.
+- id: CASCADE_PARENT_CHW
+  pathway: cascade_family
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "huwag nang magtanong muli"
+  text: >-
+    Batiin si {recipient_first_name} at magpakilala mula sa {clinic_name}. Sabihin lamang na
+    inirerekomenda ng kanilang doktor ang isang check para sa kalusugan ng puso para sa pamilya,
+    kasama si {child_first_name}. Huwag kailanman pag-usapan ang kalusugan ng ibang tao. Ialok ang
+    mga oras na ito: {slot_options}. Kung ayaw nilang sumali, magpasalamat, itala ang "tumanggi" at
+    huwag nang magtanong muli.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that their doctor
+    recommends a heart-health check for the family, including {child_first_name}. Never discuss any
+    other person's health. Offer these times: {slot_options}. If they do not want to take part, thank
+    them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Confirmations
+- id: PREF_CONFIRM_WHATSAPP
+  pathway: preference_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name]
+  decline_text: "sumagot ng STOP"
+  text: >-
+    Salamat po, {recipient_first_name}. Na-save na po namin ang inyong mga kagustuhan sa pakikipag-ugnayan.
+    Maaari po ninyong baguhin ang mga ito anumang oras, o sumagot ng STOP para itigil ang lahat ng
+    paalala.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We have saved your contact preferences. You can change them at
+    any time, or reply STOP to stop all reminders.
+- id: PREF_CONFIRM_SMS
+  pathway: preference_confirm
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name]
+  decline_text: "STOP"
+  text: >-
+    Salamat po, {recipient_first_name}. Na-save na po ang inyong mga kagustuhan sa pakikipag-ugnayan.
+    Sumagot ng STOP para itigil ang lahat ng paalala.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. Your contact preferences are saved. Reply STOP to stop all
+    reminders.
+- id: OPTOUT_CONFIRM_WHATSAPP
+  pathway: optout_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, pathway_label]
+  decline_text: "sumagot ng STOP"
+  text: >-
+    Salamat po, {recipient_first_name}. Hindi na po kayo makatatanggap ng mga paalala tungkol sa
+    {pathway_label}. Hindi nito binabago ang inyong pangangalaga. Kung magbago po ang inyong isip,
+    sabihin lang sa inyong klinika. Para itigil ang lahat ng paalala, sumagot ng STOP.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. You will no longer receive reminders about {pathway_label}.
+    This does not change your care. If you change your mind, just tell your clinic. To stop all
+    reminders, reply STOP.
+- id: OPTOUT_CONFIRM_SMS
+  pathway: optout_confirm
+  audience: adult
+  channel: sms
+  slots: [pathway_label]
+  decline_text: "STOP"
+  text: >-
+    Hindi na po kayo makatatanggap ng mga paalala tungkol sa {pathway_label}. Hindi nagbabago ang
+    inyong pangangalaga. Sumagot ng STOP para itigil ang lahat ng paalala.
+  english_gloss: >-
+    You will no longer receive reminders about {pathway_label}. Your care does not change. Reply STOP
+    to stop all reminders.
+- id: LATER_CONFIRM_WHATSAPP
+  pathway: remind_later_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, until_date]
+  decline_text: "sumagot ng STOP"
+  text: >-
+    Salamat po, {recipient_first_name}. Paaalalahanan po namin kayo ulit pagkalipas ng {until_date}.
+    Para itigil ang lahat ng paalala, sumagot ng STOP.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We will remind you again after {until_date}. To stop all
+    reminders, reply STOP.
+- id: LATER_CONFIRM_SMS
+  pathway: remind_later_confirm
+  audience: adult
+  channel: sms
+  slots: [until_date]
+  decline_text: "STOP"
+  text: >-
+    Sige po, paaalalahanan namin kayo pagkalipas ng {until_date}. Sumagot ng STOP para itigil ang
+    lahat ng paalala.
+  english_gloss: >-
+    OK, we will remind you after {until_date}. Reply STOP to stop all reminders.

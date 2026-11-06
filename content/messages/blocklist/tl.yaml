@@ -1,0 +1,94 @@
+# Tagalog/Filipino blocklist (machine draft). Whole-word, case-insensitive matching.
+# Common Taglish forms are included because Filipino speakers often use the English medical words.
+language: tl
+diagnosis:
+  - kanser
+  - kanser sa
+  - bukol
+  - tumor
+  - malignant
+  - diyabetis
+  - dayabetis
+  - diabetes
+  - diabetic
+  - altapresyon
+  - high blood
+  - sakit
+  - may sakit
+  - karamdaman
+  - abnormal
+  - hindi normal
+  - positibong resulta
+  - positibo ang resulta
+  - carrier
+  - tagadala
+  - mutasyon
+  - gene
+  - henetiko
+  - genetic
+  - namamana
+  - minana
+  - obese
+  - labis na katabaan
+  - sobrang taba
+  - autism
+  - autistic
+  - pagkaantala
+  - naantala
+  - atrasado
+fear:
+  - mamatay
+  - mamamatay
+  - namatay
+  - kamatayan
+  - nakamamatay
+  - delikado
+  - mapanganib
+  - panganib
+  - apurahan
+  - madalian
+  - emergency
+  - malubha
+  - malubhang kondisyon
+  - babala
+  - nakakaalarma
+  - nakababahala
+  - mataas na panganib
+  - high risk
+guilt:
+  - nabigo
+  - pumalya
+  - pinabayaan
+  - pagpapabaya
+  - pabaya
+  - iresponsable
+  - kasalanan mo
+  - kasalanan ninyo
+  - dapat sana
+  - nakakahiya
+  - ikinahihiya
+  - nahihiya
+  - nakalimutan mo
+  - nakalimutan ninyo
+cascade_extra:
+  - kolesterol
+  - cholesterol
+  - sakit sa puso
+  - FH
+  - LDL
+  - kamag-anak
+  - kapatid
+  - kuya
+  - ate
+  - tatay
+  - ama
+  - nanay
+  - ina
+  - tito
+  - tiyo
+  - tita
+  - tiya
+  - resulta ng test
+  - resulta
+  - na-diagnose
+  - nasuri

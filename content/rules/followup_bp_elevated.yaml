@@ -1,0 +1,29 @@
+id: FOLLOWUP_BP_ELEVATED
+version: 1.0.0
+title: Recheck after an elevated blood pressure reading
+pathway: followup
+kind: followup
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "USPSTF – Hypertension in Adults: Screening (confirmation of elevated readings)"
+  year: 2021
+  url: "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening"
+  retrieved_on: "2026-11-07"
+  licence: "US Government work – public domain"
+  verified: true
+  http_status: 200
+  key_facts: ["Confirm elevated office readings with measurements outside the clinical setting before diagnosis", "Thresholds used range from >=130/80 to >=140/90"]
+message_pathway: followup_retest
+slot_type: adult
+applies_to:
+  age_years: {min: 18}
+  exclude_conditions: [hypertension]
+trigger:
+  any_of: [{obs: sbp, min: 130}, {obs: dbp, min: 80}]
+  lookback_months: 24
+followup_window_months: 3
+data_required: [birth_date, conditions, "obs:sbp", "obs:dbp"]
+satisfied_by: ["obs:sbp"]
+output_codes: {gap_code: "local:gap-followup-bp"}
+assumptions:
+  - "The 130/80 trigger and 3-month recheck window are local ASSUMPTIONS (ACC/AHA stage 1 threshold) for a clinical reviewer to confirm."

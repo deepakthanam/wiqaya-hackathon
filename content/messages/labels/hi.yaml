@@ -1,0 +1,35 @@
+# Slot-value labels rendered inside messages (Hindi). Machine draft; needs native review.
+language: hi
+review_status: machine_draft
+visit_labels:
+  newborn: नवजात शिशु का चेक-अप
+  m1: 1 महीने का चेक-अप
+  m2: 2 महीने का चेक-अप
+  m4: 4 महीने का चेक-अप
+  m6: 6 महीने का चेक-अप
+  m9: 9 महीने का चेक-अप
+  m12: 12 महीने का चेक-अप
+  m15: 15 महीने का चेक-अप
+  m18: 18 महीने का चेक-अप
+  m24: 2 साल का चेक-अप
+  m30: 30 महीने का चेक-अप
+  yearly: "{years} साल का चेक-अप"
+pathway_labels:
+  wcv: बच्चे का नियमित चेक-अप
+  developmental: खेल और विकास की जांच
+  immunisation: नियमित टीके
+  child_growth_followup: विकास की फॉलो-अप जांच
+  adult_t2d: ब्लड शुगर जांच
+  adult_bp: ब्लड प्रेशर जांच
+  adult_lipid: दिल की सेहत की खून जांच
+  cervical: सर्वाइकल स्क्रीनिंग
+  colorectal: आंत की स्क्रीनिंग
+  breast: स्तन की स्क्रीनिंग
+  followup_retest: दोबारा जांच
+  cascade_family: परिवार के दिल की सेहत की जांच
+  household_bundle: परिवार का चेक-अप दिन
+  mobile_van: हेल्थ वैन विज़िट
+words:
+  and: और
+  or: या
+  free_health_van: मुफ़्त हेल्थ वैन

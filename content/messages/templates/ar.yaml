@@ -1,0 +1,1158 @@
+# Arabic (Modern Standard Arabic) machine draft of templates/en.yaml. Needs native review.
+# Respectful plural address ("أنتم") is used for recipients; CHW scripts address the worker.
+# Reply codes (1/2/3, STOP) stay in ASCII so SMS gateways can parse them.
+language: ar
+review_status: machine_draft
+templates:
+
+# ---------------------------------------------------------------- Well-Child Visit
+- id: WCV_PARENT_WHATSAPP
+  pathway: wcv
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد الفحص الدوري لـ{child_first_name}
+    ({visit_label}). تساعدنا هذه الزيارات على متابعة نمو طفلكم. حجزنا لكم هذه المواعيد:
+    {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for {child_first_name}'s
+    routine check-up ({visit_label}). These visits help us follow your child's growth. We have
+    kept these times for you: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do
+    not wish to receive these reminders.
+- id: WCV_PARENT_SMS
+  pathway: wcv
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: حان موعد الفحص الدوري لـ{child_first_name}. موعد متاح: {slot_short}. رد
+    1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: it is time for {child_first_name}'s routine check-up. Available time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: WCV_PARENT_CALL
+  pathway: wcv
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ اسمي {caller_name} من {clinic_name}.
+    أتصل بكم لأنه حان موعد الفحص الدوري لـ{child_first_name}، وهو {visit_label}. تساعدنا هذه
+    الزيارات على متابعة نمو طفلكم وإعطاء التطعيمات المستحقة. لدينا هذه المواعيد: {slot_options}.
+    أي موعد يناسبكم؟ وإذا كان يوم آخر أنسب لكم، يمكنني البحث عنه. إذا كنتم لا ترغبون في تلقي هذه
+    التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? My name is {caller_name} from {clinic_name}.
+    I am calling because it is time for {child_first_name}'s routine check-up, the {visit_label}.
+    These visits help us follow your child's growth and give due vaccines. We have these times:
+    {slot_options}. Which suits you? If another day is better, I can find one. If you do not wish
+    to receive these reminders, tell me and we will stop these calls.
+- id: WCV_PARENT_CHW
+  pathway: wcv
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, visit_label, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك كعامل صحة مجتمعية من {clinic_name}. اشرح أنه حان موعد
+    الفحص الدوري لـ{child_first_name} ({visit_label})، وأن هذه الزيارات تتابع النمو وتقدم التطعيمات
+    المستحقة. اعرض هذه المواعيد: {slot_options}. ساعد في أسئلة المواصلات. إذا فضّلوا عدم المشاركة،
+    اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself as a community health worker from
+    {clinic_name}. Explain that {child_first_name}'s routine check-up ({visit_label}) is due and
+    that these visits follow growth and give due vaccines. Offer these times: {slot_options}. Help
+    with transport questions. If they prefer not to take part, thank them, record "declined" and
+    do not ask again.
+
+# ---------------------------------------------------------------- Developmental check
+- id: DEV_PARENT_WHATSAPP
+  pathway: developmental
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. في عمر {child_first_name}، نقدم لكل طفل فحصا
+    قصيرا لطريقة لعبه وكلامه وحركته. ويمكنكم أيضا سؤالنا عن أي شيء يخص نمو طفلكم. حجزنا لكم هذه
+    المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه
+    التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. At {child_first_name}'s age, we offer
+    every child a short check of how they play, talk and move. You can also ask us anything about
+    your child's growth. We kept these times for you: {slot_options}. Send 1 to book, 2 for another
+    time, or 3 if you do not wish to receive these reminders.
+- id: DEV_PARENT_SMS
+  pathway: developmental
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: حان موعد فحص اللعب والنمو لـ{child_first_name}. موعد متاح: {slot_short}. رد
+    1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: it is time for {child_first_name}'s play and growth check. Available time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: DEV_PARENT_CALL
+  pathway: developmental
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. نقدم لكل
+    طفل في عمر {child_first_name} فحصا قصيرا لطريقة لعبه وكلامه وحركته. يستغرق الفحص نحو 20 دقيقة،
+    ويمكنكم طرح أي سؤال على الطبيب. لدينا هذه المواعيد: {slot_options}. أي موعد يناسبكم؟ إذا كنتم لا
+    ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We offer
+    every child of {child_first_name}'s age a short check of how they play, talk and move. It takes
+    about 20 minutes, and you can ask the doctor any question. We have these times: {slot_options}.
+    Which suits you? If you do not wish to receive these reminders, tell me and we will stop these
+    calls.
+- id: DEV_PARENT_CHW
+  pathway: developmental
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن كل طفل في عمر
+    {child_first_name} يُقدَّم له فحص دوري قصير للعب والكلام والحركة، وأن الوالدين يمكنهم طرح أي
+    أسئلة. اعرض هذه المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر
+    السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that every child
+    of {child_first_name}'s age is offered a short routine check of play, talking and movement, and
+    that parents can ask any questions. Offer these times: {slot_options}. If they prefer not to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Immunisation catch-up
+- id: IMM_PARENT_WHATSAPP
+  pathway: immunisation
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. تُظهر سجلاتنا أن لدى {child_first_name} تطعيما
+    دوريا مستحقا. التطعيمات تحمي الأطفال. حجزنا لكم هذه المواعيد: {slot_options}. إذا كنتم تعتقدون أن
+    سجلنا غير محدّث، يرجى إخبارنا. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه
+    التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. Our records show {child_first_name} has a
+    routine vaccine due. Vaccines protect children. We kept these times for you: {slot_options}. If
+    you think our record is not up to date, please tell us. Send 1 to book, 2 for another time, or 3
+    if you do not wish to receive these reminders.
+- id: IMM_PARENT_SMS
+  pathway: immunisation
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: لدى {child_first_name} تطعيم دوري مستحق. موعد متاح: {slot_short}. رد 1=حجز 2=وقت
+    آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {child_first_name} has a routine vaccine due. Available time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: IMM_PARENT_CALL
+  pathway: immunisation
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. تُظهر
+    سجلاتنا أن لدى {child_first_name} تطعيما دوريا مستحقا. إذا أُعطي التطعيم في مكان آخر، يرجى إخبارنا
+    لنحدّث السجل. لدينا هذه المواعيد: {slot_options}. أي موعد يناسبكم؟ إذا كنتم لا ترغبون في تلقي هذه
+    التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Our
+    records show {child_first_name} has a routine vaccine due. If the vaccine was given somewhere
+    else, please tell us so we can update the record. We have these times: {slot_options}. Which
+    suits you? If you do not wish to receive these reminders, tell me and we will stop these calls.
+- id: IMM_PARENT_CHW
+  pathway: immunisation
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن لدى {child_first_name} تطعيما
+    دوريا مستحقا. اطلب الاطلاع على بطاقة التطعيم إن وُجدت، وسجّل أي تطعيمات أُعطيت في مكان آخر. اعرض
+    هذه المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة
+    أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {child_first_name} has a routine vaccine due. Ask to see the vaccine card if there is one, and
+    note any vaccines given elsewhere. Offer these times: {slot_options}. If they prefer not to take
+    part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Child growth follow-up
+- id: GROWTH_PARENT_WHATSAPP
+  pathway: child_growth_followup
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. نود رؤية {child_first_name} في زيارة متابعة
+    دورية للنمو. سنتحدث عن الأكل الصحي والنوم واللعب لكل أفراد الأسرة. حجزنا لكم هذه المواعيد:
+    {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. We would like to see {child_first_name}
+    for a routine growth follow-up visit. We will talk about healthy eating, sleep and play for the
+    whole family. We kept these times for you: {slot_options}. Send 1 to book, 2 for another time,
+    or 3 if you do not wish to receive these reminders.
+- id: GROWTH_PARENT_SMS
+  pathway: child_growth_followup
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: حان موعد زيارة متابعة النمو لـ{child_first_name}. موعد متاح: {slot_short}. رد
+    1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: it is time for {child_first_name}'s growth follow-up visit. Available time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: GROWTH_PARENT_CALL
+  pathway: child_growth_followup
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. نود دعوة
+    {child_first_name} إلى زيارة متابعة دورية للنمو. سيتحدث الطبيب معكم عن الأكل الصحي والنوم واللعب
+    لكل أفراد الأسرة. لدينا هذه المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات،
+    أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We would
+    like to invite {child_first_name} to a routine growth follow-up visit. The doctor will talk with
+    you about healthy eating, sleep and play for the whole family. We have these times:
+    {slot_options}. If you do not wish to receive these reminders, tell me and we will stop these
+    calls.
+- id: GROWTH_PARENT_CHW
+  pathway: child_growth_followup
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. ادعُ {child_first_name} إلى زيارة
+    متابعة دورية للنمو. اجعل الحديث إيجابيا وعن عادات الأسرة كلها، ولا تعلّق على جسم الطفل. اعرض هذه
+    المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Invite
+    {child_first_name} to a routine growth follow-up visit. Keep the talk positive and about the
+    whole family's habits, and do not comment on the child's body. Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: blood sugar check
+- id: T2D_ADULT_WHATSAPP
+  pathway: adult_t2d
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص سكر الدم الدوري. هو فحص دم بسيط
+    وجزء من الحفاظ على صحتكم. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر،
+    أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine blood sugar
+    check. It is a simple blood test and part of keeping well. We kept these times for you:
+    {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: T2D_ADULT_SMS
+  pathway: adult_t2d
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، حان موعد فحص سكر الدم الدوري. موعد متاح: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your routine blood sugar check. Available
+    time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: T2D_ADULT_CALL
+  pathway: adult_t2d
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. حان موعد
+    فحص سكر الدم الدوري لكم. هو فحص دم بسيط يستغرق بضع دقائق. لدينا هذه المواعيد: {slot_options}. أي
+    موعد يناسبكم؟ إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your routine blood sugar check. It is a simple blood test that takes a few minutes. We
+    have these times: {slot_options}. Which suits you? If you do not wish to receive these
+    reminders, tell me and we will stop these calls.
+- id: T2D_ADULT_CHW
+  pathway: adult_t2d
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن البالغين يُقدَّم لهم فحص
+    دوري لسكر الدم، وهو فحص دم بسيط. اعرض هذه المواعيد: {slot_options}، وساعد في أي أسئلة عن الإجازة
+    من العمل أو المواصلات. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine blood sugar check, which is a simple blood test. Offer these times:
+    {slot_options}, and help with any questions about time off work or transport. If they prefer
+    not to take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: blood pressure check
+- id: BP_ADULT_WHATSAPP
+  pathway: adult_bp
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص ضغط الدم الدوري. الفحص سريع وغير
+    مؤلم. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا
+    ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine blood pressure
+    check. The check is quick and painless. We kept these times for you: {slot_options}. Send 1 to
+    book, 2 for another time, or 3 if you do not wish to receive these reminders.
+- id: BP_ADULT_SMS
+  pathway: adult_bp
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، حان موعد فحص ضغط الدم السريع. موعد متاح: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your quick blood pressure check.
+    Available time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: BP_ADULT_CALL
+  pathway: adult_bp
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. حان موعد
+    فحص ضغط الدم الدوري لكم. يستغرق بضع دقائق وهو غير مؤلم. لدينا هذه المواعيد: {slot_options}. أي
+    موعد يناسبكم؟ إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your routine blood pressure check. It takes a few minutes and is painless. We have
+    these times: {slot_options}. Which suits you? If you do not wish to receive these reminders,
+    tell me and we will stop these calls.
+- id: BP_ADULT_CHW
+  pathway: adult_bp
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن البالغين يُقدَّم لهم فحص
+    دوري لضغط الدم، وهو سريع وغير مؤلم. اعرض هذه المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة،
+    اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine blood pressure check, which is quick and painless. Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+- id: BP_CAREGIVER_WHATSAPP
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص ضغط الدم الدوري لـ{member_names}.
+    نرحب بحضوركم معه إن كان ذلك يساعد. المواعيد المحجوزة: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت
+    آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for {member_names}'s routine
+    blood pressure check. You are welcome to come along if it helps. Times kept: {slot_options}.
+    Send 1 to book, 2 for another time, or 3 if you do not wish to receive these reminders.
+- id: BP_CAREGIVER_SMS
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: موعد فحص ضغط الدم لـ{member_names}. موعد متاح: {slot_short}. رد 1=حجز 2=وقت
+    آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: blood pressure check due for {member_names}. Available time: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: BP_CAREGIVER_CALL
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. أتصل بخصوص
+    {member_names}، فقد حان موعد فحص ضغط الدم الدوري. نرحب بحضوركم معه. لدينا هذه المواعيد:
+    {slot_options}. هل يناسبكما أحد هذه المواعيد؟ إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني
+    وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, whose routine blood pressure check is due. You are welcome to come
+    along. We have these times: {slot_options}. Does one of these suit you both? If you do not wish
+    to receive these reminders, tell me and we will stop these calls.
+- id: BP_CAREGIVER_CHW
+  pathway: adult_bp
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أنه حان موعد فحص ضغط الدم الدوري
+    لـ{member_names}، واسأل إن كانوا يحتاجون مساعدة في المواصلات أو مرافقا. تحدّث مع كبير السن مباشرة
+    أيضا. اعرض هذه المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر
+    السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {member_names}'s routine blood pressure check is due, and ask whether they need help with
+    transport or someone to come along. Speak to the older person directly too. Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: lipid check
+- id: LIPID_ADULT_WHATSAPP
+  pathway: adult_lipid
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص الدم الدوري لصحة القلب (فحص
+    الكوليسترول). حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم
+    لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine heart-health
+    blood test (cholesterol check). We kept these times for you: {slot_options}. Send 1 to book, 2
+    for another time, or 3 if you do not wish to receive these reminders.
+- id: LIPID_ADULT_SMS
+  pathway: adult_lipid
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، حان موعد فحص الدم لصحة القلب. موعد متاح: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your heart-health blood test. Available
+    time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: LIPID_ADULT_CALL
+  pathway: adult_lipid
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. حان موعد
+    فحص الدم الدوري لصحة القلب، ويسمى أيضا فحص الكوليسترول. لدينا هذه المواعيد: {slot_options}. أي
+    موعد يناسبكم؟ إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your routine heart-health blood test, also called a cholesterol check. We have these
+    times: {slot_options}. Which suits you? If you do not wish to receive these reminders, tell me
+    and we will stop these calls.
+- id: LIPID_ADULT_CHW
+  pathway: adult_lipid
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن البالغين يُقدَّم لهم فحص دم
+    دوري لصحة القلب (فحص الكوليسترول). اعرض هذه المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة،
+    اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that adults are
+    offered a routine heart-health blood test (cholesterol check). Offer these times:
+    {slot_options}. If they prefer not to take part, thank them, record "declined" and do not ask
+    again.
+
+# ---------------------------------------------------------------- Adult: cervical screening
+- id: CERVICAL_ADULT_WHATSAPP
+  pathway: cervical
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص عنق الرحم الدوري (مسحة عنق الرحم).
+    تجريه ممرضة أو طبيبة ويستغرق بضع دقائق. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز،
+    أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine cervical
+    screening (smear test). A female nurse or doctor does it and it takes a few minutes. We kept
+    these times for you: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish
+    to receive these reminders.
+- id: CERVICAL_ADULT_SMS
+  pathway: cervical
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، حان موعد فحص عنق الرحم مع ممرضة. موعد متاح: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your cervical screening with a female
+    nurse. Available time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CERVICAL_ADULT_CALL
+  pathway: cervical
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. هذا اتصال
+    خاص. حان موعد فحص عنق الرحم الدوري، ويسمى أيضا مسحة عنق الرحم. تجريه ممرضة أو طبيبة ويستغرق بضع
+    دقائق. لدينا هذه المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني
+    وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a
+    private call. It is time for your routine cervical screening, also called a smear test. A female
+    nurse or doctor does it and it takes a few minutes. We have these times: {slot_options}. If you
+    do not wish to receive these reminders, tell me and we will stop these calls.
+- id: CERVICAL_ADULT_CHW
+  pathway: cervical
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    تحدّث مع {recipient_first_name} على انفراد، ويُفضَّل أن تكون عاملة الصحة امرأة. عرّف بنفسك من
+    {clinic_name}. اشرح أن فحص عنق الرحم الدوري (المسحة) يُقدَّم للنساء في عمرها، وتجريه ممرضة أو
+    طبيبة. اعرض هذه المواعيد: {slot_options}. إذا فضّلت عدم المشاركة، اشكرها وسجّل "رفض" ولا تكرر
+    السؤال مرة أخرى.
+  english_gloss: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Explain that routine cervical screening (smear) is offered to women
+    of her age and is done by a female nurse or doctor. Offer these times: {slot_options}. If she
+    prefers not to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: bowel screening
+- id: COLORECTAL_ADULT_WHATSAPP
+  pathway: colorectal
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص الأمعاء الدوري. يمكنكم استلام عدة
+    فحص منزلية بسيطة واستخدامها بخصوصية تامة. مواعيد استلام العدة أو التحدث مع ممرضة: {slot_options}.
+    أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine bowel
+    screening. You can collect a simple home test kit and use it in full privacy. Times to collect
+    the kit or talk with a nurse: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do
+    not wish to receive these reminders.
+- id: COLORECTAL_ADULT_SMS
+  pathway: colorectal
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، عدة فحص الأمعاء المنزلية جاهزة. الاستلام: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, your home bowel screening kit is ready. Collect:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: COLORECTAL_ADULT_CALL
+  pathway: colorectal
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. حان موعد
+    فحص الأمعاء الدوري. وهو عدة فحص بسيطة تستخدمونها في المنزل بخصوصية. يمكنكم استلامها في هذه
+    المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه
+    الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. It is
+    time for your routine bowel screening. It is a simple test kit you use at home, in private. You
+    can collect it at these times: {slot_options}. If you do not wish to receive these reminders,
+    tell me and we will stop these calls.
+- id: COLORECTAL_ADULT_CHW
+  pathway: colorectal
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن فحص الأمعاء الدوري هو عدة
+    فحص منزلية بسيطة. اشرح طريقة استخدام العدة إن كانت لديهم أسئلة. اعرض مواعيد الاستلام هذه:
+    {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that routine
+    bowel screening is a simple home test kit. Show how to use the kit if they have questions. Offer
+    these collection times: {slot_options}. If they prefer not to take part, thank them, record
+    "declined" and do not ask again.
+- id: COLORECTAL_CAREGIVER_WHATSAPP
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص الأمعاء الدوري لـ{member_names}،
+    وهو عدة فحص منزلية بسيطة. يمكنكم استلامها نيابة عنه في هذه المواعيد: {slot_options}. أرسلوا 1
+    للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for {member_names}'s routine
+    bowel screening, a simple home test kit. You can collect it on their behalf at these times:
+    {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: COLORECTAL_CAREGIVER_SMS
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: عدة فحص الأمعاء لـ{member_names} جاهزة. الاستلام: {slot_short}. رد 1=حجز 2=وقت
+    آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: the bowel screening kit for {member_names} is ready. Collect: {slot_short}.
+    Reply 1=book 2=other time 3=STOP
+- id: COLORECTAL_CAREGIVER_CALL
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. أتصل بخصوص
+    {member_names}، فقد حان موعد فحص الأمعاء الدوري. وهو عدة فحص منزلية بسيطة، ويمكنكم استلامها نيابة
+    عنه في هذه المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن
+    هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. I am
+    calling about {member_names}, whose routine bowel screening is due. It is a simple home test kit,
+    and you can collect it on their behalf at these times: {slot_options}. If you do not wish to
+    receive these reminders, tell me and we will stop these calls.
+- id: COLORECTAL_CAREGIVER_CHW
+  pathway: colorectal
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أنه حان موعد فحص الأمعاء الدوري
+    لـ{member_names} باستخدام عدة فحص منزلية، واعرض شرح العدة لكليهما. اعرض هذه المواعيد:
+    {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {member_names}'s routine bowel screening with a home test kit is due, and offer to explain the
+    kit to both of them. Offer these times: {slot_options}. If they prefer not to take part, thank
+    them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Adult: breast screening
+- id: BREAST_ADULT_WHATSAPP
+  pathway: breast
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. حان موعد فحص الثدي الدوري (الماموجرام). تجريه
+    موظفات ويستغرق نحو 15 دقيقة. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت
+    آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. It is time for your routine breast
+    screening (mammogram). Female staff do it and it takes about 15 minutes. We kept these times for
+    you: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: BREAST_ADULT_SMS
+  pathway: breast
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، حان موعد فحص الثدي مع موظفات. موعد متاح: {slot_short}.
+    رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, it is time for your breast screening with female staff.
+    Available time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: BREAST_ADULT_CALL
+  pathway: breast
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. هذا اتصال
+    خاص. حان موعد فحص الثدي الدوري، ويسمى الماموجرام. تجريه موظفات ويستغرق نحو 15 دقيقة. لدينا هذه
+    المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه
+    الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. This is a
+    private call. It is time for your routine breast screening, called a mammogram. Female staff do
+    it and it takes about 15 minutes. We have these times: {slot_options}. If you do not wish to
+    receive these reminders, tell me and we will stop these calls.
+- id: BREAST_ADULT_CHW
+  pathway: breast
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    تحدّث مع {recipient_first_name} على انفراد، ويُفضَّل أن تكون عاملة الصحة امرأة. عرّف بنفسك من
+    {clinic_name}. اشرح أن فحص الثدي الدوري (الماموجرام) يُقدَّم للنساء في عمرها وتجريه موظفات. اعرض
+    هذه المواعيد: {slot_options}. إذا فضّلت عدم المشاركة، اشكرها وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Speak with {recipient_first_name} in private, ideally as a female health worker. Introduce
+    yourself from {clinic_name}. Explain that routine breast screening (mammogram) is offered to
+    women of her age and is done by female staff. Offer these times: {slot_options}. If she prefers
+    not to take part, thank her, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Follow-up retest
+- id: FOLLOWUP_ADULT_WHATSAPP
+  pathway: followup_retest
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. يود طبيبكم أن تعودوا لإجراء فحص متابعة دوري.
+    هذا جزء طبيعي من الرعاية. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر،
+    أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. Your doctor would like you to come back
+    for a routine follow-up check. This is a normal part of care. We kept these times for you:
+    {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: FOLLOWUP_ADULT_SMS
+  pathway: followup_retest
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، يطلب طبيبكم فحص متابعة دوري. موعد متاح: {slot_short}. رد
+    1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, your doctor asks for a routine follow-up check. Available
+    time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: FOLLOWUP_ADULT_CALL
+  pathway: followup_retest
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. يود
+    طبيبكم أن تعودوا لإجراء فحص متابعة دوري. هذا جزء طبيعي من الرعاية، ويمكن للطبيب الإجابة عن
+    أسئلتكم. لدينا هذه المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني
+    وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor would like you to come back for a routine follow-up check. This is a normal part of care,
+    and the doctor can answer your questions. We have these times: {slot_options}. If you do not wish
+    to receive these reminders, tell me and we will stop these calls.
+- id: FOLLOWUP_ADULT_CHW
+  pathway: followup_retest
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن الطبيب طلب فحص متابعة دوريا،
+    وهو جزء طبيعي من الرعاية. لا تناقش النتائج، فالطبيب سيتولى ذلك. اعرض هذه المواعيد:
+    {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that the doctor
+    has asked for a routine follow-up check, which is a normal part of care. Do not discuss results;
+    the doctor will do that. Offer these times: {slot_options}. If they prefer not to take part,
+    thank them, record "declined" and do not ask again.
+- id: FOLLOWUP_CAREGIVER_WHATSAPP
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: whatsapp
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. يود الطبيب أن يعود {member_names} لإجراء فحص
+    متابعة دوري. نرحب بحضوركم معه. المواعيد المحجوزة: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر،
+    أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. The doctor would like {member_names} to
+    come back for a routine follow-up check. You are welcome to come along. Times kept:
+    {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: FOLLOWUP_CAREGIVER_SMS
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: sms
+  slots: [member_names, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: يطلب الطبيب فحص متابعة لـ{member_names}. موعد متاح: {slot_short}. رد 1=حجز
+    2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: the doctor asks for a follow-up check for {member_names}. Available time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: FOLLOWUP_CAREGIVER_CALL
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: call_script
+  slots: [caller_name, recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. يود
+    الطبيب أن يعود {member_names} لإجراء فحص متابعة دوري. نرحب بحضوركم معه. لدينا هذه المواعيد:
+    {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. The
+    doctor would like {member_names} to come back for a routine follow-up check. You are welcome to
+    come along. We have these times: {slot_options}. If you do not wish to receive these reminders,
+    tell me and we will stop these calls.
+- id: FOLLOWUP_CAREGIVER_CHW
+  pathway: followup_retest
+  audience: caregiver_of_elder
+  channel: chw_script
+  slots: [recipient_first_name, member_names, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن الطبيب طلب أن يعود
+    {member_names} لإجراء فحص متابعة دوري. اسأل إن كانوا يحتاجون مواصلات أو مرافقا. اعرض هذه
+    المواعيد: {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that the doctor
+    has asked {member_names} to come back for a routine follow-up check. Ask whether they need
+    transport or someone to come along. Offer these times: {slot_options}. If they prefer not to
+    take part, thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Household bundle
+- id: BUNDLE_ADULT_WHATSAPP
+  pathway: household_bundle
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. يمكن فحص {n_members} من أفراد أسرتكم
+    ({member_names}) في يوم واحد، فتكفيكم زيارة واحدة. حجزنا لأسرتكم هذه المواعيد: {slot_options}.
+    أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. {n_members} of your family members
+    ({member_names}) can be seen on one day, so one visit is enough. We kept these times for your
+    family: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive
+    these reminders.
+- id: BUNDLE_ADULT_SMS
+  pathway: household_bundle
+  audience: adult
+  channel: sms
+  slots: [n_members, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: يمكن فحص {n_members} من أفراد أسرتكم في يوم واحد. موعد متاح: {slot_short}. رد
+    1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {n_members} of your family members can be seen on one day. Available time:
+    {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: BUNDLE_ADULT_CALL
+  pathway: household_bundle
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. يمكننا
+    فحص {n_members} من أفراد أسرتكم، وهم {member_names}، في اليوم نفسه، فتكفيكم زيارة واحدة. لدينا هذه
+    المواعيد: {slot_options}. أي موعد يناسب أسرتكم؟ إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني
+    وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. We can see
+    {n_members} of your family members, {member_names}, on the same day, so one visit is enough. We
+    have these times: {slot_options}. Which suits your family? If you do not wish to receive these
+    reminders, tell me and we will stop these calls.
+- id: BUNDLE_ADULT_CHW
+  pathway: household_bundle
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, n_members, member_names, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. اشرح أن {n_members} من أفراد الأسرة
+    ({member_names}) لديهم فحوص دورية مستحقة، ويمكن فحصهم جميعا في يوم واحد. اعرض هذه المواعيد:
+    {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Explain that
+    {n_members} family members ({member_names}) have routine checks due and can all be seen on one
+    day. Offer these times: {slot_options}. If they prefer not to take part, thank them, record
+    "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Mobile van
+- id: VAN_ADULT_WHATSAPP
+  pathway: mobile_van
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}. ستكون العيادة المتنقلة المجانية في {van_location} يوم {van_date}.
+    يمكنكم إجراء {pathway_label} هناك، بالقرب من مكان سكنكم. لا حاجة إلى موعد، لكن يمكنكم إرسال 1
+    لحجز وقت، أو 2 ليوم آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}. The free mobile clinic will be at {van_location} on {van_date}.
+    You can have your {pathway_label} there, near where you live. No appointment is needed, but you
+    can send 1 to reserve a time, 2 for another day, or 3 if you do not wish to receive these
+    reminders.
+- id: VAN_ADULT_SMS
+  pathway: mobile_van
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, van_location, van_date]
+  decline_text: "3=STOP"
+  text: >-
+    {recipient_first_name}، العيادة المتنقلة المجانية في {van_location} يوم {van_date} للفحوص الدورية. رد 1=حجز
+    2=يوم آخر 3=STOP
+  english_gloss: >-
+    {recipient_first_name}, the free mobile clinic is at {van_location} on {van_date} for routine checks. Reply
+    1=reserve 2=other day 3=STOP
+- id: VAN_ADULT_CALL
+  pathway: mobile_van
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من فريق الصحة المجتمعية.
+    ستكون عيادتنا المتنقلة المجانية في {van_location} يوم {van_date}. يمكنكم إجراء {pathway_label}
+    هناك، بالقرب من مكان سكنكم، دون الحاجة إلى إجازة طويلة من العمل. هل أحجز لكم وقتا؟ إذا كنتم لا
+    ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from the community health
+    team. Our free mobile clinic will be at {van_location} on {van_date}. You can have your
+    {pathway_label} there, near where you live, without needing much time off work. Shall I reserve
+    a time for you? If you do not wish to receive these reminders, tell me and we will stop these
+    calls.
+- id: VAN_ADULT_CHW
+  pathway: mobile_van
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, van_location, van_date, pathway_label]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من فريق الصحة المجتمعية. اشرح أن العيادة المتنقلة
+    المجانية ستكون في {van_location} يوم {van_date} للفحوص الدورية، ومنها {pathway_label}. اسأل عن
+    الوقت الذي يناسب نوبة عملهم. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة
+    أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from the community health team. Explain that
+    the free mobile clinic will be at {van_location} on {van_date} for routine checks, including
+    their {pathway_label}. Ask what time suits their work shift. If they prefer not to take part,
+    thank them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Cascade (clinician-approved only)
+- id: CASCADE_ADULT_WHATSAPP
+  pathway: cascade_family
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. ينصح طبيبكم بفحص صحة القلب لأسرتكم. هو فحص دم
+    بسيط. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2 لوقت آخر، أو 3 إذا كنتم لا
+    ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. Your doctor recommends a heart-health check
+    for your family. It is a simple blood test. We kept these times for you: {slot_options}. Send 1
+    to book, 2 for another time, or 3 if you do not wish to receive these reminders.
+- id: CASCADE_ADULT_SMS
+  pathway: cascade_family
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: {recipient_first_name}، ينصح طبيبكم بفحص صحة القلب للأسرة. موعد متاح:
+    {slot_short}. رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: {recipient_first_name}, your doctor recommends a family heart-health check.
+    Available time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CASCADE_ADULT_CALL
+  pathway: cascade_family
+  audience: adult
+  channel: call_script
+  slots: [caller_name, recipient_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. ينصح
+    طبيبكم بفحص صحة القلب لأسرتكم. هو فحص دم بسيط. لا يمكنني مشاركة المعلومات الصحية لأي شخص آخر،
+    لكن الطبيب يمكنه الإجابة عن أسئلتكم الخاصة أثناء الزيارة. لدينا هذه المواعيد: {slot_options}. إذا
+    كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family. It is a simple blood test. I cannot
+    share anyone else's health information, but the doctor can answer your own questions at the
+    visit. We have these times: {slot_options}. If you do not wish to receive these reminders, tell
+    me and we will stop these calls.
+- id: CASCADE_ADULT_CHW
+  pathway: cascade_family
+  audience: adult
+  channel: chw_script
+  slots: [recipient_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. قل فقط إن الطبيب ينصح بفحص صحة القلب
+    للأسرة، وهو فحص دم بسيط. لا تناقش أبدا صحة أي شخص آخر. اعرض هذه المواعيد: {slot_options}. إذا
+    فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that the doctor
+    recommends a heart-health check for the family, which is a simple blood test. Never discuss any
+    other person's health. Offer these times: {slot_options}. If they prefer not to take part, thank
+    them, record "declined" and do not ask again.
+- id: CASCADE_PARENT_WHATSAPP
+  pathway: cascade_family
+  audience: parent
+  channel: whatsapp
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات"
+  text: >-
+    مرحبا {recipient_first_name}، معكم {clinic_name}. ينصح طبيبكم بفحص صحة القلب لأسرتكم، ومنهم
+    {child_first_name}. هو فحص دم بسيط. حجزنا لكم هذه المواعيد: {slot_options}. أرسلوا 1 للحجز، أو 2
+    لوقت آخر، أو 3 إذا كنتم لا ترغبون في تلقي هذه التذكيرات.
+  english_gloss: >-
+    Hello {recipient_first_name}, {clinic_name} with you. Your doctor recommends a heart-health check
+    for your family, including {child_first_name}. It is a simple blood test. We kept these times for
+    you: {slot_options}. Send 1 to book, 2 for another time, or 3 if you do not wish to receive these
+    reminders.
+- id: CASCADE_PARENT_SMS
+  pathway: cascade_family
+  audience: parent
+  channel: sms
+  slots: [child_first_name, clinic_short, slot_short]
+  decline_text: "3=STOP"
+  text: >-
+    {clinic_short}: ينصح طبيبكم بفحص صحة القلب للأسرة، ومنهم {child_first_name}. موعد متاح:
+    {slot_short}. رد 1=حجز 2=وقت آخر 3=STOP
+  english_gloss: >-
+    {clinic_short}: your doctor recommends a family heart-health check, including
+    {child_first_name}. Available time: {slot_short}. Reply 1=book 2=other time 3=STOP
+- id: CASCADE_PARENT_CALL
+  pathway: cascade_family
+  audience: parent
+  channel: call_script
+  slots: [caller_name, recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "أخبروني وسنتوقف عن هذه الاتصالات"
+  text: >-
+    مرحبا، هل يمكنني التحدث مع {recipient_first_name}؟ أنا {caller_name} من {clinic_name}. ينصح
+    طبيبكم بفحص صحة القلب لأسرتكم، ومنهم {child_first_name}. هو فحص دم بسيط، وسيشرحه الطبيب أثناء
+    الزيارة. لدينا هذه المواعيد: {slot_options}. إذا كنتم لا ترغبون في تلقي هذه التذكيرات، أخبروني
+    وسنتوقف عن هذه الاتصالات.
+  english_gloss: >-
+    Hello, may I speak with {recipient_first_name}? I am {caller_name} from {clinic_name}. Your
+    doctor recommends a heart-health check for your family, including {child_first_name}. It is a
+    simple blood test, and the doctor will explain it at the visit. We have these times:
+    {slot_options}. If you do not wish to receive these reminders, tell me and we will stop these
+    calls.
+- id: CASCADE_PARENT_CHW
+  pathway: cascade_family
+  audience: parent
+  channel: chw_script
+  slots: [recipient_first_name, child_first_name, clinic_name, slot_options]
+  decline_text: "لا تكرر السؤال مرة أخرى"
+  text: >-
+    رحّب بـ{recipient_first_name} وعرّف بنفسك من {clinic_name}. قل فقط إن الطبيب ينصح بفحص صحة القلب
+    للأسرة، ومنهم {child_first_name}. لا تناقش أبدا صحة أي شخص آخر. اعرض هذه المواعيد:
+    {slot_options}. إذا فضّلوا عدم المشاركة، اشكرهم وسجّل "رفض" ولا تكرر السؤال مرة أخرى.
+  english_gloss: >-
+    Greet {recipient_first_name} and introduce yourself from {clinic_name}. Say only that the doctor
+    recommends a heart-health check for the family, including {child_first_name}. Never discuss any
+    other person's health. Offer these times: {slot_options}. If they prefer not to take part, thank
+    them, record "declined" and do not ask again.
+
+# ---------------------------------------------------------------- Confirmations
+- id: PREF_CONFIRM_WHATSAPP
+  pathway: preference_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name]
+  decline_text: "أرسلوا STOP"
+  text: >-
+    شكرا لكم، {recipient_first_name}. حفظنا تفضيلات التواصل الخاصة بكم. يمكنكم تغييرها في أي وقت، أو
+    أرسلوا STOP (إيقاف) لإيقاف جميع التذكيرات.
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We have saved your contact preferences. You can change them
+    at any time, or send STOP (stop) to stop all reminders.
+- id: PREF_CONFIRM_SMS
+  pathway: preference_confirm
+  audience: adult
+  channel: sms
+  slots: [recipient_first_name]
+  decline_text: "STOP"
+  text: >-
+    شكرا {recipient_first_name}. تم حفظ تفضيلات التواصل. رد STOP لإيقاف جميع التذكيرات.
+  english_gloss: >-
+    Thank you {recipient_first_name}. Contact preferences saved. Reply STOP to stop all reminders.
+- id: OPTOUT_CONFIRM_WHATSAPP
+  pathway: optout_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, pathway_label]
+  decline_text: "أرسلوا STOP"
+  text: >-
+    شكرا لكم، {recipient_first_name}. لن تصلكم تذكيرات أخرى بشأن {pathway_label}. هذا لا يغير رعايتكم.
+    إذا غيرتم رأيكم، أخبروا عيادتكم فقط. لإيقاف جميع التذكيرات، أرسلوا STOP (إيقاف).
+  english_gloss: >-
+    Thank you, {recipient_first_name}. You will not get more reminders about {pathway_label}. This
+    does not change your care. If you change your mind, just tell your clinic. To stop all
+    reminders, send STOP (stop).
+- id: OPTOUT_CONFIRM_SMS
+  pathway: optout_confirm
+  audience: adult
+  channel: sms
+  slots: [pathway_label]
+  decline_text: "STOP"
+  text: >-
+    لن تصلكم تذكيرات أخرى بشأن {pathway_label}. رعايتكم لن تتغير. رد STOP لإيقاف جميع التذكيرات.
+  english_gloss: >-
+    You will not get more reminders about {pathway_label}. Your care will not change. Reply STOP to
+    stop all reminders.
+- id: LATER_CONFIRM_WHATSAPP
+  pathway: remind_later_confirm
+  audience: adult
+  channel: whatsapp
+  slots: [recipient_first_name, until_date]
+  decline_text: "أرسلوا STOP"
+  text: >-
+    شكرا لكم، {recipient_first_name}. سنذكّركم مرة أخرى بعد {until_date}. لإيقاف جميع التذكيرات،
+    أرسلوا STOP (إيقاف).
+  english_gloss: >-
+    Thank you, {recipient_first_name}. We will remind you again after {until_date}. To stop all
+    reminders, send STOP (stop).
+- id: LATER_CONFIRM_SMS
+  pathway: remind_later_confirm
+  audience: adult
+  channel: sms
+  slots: [until_date]
+  decline_text: "STOP"
+  text: >-
+    حسنا، سنذكّركم بعد {until_date}. رد STOP لإيقاف جميع التذكيرات.
+  english_gloss: >-
+    OK, we will remind you after {until_date}. Reply STOP to stop all reminders.

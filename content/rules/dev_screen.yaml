@@ -1,0 +1,23 @@
+id: DEV_SCREEN
+version: 1.0.0
+title: Developmental screening at 9, 18 and 30 months
+pathway: developmental
+kind: schedule
+status: demo_encoding_requires_clinical_validation
+source:
+  name: "AAP – Promoting Optimal Development: Identifying Infants and Young Children With Developmental Disorders Through Developmental Surveillance and Screening (Lipkin et al.)"
+  year: 2020
+  url: "https://pubmed.ncbi.nlm.nih.gov/31843861/"
+  retrieved_on: "2026-11-07"
+  licence: "© AAP; cited, not reproduced"
+  verified: true
+  http_status: 200
+  key_facts: ["Standardized screening tests at the 9-, 18-, and 30-month visits"]
+message_pathway: developmental
+slot_type: child
+applies_to:
+  age_years: {min: 0.5, max: 3.25}
+schedule_ref: developmental
+data_required: [birth_date, "obs:dev_screen"]
+satisfied_by: ["obs:dev_screen"]
+output_codes: {gap_code: "local:gap-dev-screen"}

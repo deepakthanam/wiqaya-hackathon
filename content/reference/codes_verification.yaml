@@ -1,0 +1,176 @@
+# Code verification for Wiqaya. Retrieved 2026-11-07.
+# Primary evidence: tx.fhir.org R4 CodeSystem/$lookup (Accept: application/fhir+json). A Parameters
+# response with a `display` counts as verified. Displays below are as returned. Server versions:
+# LOINC 2.83, SNOMED CT International 20250201, v3-RoleCode 4.0.0, consentscope 2.0.1, CVX 20250715.
+# evidence_url template: https://tx.fhir.org/r4/CodeSystem/$lookup?system=<system>&code=<code>
+# verified: false -> no candidate code was confirmed; use a local code.
+
+loinc:
+  system: http://loinc.org
+  evidence_url_template: "https://tx.fhir.org/r4/CodeSystem/$lookup?system=http://loinc.org&code={code}"
+  codes:
+    # Brief's "known correct" list – all confirmed
+    - {code: "4548-4",  display: "Hemoglobin A1c/Hemoglobin.total in Blood", use: hba1c, verified: true}
+    - {code: "39156-5", display: "Body mass index (BMI) [Ratio]", use: bmi, verified: true}
+    - {code: "8480-6",  display: "Systolic blood pressure", use: sbp, verified: true}
+    - {code: "8462-4",  display: "Diastolic blood pressure", use: dbp, verified: true}
+    - {code: "85354-9", display: "Blood pressure panel with all children optional", use: bp_panel, verified: true}
+    - {code: "13457-7", display: "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation", use: ldl_calc, verified: true}
+    # Genomics
+    - {code: "69548-6", display: "Genetic variant assessment", use: genomic_finding, verified: true}
+    - {code: "48018-6", display: "Gene studied [ID]", use: gene_studied, verified: true}
+    - {code: "81252-9", display: "Discrete genetic variant", use: variant, verified: true}
+    - {code: "53037-8", display: "Genetic variation clinical significance [Imp]", use: clinical_significance, verified: true}
+    # Candidates
+    - {code: "2093-3",  display: "Cholesterol [Mass/volume] in Serum or Plasma", use: total_cholesterol, verified: true}
+    - {code: "2085-9",  display: "Cholesterol in HDL [Mass/volume] in Serum or Plasma", use: hdl, verified: true}
+    - {code: "59576-9", display: "Body mass index (BMI) [Percentile] Per age and sex", use: bmi_percentile, verified: true}
+    - {code: "29463-7", display: "Body weight", use: weight, verified: true}
+    - {code: "8302-2",  display: "Body height", use: height, verified: true}
+    - {code: "29771-3", display: "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay", use: fit, verified: true}
+    - {code: "59420-0", display: "Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe with signal amplification", use: hpv_hr, verified: true,
+       note: "Several valid hrHPV codes exist (also 30167-1, 21440-3, 71431-1, 77379-6 Interpretation). Pick one for the demo; it is method-specific."}
+    - {code: "30167-1", display: "Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe with signal amplification", use: hpv_hr_alt, verified: true}
+    - {code: "21440-3", display: "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe", use: hpv_hr_alt, verified: true}
+    - {code: "71431-1", display: "Human papilloma virus 31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by NAA with probe detection", use: hpv_hr_alt, verified: true}
+    - {code: "77379-6", display: "Human papilloma virus 16 and 18 and 31+33+35+39+45+51+52+56+58+59+66+68 DNA [Interpretation] in Cervix", use: hpv_hr_alt, verified: true}
+    - {code: "47528-5", display: "Cytology report of Cervical or vaginal smear or scraping Cyto stain", use: cervical_cytology_report, verified: true}
+    - {code: "19762-4", display: "General categories [Interpretation] of Cervical or vaginal smear or scraping by Cyto stain", use: cervical_cytology_result, verified: true}
+    - {code: "24606-6", display: "MG Breast Screening", use: mammogram_screening, verified: true}
+    - {code: "71954-2", display: "Ages and Stages Questionnaires [ASQ]", use: developmental_screen_candidate, verified: true,
+       note: "Specific to the ASQ instrument (proprietary). Age-specific total scores exist, e.g. 72128-2 (9 mo), 72123-3 (18 mo), 72118-3 (30 mo). A generic 'developmental screening result' code was not found, so use a local code unless ASQ is assumed."}
+    - {code: "72123-3", display: "Total score - Ages and Stages Questionnaires 18 months [ASQ]", use: asq_18m, verified: true}
+    - {code: "59284-0", display: "Consent Document", use: consent_category, verified: true,
+       note: "tx.fhir.org display is 'Consent Document', not 'Patient Consent'. It is in the R4 consent-category value set (hl7.org/fhir/R4/valueset-consent-category.html)."}
+    # Not verified
+    - {code: null, display: "M-CHAT / M-CHAT-R/F autism screening", use: autism_screen, verified: false,
+       note: "No LOINC code found via tx.fhir.org $expand (filters 'Autism', 'M-CHAT', 'Toddlers') or web search. Use local code."}
+    - {code: null, display: "Mammogram BI-RADS assessment category", use: birads, verified: false,
+       note: "No BI-RADS assessment LOINC code confirmed. The HL7 Breast Radiology IG uses a non-LOINC fixed code. Use local code."}
+    - {code: null, display: "Generic developmental screening result", use: dev_screen, verified: false,
+       note: "Not found; see ASQ codes above or use local code."}
+    - {code: "72133-2", display: "Montreal Cognitive Assessment [MoCA]", verified: true, note: "Guessed M-CHAT candidate; it is MoCA. DO NOT USE for autism."}
+
+hl7_v3_rolecode:
+  system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+  evidence_url_template: "https://tx.fhir.org/r4/CodeSystem/$lookup?system=http://terminology.hl7.org/CodeSystem/v3-RoleCode&code={code}"
+  codes:
+    - {code: MTH, display: "mother", verified: true}
+    - {code: FTH, display: "father", verified: true}
+    - {code: PRN, display: "parent", verified: true}
+    - {code: NMTH, display: "natural mother", verified: true}
+    - {code: NFTH, display: "natural father", verified: true}
+    - {code: CHILD, display: "child", verified: true}
+    - {code: SON, display: "natural son", verified: true}
+    - {code: DAU, display: "natural daughter", verified: true}
+    - {code: SIB, display: "sibling", verified: true}
+    - {code: BRO, display: "brother", verified: true}
+    - {code: SIS, display: "sister", verified: true}
+    - {code: NSIB, display: "natural sibling", verified: true}
+    - {code: NBRO, display: "natural brother", verified: true}
+    - {code: NSIS, display: "natural sister", verified: true}
+    - {code: HBRO, display: "half-brother", verified: true}
+    - {code: HSIS, display: "half-sister", verified: true}
+    - {code: SPS, display: "spouse", verified: true}
+    - {code: HUSB, display: "husband", verified: true}
+    - {code: WIFE, display: "wife", verified: true}
+    - {code: GRMTH, display: "grandmother", verified: true}
+    - {code: GRFTH, display: "grandfather", verified: true}
+    - {code: GRPRN, display: "grandparent", verified: true}
+    - {code: AUNT, display: "aunt", verified: true}
+    - {code: UNCLE, display: "uncle", verified: true}
+    - {code: COUSN, display: "cousin", verified: true}
+    - {code: FAMMEMB, display: "family member", verified: true}
+
+snomed_ct:
+  system: http://snomed.info/sct
+  edition: "International 20250201 (as served by tx.fhir.org)"
+  evidence_url_template: "https://tx.fhir.org/r4/CodeSystem/$lookup?system=http://snomed.info/sct&code={code}"
+  codes:
+    - {code: "44054006",  display: "Type 2 diabetes mellitus", use: t2d, verified: true}
+    - {code: "714628002", display: "Prediabetes", use: prediabetes, verified: true}
+    - {code: "38341003",  display: "Hypertensive disorder", use: hypertension, verified: true}
+    - {code: "59621000",  display: "Essential hypertension", use: essential_hypertension, verified: true}
+    - {code: "55822004",  display: "Hyperlipidemia", use: hyperlipidaemia, verified: true}
+    - {code: "398036000", display: "Familial hypercholesterolemia", use: fh, verified: true}
+    - {code: "248290002", display: "Developmental delay", use: dev_delay, verified: true}
+    - {code: "285838002", display: "Cervical intraepithelial neoplasia grade 2", use: cin2, verified: true}
+    - {code: "92564006",  display: "Carcinoma in situ of uterine cervix", use: cin3_candidate, verified: true,
+       note: "No concept labelled 'CIN grade 3' was found by text search. CIS of cervix is the closest verified concept; clinical review needed."}
+    - {code: "428054006", display: "Adenomatous polyp of colon", use: colorectal_adenoma, verified: true}
+    - {code: "269175006", display: "Beta thalassemia trait", use: beta_thal_trait, verified: true}
+    - {code: "285838004", display: null, verified: false, note: "Mistyped candidate; unknown code (do not use)."}
+
+cvx:
+  system: http://hl7.org/fhir/sid/cvx
+  evidence_url: https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+  evidence_note: "Each code confirmed on BOTH tx.fhir.org $lookup (CVX 20250715) and the CDC CVX table (200 OK). The status shown is from CDC."
+  codes:
+    - {code: "08",  display: "Hep B, adolescent or pediatric", status: Active, verified: true}
+    - {code: "45",  display: "Hep B, unspecified formulation", status: Inactive, verified: true}
+    - {code: "20",  display: "DTaP", status: Active, verified: true}
+    - {code: "106", display: "DTaP, 5 pertussis antigens", status: Active, verified: true}
+    - {code: "110", display: "DTaP-Hep B-IPV", status: Active, verified: true}
+    - {code: "49",  display: "Hib (PRP-OMP)", status: Active, verified: true}
+    - {code: "17",  display: "Hib, unspecified formulation", status: Inactive, verified: true}
+    - {code: "10",  display: "IPV", status: Active, verified: true}
+    - {code: "89",  display: "polio, unspecified formulation", status: Inactive, verified: true}
+    - {code: "133", display: "Pneumococcal conjugate PCV 13", status: Active, verified: true}
+    - {code: "215", display: "Pneumococcal conjugate PCV15, polysaccharide CRM197 conjugate, adjuvant, PF", status: Active, verified: true}
+    - {code: "216", display: "Pneumococcal conjugate PCV20, polysaccharide CRM197 conjugate, adjuvant, PF", status: Active, verified: true}
+    - {code: "152", display: "Pneumococcal Conjugate, unspecified formulation", status: Inactive, verified: true}
+    - {code: "116", display: "rotavirus, pentavalent", status: Active, verified: true}
+    - {code: "119", display: "rotavirus, monovalent", status: Active, verified: true}
+    - {code: "122", display: "rotavirus, unspecified formulation", status: Inactive, verified: true}
+    - {code: "03",  display: "MMR", status: Active, verified: true}
+    - {code: "94",  display: "MMRV", status: Active, verified: true}
+    - {code: "21",  display: "varicella", status: Active, verified: true}
+    - {code: "83",  display: "Hep A, ped/adol, 2 dose", status: Active, verified: true}
+    - {code: "85",  display: "Hep A, unspecified formulation", status: Inactive, verified: true}
+    - {code: "115", display: "Tdap", status: Active, verified: true}
+    - {code: "165", display: "HPV9", status: Active, verified: true}
+    - {code: "114", display: "meningococcal MCV4P", status: Active, verified: true}
+    - {code: "136", display: "Meningococcal MCV4O", status: Active, verified: true}
+    - {code: "147", display: "meningococcal MCV4, unspecified formulation", status: Inactive, verified: true}
+    - {code: "108", display: "meningococcal ACWY, unspecified formulation", status: Inactive, verified: true}
+    - {code: "150", display: "Influenza, split virus, quadrivalent, PF", status: Active, verified: true}
+    - {code: "88",  display: "influenza, unspecified formulation", status: Inactive, verified: true}
+  not_coded:
+    - "BCG, hexavalent (DTaP-Hib-HepB-IPV) and bOPV (all in the Abu Dhabi schedule) were NOT looked up. Verify them before use."
+
+consent:
+  scope:
+    system: http://terminology.hl7.org/CodeSystem/consentscope
+    evidence_url: https://hl7.org/fhir/R4/valueset-consent-scope.html
+    codes:
+      - {code: patient-privacy, display: "Privacy Consent", verified: true}
+      - {code: treatment, display: "Treatment", verified: true}
+      - {code: research, display: "Research", verified: true}
+      - {code: adr, display: "Advanced Care Directive", verified: true}
+  category:
+    evidence_url: https://hl7.org/fhir/R4/valueset-consent-category.html
+    codes:
+      - {system: http://loinc.org, code: "59284-0", display: "Consent Document", verified: true}
+    note: >-
+      The R4 consent-category value set page also contains LOINC 57016-8 and 64292-6, codes from consentcategorycodes
+      (e.g. acd, npp) and v3-ActCode. Only 59284-0 was looked up individually. Consent.scope, Consent.category,
+      Consent.patient, Consent.status, Consent.policyRule and Consent.provision were all confirmed on
+      https://hl7.org/fhir/R4/consent.html.
+
+fhir_r4_detectedissue:
+  evidence_url: https://hl7.org/fhir/R4/detectedissue.html
+  http_status: 200
+  verified: true
+  elements_confirmed:
+    - DetectedIssue.status
+    - DetectedIssue.code
+    - DetectedIssue.severity
+    - DetectedIssue.patient
+    - DetectedIssue.identified[x]
+    - DetectedIssue.author
+    - DetectedIssue.implicated
+    - DetectedIssue.evidence
+    - DetectedIssue.detail
+    - DetectedIssue.reference
+    - DetectedIssue.mitigation
+  note: "The element names were found in the R4 page HTML. Cardinalities and bindings were not extracted."

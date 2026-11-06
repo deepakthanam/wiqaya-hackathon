@@ -1,0 +1,68 @@
+# Words and phrases that must not appear in outreach messages (case-insensitive, whole word/phrase).
+# Diagnosis words: messages invite people to routine checks; they never name a condition.
+# Fear and guilt language: messages stay calm and respectful.
+language: en
+diagnosis:
+  - cancer
+  - tumour
+  - tumor
+  - malignant
+  - diabetes
+  - diabetic
+  - hypertension
+  - disease
+  - disorder
+  - illness
+  - abnormal
+  - positive result
+  - carrier
+  - mutation
+  - gene
+  - genes
+  - genetic
+  - DNA
+  - hereditary
+  - inherited
+  - obese
+  - obesity
+  - autism
+  - autistic
+  - delay
+  - delayed
+fear:
+  - die
+  - dying
+  - death
+  - deadly
+  - fatal
+  - dangerous
+  - urgent
+  - emergency
+  - serious condition
+  - warning
+  - alarming
+  - high risk
+guilt:
+  - failed
+  - neglect
+  - neglected
+  - irresponsible
+  - your fault
+  - should have
+  - ashamed
+  - you forgot
+# Extra words that cascade (family) messages may not use, so a relative's condition is never revealed.
+cascade_extra:
+  - cholesterol
+  - heart disease
+  - FH
+  - LDL
+  - relative
+  - brother
+  - sister
+  - father
+  - mother
+  - uncle
+  - aunt
+  - test result
+  - diagnosed

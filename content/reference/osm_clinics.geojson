@@ -1,0 +1,5644 @@
+{
+ "type": "FeatureCollection",
+ "properties": {
+  "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+  "retrieved_on": "2026-11-07",
+  "source": "https://overpass-api.de/api/interpreter",
+  "query": "[out:json][timeout:120];\narea(id:3603766481)->.emirate;\n(\n  node[\"amenity\"~\"^(clinic|doctors|hospital)$\"](area.emirate);\n  way[\"amenity\"~\"^(clinic|doctors|hospital)$\"](area.emirate);\n);\nout center;",
+  "note": "Names and all other tags stripped; locations only."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.807036,
+     23.147398
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 599903322,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.367749,
+     24.463036
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 840555513,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.461587,
+     24.417226
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 916327476,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.360057,
+     24.492981
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 1069810626,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.7578,
+     24.21458
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 1187237858,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.373124,
+     24.490093
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 1376019586,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.318838,
+     24.473577
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 1876498389,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.553131,
+     24.256247
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 2411234720,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.356148,
+     24.485226
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 2493075567,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.600869,
+     24.45009
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3177642555,
+    "amenity": "doctors",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.37974,
+     24.461243
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3320201715,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.646726,
+     24.084121
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3687765311,
+    "amenity": "hospital",
+    "district_id": "ruwais"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.462966,
+     24.416569
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3853821302,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.453023,
+     24.41862
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3870407707,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.453207,
+     24.418729
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875470455,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452941,
+     24.418774
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875470456,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452928,
+     24.418701
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875471657,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452899,
+     24.418563
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875474257,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452907,
+     24.418629
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875474258,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.453191,
+     24.418659
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875482732,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.453178,
+     24.418598
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875483258,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.45315,
+     24.418478
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875496689,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.453135,
+     24.418417
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3875496691,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452672,
+     24.419449
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890645,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452653,
+     24.419368
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890646,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452629,
+     24.41928
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890647,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452613,
+     24.419197
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890648,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452591,
+     24.419121
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890649,
+    "amenity": "doctors",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.452559,
+     24.418999
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3878890651,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.608238,
+     24.486369
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3965804675,
+    "amenity": "clinic",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36448,
+     24.488604
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3979031183,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.360302,
+     24.490607
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3979080662,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.360459,
+     24.490905
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3980326962,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.345793,
+     24.474995
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3991607842,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.349805,
+     24.473113
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 3991668235,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.373166,
+     24.487207
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4015821705,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.333953,
+     24.467222
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4015833689,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.337419,
+     24.4692
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4015870191,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.364007,
+     24.489896
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4021149736,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.337457,
+     24.465259
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4027284089,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.393715,
+     24.491757
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4029404915,
+    "amenity": "clinic",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.44535,
+     24.431103
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4066085009,
+    "amenity": "clinic",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.434443,
+     24.441435
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4077638835,
+    "amenity": "clinic",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.377219,
+     24.462
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4114728295,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.364913,
+     24.487681
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4122500690,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.501102,
+     24.396737
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4128424723,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.380851,
+     24.457085
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4146391989,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.373325,
+     24.459086
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4166686891,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.364934,
+     24.487668
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4166814589,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.342664,
+     24.469714
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4180042190,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.694675,
+     24.572759
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4189719989,
+    "amenity": "hospital",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371901,
+     24.490635
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4193561321,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371511,
+     24.479443
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4215810191,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.398239,
+     24.443264
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4225390396,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.33267,
+     24.181319
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240943703,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.718933,
+     24.206939
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240948207,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.421501,
+     23.397217
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240984392,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.327185,
+     24.465016
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240994994,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.813116,
+     24.771558
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240994995,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.7319,
+     24.232934
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240999792,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.113842,
+     24.170948
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4240999992,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.389105,
+     24.451352
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4268484197,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.403119,
+     24.435164
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4270149190,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.423381,
+     24.432127
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4278777170,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.76842,
+     24.224446
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4282463790,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.379464,
+     24.464087
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4286602291,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.379266,
+     24.463975
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4294923991,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.3611,
+     24.483789
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4295682494,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.367491,
+     24.484203
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4297353090,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.383718,
+     24.46304
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4298227789,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.704486,
+     23.650785
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4304894214,
+    "amenity": "hospital",
+    "district_id": "madinat_zayed"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521121,
+     24.34794
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4304897796,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.537347,
+     24.341068
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4304966591,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.537223,
+     24.343867
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4304967292,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.708182,
+     23.641084
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4305002090,
+    "amenity": "hospital",
+    "district_id": "madinat_zayed"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.369527,
+     24.462663
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4312151390,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.370165,
+     24.462092
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4312162793,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.361656,
+     24.482253
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4313881191,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.361401,
+     24.483368
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4313913189,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.361559,
+     24.482487
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4313913289,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.361759,
+     24.483189
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4313913490,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.392157,
+     24.445567
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4317796791,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.368279,
+     24.491585
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4324517590,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521421,
+     24.378704
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4354958695,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521402,
+     24.378663
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4367951290,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.707806,
+     24.381802
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4386805698,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.996638,
+     24.186651
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4386830390,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.691556,
+     23.679078
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4396915990,
+    "amenity": "doctors",
+    "district_id": "madinat_zayed"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.603314,
+     24.40747
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4406385790,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.379229,
+     24.4966
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4406412326,
+    "amenity": "clinic",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.359469,
+     24.491554
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4406656689,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.38355,
+     24.454242
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4409252391,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.381696,
+     24.456364
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4409281989,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.732175,
+     24.181109
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4450814994,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.587294,
+     24.425039
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4471006191,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.412408,
+     24.440471
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4484345791,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.35613,
+     24.485157
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4488320389,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.367913,
+     24.470299
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4503754990,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.511621,
+     24.346629
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4510693103,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36132,
+     24.447407
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4512501589,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.319399,
+     24.476903
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4513384192,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.51091,
+     24.346752
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4563746394,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.393306,
+     24.452454
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4565447666,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.392673,
+     24.451859
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4565447672,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.638531,
+     24.296722
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4567012889,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.406063,
+     24.426415
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4587005796,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.74815,
+     24.202633
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4594375306,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36339,
+     24.490301
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4607747891,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.363759,
+     24.490558
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4607782090,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.363342,
+     24.490364
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4607782389,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.393084,
+     24.452218
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4629409594,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.392893,
+     24.452031
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4629488393,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.392991,
+     24.452127
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4629489091,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.705748,
+     24.214467
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4641304811,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.360003,
+     24.493019
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4643884489,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.763839,
+     24.288073
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4646383992,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.430448,
+     24.419874
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4646406890,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.417438,
+     24.439536
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4659942591,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36477,
+     24.464534
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4669431293,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.364546,
+     24.463627
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4669540589,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371048,
+     24.491106
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4672252092,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.383137,
+     24.476555
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4672293789,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.37003,
+     24.489523
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4685205491,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.366942,
+     24.477337
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4699264795,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.385503,
+     24.465532
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4723224429,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.318492,
+     24.472483
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4726923968,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.335801,
+     24.465807
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4728076737,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.455863,
+     24.424021
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4728660332,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.456154,
+     24.423822
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4728660333,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.608185,
+     24.443051
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4730255703,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.607603,
+     24.442913
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4730255704,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.394456,
+     24.44365
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4736428511,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.352541,
+     24.467747
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4738304954,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.348432,
+     24.477341
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4739961632,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.356849,
+     24.491253
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4740238887,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36994,
+     24.435341
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4741372336,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.731532,
+     24.227251
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4745776600,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.73768,
+     24.226271
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4746137514,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.737712,
+     24.226801
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4746137516,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.756845,
+     24.225446
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4746279714,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.765313,
+     24.22297
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4747214411,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.768232,
+     24.222982
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4747224734,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.538005,
+     24.337678
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4749680809,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.771629,
+     24.222704
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4749914778,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.772543,
+     24.222167
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4749917690,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.535868,
+     24.34171
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4753881305,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.530531,
+     24.334882
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4753920848,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.501907,
+     24.366208
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4758542767,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.533058,
+     24.327588
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4765941823,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.55428,
+     24.339092
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4772848623,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.372529,
+     24.493312
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4776616622,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.493076,
+     24.092196
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4781474521,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36974,
+     24.480514
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4791492123,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.613563,
+     24.454178
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4809030122,
+    "amenity": "hospital",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.708033,
+     24.175612
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4829013621,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.768676,
+     24.220503
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4829013622,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.80748,
+     23.147112
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4838741421,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.50421,
+     24.402265
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4874626521,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.535464,
+     24.324349
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4892344226,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.801826,
+     23.899342
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4895781122,
+    "amenity": "hospital",
+    "district_id": "ghayathi"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371223,
+     24.471134
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4902430521,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521429,
+     24.360754
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4924693321,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.37102,
+     24.49088
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4942204621,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.368623,
+     24.441926
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 4964012721,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.398128,
+     24.443199
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5015141840,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.361459,
+     24.482728
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5031705231,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.384748,
+     24.464547
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5069436521,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.401741,
+     24.427555
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5074931323,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.532125,
+     24.337445
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5111165421,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.764393,
+     24.227418
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5112984221,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.73608,
+     24.234575
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5141769723,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.771957,
+     24.220587
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5141815624,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.356021,
+     24.462209
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5156435322,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.504894,
+     24.37105
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5196204241,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.801847,
+     23.899343
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5197396422,
+    "amenity": "hospital",
+    "district_id": "ghayathi"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.646754,
+     24.192271
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5215492321,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.637609,
+     24.351245
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5253352721,
+    "amenity": "hospital",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.566476,
+     23.637305
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5274090421,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.64697,
+     24.192278
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5276842722,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.657707,
+     24.293337
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5305946721,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.731471,
+     24.231025
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5401030222,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.733565,
+     24.231034
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5401036322,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.372883,
+     24.457647
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5426247123,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.373041,
+     24.457472
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5426265121,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371929,
+     24.472384
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5443144022,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.378942,
+     24.459686
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5500774223,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.531768,
+     24.330656
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5693232722,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.377916,
+     24.463861
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5746633721,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.354439,
+     24.478002
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5793331753,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.662487,
+     24.206286
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5797715953,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.379288,
+     24.496457
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5807776857,
+    "amenity": "doctors",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.380954,
+     24.479115
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5891279785,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.639354,
+     24.296733
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 5992904885,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.35047,
+     24.462286
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6110994590,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.374232,
+     24.475498
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6142844888,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.665187,
+     24.085668
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6163108275,
+    "amenity": "hospital",
+    "district_id": "ruwais"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.689951,
+     24.363024
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6173277085,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.404618,
+     24.451483
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6371743491,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.509597,
+     24.361052
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6371743493,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.342787,
+     24.471626
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6371769486,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.56514,
+     24.422476
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6434116785,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36438,
+     24.489894
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6480171285,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.387866,
+     24.472191
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6483935793,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.449279,
+     24.421394
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6493351085,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.395525,
+     24.455566
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6594739885,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521005,
+     24.360837
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6712095386,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.516031,
+     24.378919
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 6712111885,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.350522,
+     24.471688
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7012969288,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.318151,
+     24.473608
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7119569285,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.318854,
+     24.473503
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7222428586,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.162871,
+     23.797891
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7259046186,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.727612,
+     23.658182
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7259046187,
+    "amenity": "hospital",
+    "district_id": "madinat_zayed"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.408243,
+     24.494787
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7380314389,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.610833,
+     24.320369
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7567393886,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.486592,
+     24.345688
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7669317485,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.772161,
+     24.221943
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 7935200398,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.58835,
+     24.436245
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8104318489,
+    "amenity": "hospital",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.849445,
+     24.194474
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8153393792,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.79917,
+     23.132757
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8275218617,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.531691,
+     24.336062
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8490910317,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.729989,
+     24.199631
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8493516717,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.388381,
+     24.472418
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8617302917,
+    "amenity": "doctors",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.557368,
+     24.333115
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8646482219,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.516365,
+     24.382054
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 8980808617,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.504251,
+     24.413147
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9006325218,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.387764,
+     24.472087
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9141276017,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.382618,
+     24.530676
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9465663620,
+    "amenity": "clinic",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.621153,
+     24.276571
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9671096806,
+    "amenity": "clinic",
+    "district_id": "ruwais"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.362727,
+     24.48982
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9682167718,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.764857,
+     24.277296
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 9878819851,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.801389,
+     24.332182
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 10188939543,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.599852,
+     24.486602
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 10253514176,
+    "amenity": "clinic",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.686299,
+     24.221508
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 10648605999,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.48897,
+     24.345752
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 10893313888,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.572213,
+     24.401533
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 10979718605,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.589051,
+     24.265182
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 11014280505,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.673403,
+     24.45762
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 11262401572,
+    "amenity": "clinic",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.521286,
+     24.365926
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 11594592969,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.400469,
+     24.448431
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 12258118521,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.434603,
+     24.524514
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 12486106553,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.353439,
+     24.459255
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13335655801,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.584453,
+     24.203616
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13359765716,
+    "amenity": "doctors",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.393289,
+     24.205715
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13361690664,
+    "amenity": "doctors",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.650379,
+     24.195708
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13647907835,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.648223,
+     24.195036
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13647909611,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.718503,
+     24.239239
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13856201195,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.716801,
+     24.241931
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13856201200,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.715747,
+     24.241934
+    ]
+   },
+   "properties": {
+    "osm_type": "node",
+    "osm_id": 13857220891,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.363658,
+     24.446543
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 89783792,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.359936,
+     24.487874
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 91392694,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.428388,
+     24.420399
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 100971961,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.742754,
+     24.230145
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 104038567,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.613773,
+     24.329581
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 108402191,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.516928,
+     24.36981
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 117601180,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.373563,
+     24.459489
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 119133514,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.349178,
+     24.459247
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 119134833,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.371122,
+     24.458531
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 120383769,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.364881,
+     24.461838
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 136962281,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.36354,
+     24.460047
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 141029608,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.363113,
+     24.460354
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 141029632,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.923153,
+     24.496719
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 145395999,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.396586,
+     24.521234
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 169827708,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.309253,
+     24.476125
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 182698699,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.740486,
+     24.105051
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 182809464,
+    "amenity": "hospital",
+    "district_id": "ruwais"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.381573,
+     24.478486
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 184275023,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.387937,
+     24.496958
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 219107792,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.742812,
+     24.232447
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 223937564,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.743555,
+     24.228525
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 223946167,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.721077,
+     24.245866
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 224052829,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.759855,
+     24.206648
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 224052836,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.741306,
+     24.266967
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 224383244,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.780353,
+     24.186048
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 224740179,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.780357,
+     24.186049
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 224823823,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.740848,
+     24.260121
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 225586180,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.3181,
+     24.47398
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 225784642,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.565044,
+     24.427675
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 251383938,
+    "amenity": "hospital",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.78792,
+     24.441274
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 255581360,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.820756,
+     24.331947
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 260736572,
+    "amenity": "hospital",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.736456,
+     24.101895
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 265050364,
+    "amenity": "hospital",
+    "district_id": "ruwais"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.64872,
+     24.195657
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 282551279,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.807485,
+     23.147314
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 310166089,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.741322,
+     24.459658
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 360725863,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.773867,
+     24.539409
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 360736650,
+    "amenity": "hospital",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.376315,
+     24.499454
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 375791162,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.45291,
+     24.4192
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 376563678,
+    "amenity": "hospital",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.461506,
+     24.418179
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 381940425,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.730038,
+     24.782521
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 382296635,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.761541,
+     24.069091
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 391914821,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.758588,
+     24.043659
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 391953154,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.341747,
+     24.460908
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 400026026,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.431239,
+     24.420701
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 403212671,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.386659,
+     24.463322
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 411779612,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.570476,
+     24.413369
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 413021010,
+    "amenity": "hospital",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.336173,
+     24.458213
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 437415308,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.33996,
+     24.456016
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 437421656,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.347598,
+     24.464067
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 437421745,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.347047,
+     24.463996
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 437421748,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.49818,
+     24.085539
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 447734835,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.801703,
+     23.899607
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 452809620,
+    "amenity": "hospital",
+    "district_id": "ghayathi"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.367546,
+     24.466581
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 478884043,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.382929,
+     24.470891
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 479088357,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.772639,
+     24.665371
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 479219184,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.367982,
+     24.442439
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 479384936,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.368675,
+     24.441929
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 479384937,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.352431,
+     24.468438
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 480912174,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.73437,
+     24.229951
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 481666350,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.748449,
+     24.223473
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 481722142,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.75274,
+     24.229452
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 481724179,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.596659,
+     24.439162
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 482530290,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.781105,
+     24.223586
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 482721246,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.504408,
+     24.402111
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483048395,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.549767,
+     24.425302
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483118225,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.585413,
+     24.427861
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483121086,
+    "amenity": "clinic",
+    "district_id": "khalifa_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.502693,
+     24.409257
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483321394,
+    "amenity": "clinic",
+    "district_id": "musaffah"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.790149,
+     24.213982
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483472641,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.540112,
+     24.372345
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483615769,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.540304,
+     24.367913
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483623280,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.540385,
+     24.366133
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483623281,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.540417,
+     24.365561
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 483623283,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.763844,
+     24.288096
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 498938084,
+    "amenity": "clinic",
+    "district_id": "al_hili"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.681362,
+     24.229209
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499176989,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.744386,
+     24.205985
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499181893,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.680673,
+     24.23163
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499185513,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.723953,
+     24.186133
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499359035,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.745832,
+     24.211396
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499379365,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.702053,
+     24.23069
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 499968261,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.737718,
+     24.208283
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500199697,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.719078,
+     24.207033
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500256823,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.65363,
+     24.149491
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500496079,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.627369,
+     24.185679
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500528640,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.751887,
+     24.244768
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500787161,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.728535,
+     24.242584
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500789932,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.724223,
+     24.24603
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 500998374,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.720407,
+     24.243794
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 501000410,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.720419,
+     24.244068
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 501000411,
+    "amenity": "clinic",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     52.810778,
+     23.870431
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 635624294,
+    "amenity": "clinic",
+    "district_id": "ghayathi"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.708131,
+     24.383045
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 693873423,
+    "amenity": "clinic",
+    "district_id": "al_shamkha"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     53.498063,
+     24.085393
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 739060104,
+    "amenity": "hospital",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.412786,
+     24.4916
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 946239893,
+    "amenity": "hospital",
+    "district_id": "al_reem_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.332918,
+     24.181145
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 954725745,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.332527,
+     24.181213
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 954725746,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.113965,
+     24.170855
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 954728317,
+    "amenity": "clinic",
+    "district_id": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.533389,
+     24.329233
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 965654282,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.524238,
+     24.362637
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 992397258,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.734631,
+     24.229022
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1096960559,
+    "amenity": "hospital",
+    "district_id": "al_ain_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.540025,
+     24.323888
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1152322012,
+    "amenity": "clinic",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.370381,
+     24.483491
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1159846127,
+    "amenity": "clinic",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.652038,
+     24.502453
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1233252311,
+    "amenity": "hospital",
+    "district_id": "yas_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.538782,
+     24.354478
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1239156803,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.381056,
+     24.479345
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1239600404,
+    "amenity": "hospital",
+    "district_id": "abu_dhabi_island"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.613223,
+     24.324086
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1245214792,
+    "amenity": "hospital",
+    "district_id": "mbz_city"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.732181,
+     24.616535
+    ]
+   },
+   "properties": {
+    "osm_type": "way",
+    "osm_id": 1346076761,
+    "amenity": "clinic",
+    "district_id": "yas_island"
+   }
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+# Slot-value labels (Arabic, Modern Standard Arabic). Machine draft; needs native review.
+language: ar
+review_status: machine_draft
+visit_labels:
+  newborn: فحص حديثي الولادة
+  m1: فحص عمر شهر
+  m2: فحص عمر شهرين
+  m4: فحص عمر 4 أشهر
+  m6: فحص عمر 6 أشهر
+  m9: فحص عمر 9 أشهر
+  m12: فحص عمر 12 شهرا
+  m15: فحص عمر 15 شهرا
+  m18: فحص عمر 18 شهرا
+  m24: فحص عمر سنتين
+  m30: فحص عمر 30 شهرا
+  yearly: "فحص عمر {years} سنوات"
+pathway_labels:
+  wcv: الفحص الدوري للطفل
+  developmental: فحص اللعب والنمو
+  immunisation: التطعيمات الدورية
+  child_growth_followup: زيارة متابعة النمو
+  adult_t2d: فحص سكر الدم
+  adult_bp: فحص ضغط الدم
+  adult_lipid: فحص دم لصحة القلب
+  cervical: فحص عنق الرحم
+  colorectal: فحص الأمعاء
+  breast: فحص الثدي
+  followup_retest: فحص المتابعة
+  cascade_family: فحص صحة القلب للعائلة
+  household_bundle: يوم الفحص العائلي
+  mobile_van: زيارة العيادة المتنقلة
+words:
+  and: و
+  or: أو
+  free_health_van: العيادة المتنقلة المجانية
