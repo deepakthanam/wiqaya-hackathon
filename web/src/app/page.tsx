@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ROLE_HOME, startGuest, type Role } from "@/lib/api";
@@ -39,6 +40,7 @@ export default function Landing() {
   return (
     <div className="grid gap-10 py-6 md:grid-cols-2">
       <section>
+        <Image src="/brand/wiqaya-logo.svg" alt="Wiqaya وقاية" width={233} height={100} priority unoptimized className="-ml-2 mb-4" />
         <p className="label">Future Health Challenge · Population Health 04</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink">
           Find who is due. <span className="text-teal">Reach them the right way.</span>

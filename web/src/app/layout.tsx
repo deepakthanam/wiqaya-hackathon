@@ -8,6 +8,7 @@ const siteUrl =
 const title = "Wiqaya – precision prevention and screening";
 const description = "Population prioritisation prototype for preventive care in Abu Dhabi. Simulated cohort.";
 
+// icon.png, apple-icon.png and opengraph-image.png in this folder are picked up by Next.js automatically.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
