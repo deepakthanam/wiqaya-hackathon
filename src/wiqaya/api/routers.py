@@ -46,6 +46,8 @@ def envelope(store: Store, data: Any, **extra: Any) -> dict[str, Any]:
 
 
 def clean(v: Any) -> Any:
+    if v is pd.NaT:  # NaT has isoformat() and would otherwise leak to the UI as the text "NaT"
+        return None
     if isinstance(v, float) and (math.isnan(v) or math.isinf(v)):
         return None
     if isinstance(v, dict):
@@ -239,10 +241,11 @@ def household(hid: str, s: Session = Depends(require(*PERSON_ROLES))) -> dict[st
                      "flag_id": fl["flag_id"] if fl else None, "rank": int(fl["rank"]) if fl else None,
                      "slot": {"site": site_name(fl.get("site_id")), "date": clean(fl.get("date")),
                               "time": clean(fl.get("time"))} if fl else None})  # fmt: skip
-    slots = [(r["slot"]["site"], r["slot"]["date"]) for r in rows if r["slot"] and r["slot"]["date"]]
+    # Only members with a real site and date can share a visit day (unscheduled members have no slot).
+    slots = [(r["slot"]["site"], r["slot"]["date"]) for r in rows
+             if r["slot"] and r["slot"]["site"] and r["slot"]["date"]]  # fmt: skip
     bundle = None
-    if len(slots) > 1:
-        common = max(set(slots), key=slots.count)
+    if len(slots) > 1 and slots.count(common := max(set(slots), key=slots.count)) > 1:
         bundle = {"site": common[0], "date": common[1], "members": sum(1 for x in slots if x == common),
                   "suggestion": f"Bundle into one day: {sum(1 for x in slots if x == common)} members at {common[0]} "
                                 f"on {common[1]}"}  # fmt: skip

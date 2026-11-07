@@ -172,3 +172,20 @@ def test_guest_rate_limited() -> None:
 def test_security_headers(app) -> None:
     r = TestClient(app).get("/api/v1/healthz")
     assert r.headers["X-Frame-Options"] == "DENY" and r.headers["X-Data-Label"] == "Simulated cohort"
+
+
+def test_household_bundle_never_shows_missing_slot() -> None:
+    from fastapi.testclient import TestClient
+
+    from wiqaya.api.app import app
+
+    c = TestClient(app)
+    c.post("/api/v1/session/guest", json={"role": "coordinator"})
+    for hid in ("hh-demo-001", "hh-demo-010"):
+        r = c.get(f"/api/v1/households/{hid}")
+        if r.status_code == 404:
+            continue
+        b = r.json()["data"].get("bundle")
+        if b:
+            assert b["members"] > 1 and "None" not in b["suggestion"] and "NaT" not in b["suggestion"], b
+        assert "NaT" not in r.text
