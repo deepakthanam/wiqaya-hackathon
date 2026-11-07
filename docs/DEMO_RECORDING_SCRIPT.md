@@ -134,6 +134,8 @@ doesn't benefit from Wiqaya contacting fewer people. Avoid saying "today" or quo
 | A page spins for a few seconds | Warm up the pages first; cut the wait in the edit |
 | *The AI analyst is off* | The API didn't load `.env`. Restart it with `make api` |
 | The AI analyst shows an error | Click **New conversation** and ask again, or record Scene 6 separately |
+| The AI analyst never answers, or no **Proposals for your decision** appear | Check the API is running: `http://localhost:8000/api/v1/healthz` should show `"status":"ok"`. If not, restart both servers (`make api`, `make web`). Then open a new incognito window and click the **first** suggested question; the other two are analysis questions and don't draft proposals |
+| The suggested questions are missing | They only show before the first question. Click **New conversation** |
 | The map is grey | Click **Show grid** |
 
 ## Reference for questions afterwards

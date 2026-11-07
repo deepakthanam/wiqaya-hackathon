@@ -57,7 +57,7 @@ The browser only ever talks to the Vercel domain. Next.js proxies `/api/v1/*` to
    - `SESSION_SECRET` = a random 64-character hex string (`openssl rand -hex 32`);
    - optionally, for the AI analyst: `ANTHROPIC_API_KEY`, `AGENT_MODEL=claude-haiku-5-5`, `AGENT_QUESTIONS_PER_HOUR=15`.
 4. Under **Networking**, choose **Generate domain**. The container listens on `$PORT`.
-5. The first build takes about 10 minutes, because it generates and trains on the cohort. When it finishes, check that `https://<api-domain>/api/v1/health` returns OK.
+5. The first build takes about 10 minutes, because it generates and trains on the cohort. When it finishes, check that `https://<api-domain>/api/v1/healthz` returns `{"status":"ok",...}`.
 
 ### Step 2: web on Vercel
 1. In Vercel, choose **Add New → Project** and import `deepakthanam/wiqaya-hackathon`.
