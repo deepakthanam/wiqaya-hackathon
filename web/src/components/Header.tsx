@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -58,7 +59,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-[1000] border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
-        <Link href="/" className="flex items-baseline gap-2" aria-label="Wiqaya home">
+        <Link href="/" className="flex items-center gap-2" aria-label="Wiqaya home">
+          <Image src="/brand/wiqaya-mark.svg" alt="" width={30} height={30} priority unoptimized />
           <span className="text-xl font-bold tracking-tight text-teal">Wiqaya</span>
           <span className="text-lg text-teal" lang="ar" dir="rtl">
             وقاية

@@ -48,6 +48,10 @@ REGISTER: list[dict[str, Any]] = [
      "use": "English source; ar/ur/hi/ml/tl machine drafts pending native review", "retrieved_on": "n/a"},
     {"source": "LLM API", "type": "Optional paraphrasing", "owner": "n/a", "sensitivity": "n/a", "licence": "n/a",
      "personal_data": "N", "use": "Disabled by default (LLM_ENABLED=false); no provider bundled", "retrieved_on": "n/a"},
+    {"source": "Wiqaya logo and icons (web/public/brand, web/src/app)", "type": "Brand artwork", "owner": "Wiqaya team",
+     "sensitivity": "None", "licence": "Team-owned; lettering from IBM Plex Sans Arabic (SIL OFL 1.1), outlined",
+     "personal_data": "N", "use": "Header, landing and About pages, browser icons, link preview (D-048)",
+     "retrieved_on": "2026-11-07"},
     {"source": "Anthropic Claude API (planner analyst)", "type": "Optional AI agent", "owner": "Anthropic",
      "sensitivity": "Aggregate, suppressed simulated figures only", "licence": "Anthropic commercial terms",
      "personal_data": "N", "use": "Off unless ANTHROPIC_API_KEY is set; answers planner questions from suppressed "
