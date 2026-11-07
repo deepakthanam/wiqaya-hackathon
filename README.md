@@ -52,7 +52,7 @@ make help            # everything else
 ```
 
 ## Deploy
-The public demo runs the web app on Vercel and the API as one container (Railway, Render or Fly.io). See `docs/DEPLOYMENT.md`, which also
+The public demo runs the web app on Vercel and the API as one container: free on a Hugging Face Space (`scripts/deploy/hf_space.sh`), or on Railway, Render or Fly.io. See `docs/DEPLOYMENT.md`, which also
 covers a single VPS with Docker Compose and the Azure UAE pilot path.
 
 Repository: https://github.com/deepakthanam/wiqaya-hackathon

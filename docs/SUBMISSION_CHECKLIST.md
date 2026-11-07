@@ -56,7 +56,7 @@ Each criterion maps to the feature, the screen and the document or test that sho
 | `TRANSLATION_REVIEW_NOTES.md` | ✅ extra: native-review priorities |
 
 ## Open items before submission
-- [ ] Deploy to a public URL with guest access: web on Vercel, API on Railway, Render or Fly.io (`docs/DEPLOYMENT.md`, D-047).
+- [ ] Deploy to a public URL with guest access: web on Vercel Hobby, API on a free Hugging Face Space (`docs/DEPLOYMENT.md`, D-049).
 - [x] Push to the team's GitHub repository so CI runs: https://github.com/deepakthanam/wiqaya-hackathon
 - [x] AI planner analyst checked against the live Claude API on Haiku (D-046).
 - [ ] Line up the visual language and layer names with the final submission deck.

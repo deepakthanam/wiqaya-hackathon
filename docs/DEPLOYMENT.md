@@ -50,6 +50,38 @@ So the API runs as one long-lived container. Railway, Render and Fly.io all buil
 
 The browser only ever talks to the Vercel domain. Next.js proxies `/api/v1/*` to `API_ORIGIN`, so the session cookie stays first-party and no CORS setup is needed. HAPI FHIR is not needed for the public demo: the consoles read the DuckDB read model.
 
+### Free option: Vercel Hobby + a Hugging Face Space (D-049)
+A free Hugging Face **Docker Space** (CPU basic: 2 vCPU, 16 GB RAM) runs the API at no cost. It sleeps only after 48
+hours without visitors and wakes on the next request. On a free account the Space is public, so its files (the API
+code, from committed files only) are visible. `.env` and keys are never included, and secrets live in the Space settings.
+
+**A. API on Hugging Face**
+1. Create a free account at huggingface.co. Under **Settings → Access Tokens**, create a token with **Write** access.
+2. Choose **New Space**. Name it, for example `wiqaya-api`. Set **SDK** to **Docker**, the template to **Blank**,
+   hardware to **CPU basic (free)** and visibility to **Public**.
+3. In the Space, open **Settings → Variables and secrets** and add these **secrets**:
+   - `SESSION_SECRET`: a random 64-character hex string (`openssl rand -hex 32`);
+   - optionally, for the AI analyst: `ANTHROPIC_API_KEY` (and `AGENT_QUESTIONS_PER_HOUR=15` as a variable).
+4. From the repository root, push the API:
+   ```bash
+   bash scripts/deploy/hf_space.sh <hf-username>/wiqaya-api
+   ```
+   When git asks, enter your Hugging Face username, and the write token as the password. The script sends only
+   committed files. It adds the Space settings (`app_port: 8000`) and runs the container as user 1000, as Spaces require.
+5. The build takes about 10–15 minutes (it generates and trains on the cohort). Watch it under the Space's **Logs**.
+   When the Space shows **Running**, open `https://<hf-username>-wiqaya-api.hf.space/api/v1/healthz`. It should return
+   `{"status":"ok",...}`. The Space's own page shows *Not Found*, which is expected: it serves only `/api/v1/*`.
+
+**B. Web on Vercel Hobby (free)**
+1. Sign in to vercel.com with GitHub and choose **Add New → Project**. Allow Vercel to access the private
+   `deepakthanam/wiqaya-hackathon` repository, then import it.
+2. Set **Root Directory** to `web`. Vercel detects Next.js and pnpm.
+3. Add the environment variable `API_ORIGIN` = `https://<hf-username>-wiqaya-api.hf.space` (no trailing slash).
+4. Click **Deploy**, then open the `*.vercel.app` URL and click **Continue as Guest**.
+
+**Updating:** after new commits, run the push script again for the API. Vercel redeploys the web app on every push to
+`main`. If the Space URL changes, update `API_ORIGIN` in Vercel and redeploy.
+
 ### Step 1: API container (Railway shown; Render and Fly.io are similar)
 1. In Railway, choose **New project → Deploy from GitHub repo** and pick `deepakthanam/wiqaya-hackathon`.
 2. In the service settings, set **Dockerfile path** to `docker/api.Dockerfile`. Leave the root directory empty.
