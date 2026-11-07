@@ -31,7 +31,7 @@ Internet ──443──▶ Caddy (auto HTTPS) ──▶ web:3000 (Next.js) ─�
 - Guest session creation is rate-limited (`GUEST_RATE_LIMIT`, default 30/min per IP).
 - Sessions are signed cookies (HttpOnly, SameSite=Lax) that expire after 2 hours. Writes go to a per-session in-memory overlay.
 - There are no admin write endpoints, no password store and no user accounts.
-- Security headers come from the API, Next.js and Caddy: HSTS, nosniff, frame-deny, no-referrer, permissions policy.
+- Security headers come from the API, Next.js and Caddy: HSTS, nosniff, frame-deny, a referrer policy (origin only across sites, which OpenStreetMap tiles require), permissions policy.
 - HAPI and Postgres sit on the internal network only. The Postgres password comes from `.env`.
 - Logs: Caddy access logs; the API writes audit JSONL to `data/audit/`.
 

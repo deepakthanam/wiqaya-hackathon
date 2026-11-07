@@ -10,7 +10,8 @@ export default function DistrictMap({ rows, onTileError }: { rows: any[]; onTile
     <MapContainer bounds={[[22.9, 51.9], [24.75, 55.95]]} scrollWheelZoom={false} style={{ height: 420, width: "100%", borderRadius: 8 }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        referrerPolicy="strict-origin-when-cross-origin"
         eventHandlers={{ tileerror: onTileError }}
       />
       {rows.map((r) => {
