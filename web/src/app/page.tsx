@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ROLE_HOME, startGuest, type Role } from "@/lib/api";
 
 const ROLES: { role: Role; title: string; text: string }[] = [
@@ -16,6 +16,13 @@ export default function Landing() {
   const [picking, setPicking] = useState(false);
   const [busy, setBusy] = useState<Role | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).has("expired")) {
+      setPicking(true);
+      setError("Your guest session has ended. Choose a role to start again.");
+    }
+  }, []);
 
   async function go(role: Role) {
     setBusy(role);

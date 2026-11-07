@@ -17,11 +17,22 @@ export class ApiError extends Error {
 
 // Responses are wrapped in an envelope: { label: "Simulated cohort", run_id, as_of, data, ... }.
 export async function api<T = any>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`/api/v1${path}`, {
-    credentials: "include",
-    headers: { "Content-Type": "application/json" },
-    ...init,
-  });
+  let res: Response;
+  try {
+    res = await fetch(`/api/v1${path}`, {
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(20_000),
+      ...init,
+    });
+  } catch {
+    throw new ApiError(0, "The Wiqaya API is not reachable. Check that it is running, then reload.");
+  }
+  // Expired or unknown guest session (e.g. after an API restart): back to the guest screen.
+  if (res.status === 401 && !path.startsWith("/session/guest") && typeof window !== "undefined" && window.location.pathname !== "/") {
+    window.location.assign("/?expired=1");
+    throw new ApiError(401, "Your guest session has ended. Choose a role to start again.");
+  }
   if (!res.ok) {
     let detail: unknown = res.statusText;
     try {

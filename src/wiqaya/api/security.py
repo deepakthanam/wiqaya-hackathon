@@ -13,6 +13,7 @@ from typing import Any
 from fastapi import Depends, HTTPException, Request
 from itsdangerous import BadSignature, SignatureExpired, URLSafeTimedSerializer
 
+from wiqaya.common.paths import DATA
 from wiqaya.governance.overlay import AuditLog, OverlayStore
 
 ROLES = ("coordinator", "clinician", "planner", "family", "admin")
@@ -27,7 +28,26 @@ GENOMIC_ROLES = {"clinician", "admin"}
 PERSON_ROLES = {"coordinator", "clinician", "admin"}
 COOKIE = "wiqaya_session"
 TTL = int(os.environ.get("SESSION_TTL_MINUTES", "120")) * 60
-_SECRET = os.environ.get("SESSION_SECRET") or secrets.token_hex(32)
+
+
+def _load_secret() -> str:
+    """SESSION_SECRET from the environment; otherwise a local secret kept in data/ so restarts keep guest sessions."""
+    env = os.environ.get("SESSION_SECRET")
+    if env:
+        return env
+    path = DATA / ".session_secret"
+    try:
+        if path.exists():
+            return path.read_text(encoding="utf-8").strip()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        value = secrets.token_hex(32)
+        path.write_text(value, encoding="utf-8")
+        return value
+    except OSError:
+        return secrets.token_hex(32)
+
+
+_SECRET = _load_secret()
 serializer = URLSafeTimedSerializer(_SECRET, salt="wiqaya-guest")
 overlays = OverlayStore()
 audit = AuditLog()
