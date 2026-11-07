@@ -35,6 +35,30 @@ Internet ──443──▶ Caddy (auto HTTPS) ──▶ web:3000 (Next.js) ─�
 - HAPI and Postgres sit on the internal network only. The Postgres password comes from `.env`.
 - Logs: Caddy access logs; the API writes audit JSONL to `data/audit/`.
 
+## Shared VPS without Docker, beside other apps (D-050)
+Used for `srv468681.hstgr.cloud`, where Apache already serves other sites on ports 80/443. Wiqaya follows the host's
+own pattern (systemd services behind Apache) and touches no other site's files.
+
+| Part | Where |
+|---|---|
+| User and code | System user `wiqaya`; code in `/opt/wiqaya/app`; Python 3.11 via uv in `/opt/wiqaya` (system Python untouched) |
+| API | `wiqaya-api.service`: uvicorn on `127.0.0.1:8110`, `MemoryMax=1500M`; settings in `/etc/wiqaya/api.env` (root:wiqaya 640) |
+| Web | `wiqaya-web.service`: `next start` on `127.0.0.1:3110`, `MemoryMax=768M`; built with `API_ORIGIN=http://127.0.0.1:8110` |
+| Apache | `/etc/apache2/sites-available/000-a-wiqaya.conf`. Named to load before `000-default.conf`, which implicitly claims the server's hostname |
+| Data | Copied from the reference laptop run, so the numbers match the docs. A Linux rebuild drifts slightly (44.29 vs 44.59 per 100 contacts) |
+
+**Node and io_uring:** Node 20.11 on kernel 5.15 can hang for good in io_uring (`iou-sqp` blocked, `next build`
+stuck at "Creating an optimized production build"). Both the build and `wiqaya-web.service` set `UV_USE_IO_URING=0`.
+
+**Update to a new commit:**
+```bash
+git archive --format=tar.gz -o wiqaya.tgz HEAD && scp wiqaya.tgz root@<host>:/tmp/
+# on the server: extract over /opt/wiqaya/app (keep data/), then as user wiqaya:
+#   uv sync --frozen --no-dev;  cd web && UV_USE_IO_URING=0 API_ORIGIN=http://127.0.0.1:8110 corepack pnpm build
+systemctl restart wiqaya-api wiqaya-web
+```
+**HTTPS:** `certbot --apache -d <host> --redirect`, run by the server owner.
+
 ## Hackathon public URL: web on Vercel, API on a container host (D-047)
 
 ```
