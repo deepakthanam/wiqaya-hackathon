@@ -22,4 +22,5 @@ RUN uv run --no-dev wiqaya data --seed ${SEED} --n ${N} \
  && uv run --no-dev wiqaya evaluate
 
 EXPOSE 8000
-CMD ["uv", "run", "--no-dev", "uvicorn", "wiqaya.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+# PORT is set by hosts such as Railway or Render. Proxy headers give the guest rate limit the visitor's IP, not the proxy's.
+CMD ["sh", "-c", "exec uv run --no-dev uvicorn wiqaya.api.app:app --host 0.0.0.0 --port ${PORT:-8000} --proxy-headers --forwarded-allow-ips='*'"]

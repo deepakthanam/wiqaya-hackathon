@@ -21,7 +21,7 @@ Each criterion maps to the feature, the screen and the document or test that sho
 | **Technical depth & architecture** | Six-layer architecture with FHIR R4 (HAPI) as system of record and a DuckDB read model (`docs/ARCHITECTURE.md`); rule DSL with field-guarded snapshots; consent-filtered NetworkX graph; LightGBM + isotonic + SHAP; logged fairness floor; OR-Tools CP-SAT; common-random-number simulator; byte-identical determinism; optional agentic AI planner analyst (Claude tool use with audited human-approval gates). |
 | **Working demo** | `make demo` from a clean clone (about 10 min); **Continue as Guest** with 5 roles; `docs/DEMO_SCRIPT.md` (3 minutes, pinned personas); Playwright smoke (`make e2e`, 10 tests). |
 | **Responsible AI, safety & governance** | `docs/RISKS_AND_SAFEGUARDS.md` (each safeguard linked to code and test); consent per category; genomic stripping; n<11 suppression on every aggregate; audit log; human review with clinician sign-off; model card with prohibited uses; machine-draft translation flags; LLM off by default and fenced; the optional AI planner analyst sees only suppressed aggregates, has its figures checked against the data, and can only propose actions for a human to approve (D-045). |
-| **Scalability & deployment readiness** | Docker Compose with Caddy (HTTPS, HAPI internal-only); Azure Container Apps (UAE North) pilot path with Malaffi FHIR and Azure Health Data Services (`docs/DEPLOYMENT.md`); CI on GitHub Actions; laptop-scale timings in `docs/ARCHITECTURE.md`. |
+| **Scalability & deployment readiness** | Public demo on Vercel (web) + one API container; Docker Compose with Caddy (HTTPS, HAPI internal-only); Azure Container Apps (UAE North) pilot path with Malaffi FHIR and Azure Health Data Services (`docs/DEPLOYMENT.md`); CI on GitHub Actions; laptop-scale timings in `docs/ARCHITECTURE.md`. |
 | **Commercial viability** | Plugs into existing FHIR (Malaffi) with no rip-and-replace. The value metric is completed visits per 100 contacts, i.e. lower cost per closed gap. The rules and message library are configurable per payer or provider network. Licence-clean stack (`docs/THIRD_PARTY_LICENSES.md`). |
 
 ## Hard constraints from the brief
@@ -51,10 +51,11 @@ Each criterion maps to the feature, the screen and the document or test that sho
 | `EVALUATION.md` | ✅ generated (`make evaluate`) |
 | `DEMO_SCRIPT.md` | ✅ |
 | `SUBMISSION_CHECKLIST.md` | ✅ this file |
-| `DEPLOYMENT.md` | ✅ VPS + Caddy; Azure UAE pilot path |
+| `DEPLOYMENT.md` | ✅ Vercel (web) + container (API) public demo; VPS + Caddy; Azure UAE pilot path |
 | `TRANSLATION_REVIEW_NOTES.md` | ✅ extra: native-review priorities |
 
 ## Open items before submission
-- [ ] Deploy to a public URL with guest access (`docs/DEPLOYMENT.md`). This needs a VPS and a domain from the team.
-- [ ] Push to the team's GitHub repository so CI runs.
+- [ ] Deploy to a public URL with guest access: web on Vercel, API on Railway, Render or Fly.io (`docs/DEPLOYMENT.md`, D-047).
+- [x] Push to the team's GitHub repository so CI runs: https://github.com/deepakthanam/wiqaya-hackathon
+- [x] AI planner analyst checked against the live Claude API on Haiku (D-046).
 - [ ] Line up the visual language and layer names with the final submission deck.

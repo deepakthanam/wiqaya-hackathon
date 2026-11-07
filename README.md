@@ -17,6 +17,7 @@ Wiqaya:
 Optional **AI planner analyst** (Claude, off unless `ANTHROPIC_API_KEY` is set in `.env`): the planner asks questions in plain
 English. The agent reads the suppressed aggregate data, runs capacity what-ifs and drafts proposals that a person must approve.
 It never sees person-level data, and every figure it quotes is checked against the data it read (`docs/DECISIONS.md` D-045).
+It uses Claude Haiku 5.5 by default (`AGENT_MODEL`) and has been checked against the live API (D-046).
 
 Simulated 12-week result (`docs/EVALUATION.md`): **44.6 vs 19.8 completed screenings per 100 contacts** (Wiqaya vs
 baseline), with the same capacity and the same random draws. The sensitivity analysis and limitations are reported
@@ -49,6 +50,12 @@ make e2e             # Playwright smoke test
 make content-check   # rules, sources and message library (ONLINE=1 re-fetches source URLs)
 make help            # everything else
 ```
+
+## Deploy
+The public demo runs the web app on Vercel and the API as one container (Railway, Render or Fly.io). See `docs/DEPLOYMENT.md`, which also
+covers a single VPS with Docker Compose and the Azure UAE pilot path.
+
+Repository: https://github.com/deepakthanam/wiqaya-hackathon
 
 ## Guest access
 Click **Continue as Guest** and choose a role. No credentials exist. The role selector in the header switches role and

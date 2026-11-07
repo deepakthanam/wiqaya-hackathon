@@ -35,6 +35,44 @@ Internet ──443──▶ Caddy (auto HTTPS) ──▶ web:3000 (Next.js) ─�
 - HAPI and Postgres sit on the internal network only. The Postgres password comes from `.env`.
 - Logs: Caddy access logs; the API writes audit JSONL to `data/audit/`.
 
+## Hackathon public URL: web on Vercel, API on a container host (D-047)
+
+```
+Browser ──▶ Vercel (Next.js, web/) ──rewrite /api/v1/*──▶ API container (FastAPI, docker/api.Dockerfile)
+```
+
+Vercel hosts the web app only. The API cannot run as Vercel serverless functions:
+- it keeps guest sessions, the write overlay and analyst jobs in memory;
+- analyst jobs run in a background thread after the request returns;
+- it needs the generated read model (about 30 MB) and the trained models.
+
+So the API runs as one long-lived container. Railway, Render and Fly.io all build `docker/api.Dockerfile` as it is. Choose a plan with **at least 1 GB RAM**: the API uses about 350 MB, and the image build trains the models. Run **exactly one instance**, because sessions live in memory.
+
+The browser only ever talks to the Vercel domain. Next.js proxies `/api/v1/*` to `API_ORIGIN`, so the session cookie stays first-party and no CORS setup is needed. HAPI FHIR is not needed for the public demo: the consoles read the DuckDB read model.
+
+### Step 1: API container (Railway shown; Render and Fly.io are similar)
+1. In Railway, choose **New project → Deploy from GitHub repo** and pick `deepakthanam/wiqaya-hackathon`.
+2. In the service settings, set **Dockerfile path** to `docker/api.Dockerfile`. Leave the root directory empty.
+3. Under **Variables**, set:
+   - `SESSION_SECRET` = a random 64-character hex string (`openssl rand -hex 32`);
+   - optionally, for the AI analyst: `ANTHROPIC_API_KEY`, `AGENT_MODEL=claude-haiku-5-5`, `AGENT_QUESTIONS_PER_HOUR=15`.
+4. Under **Networking**, choose **Generate domain**. The container listens on `$PORT`.
+5. The first build takes about 10 minutes, because it generates and trains on the cohort. When it finishes, check that `https://<api-domain>/api/v1/health` returns OK.
+
+### Step 2: web on Vercel
+1. In Vercel, choose **Add New → Project** and import `deepakthanam/wiqaya-hackathon`.
+2. Set **Root Directory** to `web`. Vercel detects Next.js and pnpm (from `packageManager`).
+3. Add the environment variable `API_ORIGIN` = `https://<api-domain>`, with no trailing slash, for Production and Preview.
+4. Click **Deploy**. Rewrites are fixed at build time, so if `API_ORIGIN` changes later, redeploy.
+5. Open the Vercel URL and click **Continue as Guest**.
+
+With the CLI instead: run `npm i -g vercel`, then `cd web`, `vercel link`, `vercel env add API_ORIGIN production` and `vercel --prod`.
+
+### Notes
+- **Cost control:** the analyst is off unless `ANTHROPIC_API_KEY` is set on the API service. Each question costs a fraction of a cent on Haiku. `AGENT_QUESTIONS_PER_HOUR` limits each session. To cap spend, also set a monthly limit in the Anthropic console.
+- **Restarts:** a redeploy clears guest sessions and analyst history. Visitors are sent back to the guest screen (D-044).
+- **Visitor IP:** the guest rate limit uses `X-Forwarded-For` (`--proxy-headers`). A client can spoof this header, which only weakens a soft limit.
+
 ## Pilot path: Azure Container Apps in a UAE region
 - Run the same images in a Container Apps environment in **UAE North**.
 - **API:**
