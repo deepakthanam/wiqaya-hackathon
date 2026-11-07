@@ -41,7 +41,12 @@ class FakeClient:
         self.beta = NS(messages=NS(create=self.create))
 
     def create(self, **kw: Any) -> NS:
-        assert kw["model"] == "claude-opus-5-5" and kw["tools"] and "SIMULATED COHORT" in kw["system"]
+        assert (
+            kw["model"] == "claude-haiku-5-5"
+            and "fallbacks" not in kw
+            and kw["tools"]
+            and "SIMULATED COHORT" in kw["system"]
+        )
         self.turn += 1
         if self.turn == 1:
             content = [_tool(1, "get_district_need", {"population": "all"}),

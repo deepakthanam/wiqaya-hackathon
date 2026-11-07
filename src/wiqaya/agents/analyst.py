@@ -21,7 +21,9 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from typing import Any
 
-MODEL = os.environ.get("AGENT_MODEL", "claude-opus-5-5")
+MODEL = os.environ.get("AGENT_MODEL", "claude-haiku-5-5")  # cheapest current model; override in .env
+# Server-side refusal fallback exists only for these models (not Haiku).
+FALLBACK_MODELS = ("claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5", "claude-fable-5-1")
 MAX_STEPS = int(os.environ.get("AGENT_MAX_STEPS", "8"))
 QUESTIONS_PER_HOUR = int(os.environ.get("AGENT_QUESTIONS_PER_HOUR", "15"))
 POPULATIONS = ["all", "labour_accommodation", "children_under_6", "adults_65_plus"]
@@ -334,7 +336,10 @@ def _run(job: Job, on_done: Any) -> None:
     t0 = time.monotonic()
     sources: list[Any] = []
     client = anthropic.Anthropic(max_retries=2, timeout=180.0)
-    messages: list[Any] = list(agents.history.get(job.sid, []))[-20:]
+    history = list(agents.history.get(job.sid, []))
+    # Keep the last ~20 messages, starting at a plain user question so no tool result is orphaned.
+    starts = [i for i, m in enumerate(history) if m["role"] == "user" and isinstance(m["content"], str)]
+    messages: list[Any] = history[next((i for i in starts if i >= len(history) - 20), len(history)) :]
     messages.append({"role": "user", "content": job.question})
     try:
         for _ in range(MAX_STEPS):
@@ -346,8 +351,11 @@ def _run(job: Job, on_done: Any) -> None:
                 messages=messages,
                 output_config={"effort": "medium"},
                 cache_control={"type": "ephemeral"},
-                betas=["server-side-fallback-2026-07-01"],
-                fallbacks="default",
+                **(
+                    {"betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"}
+                    if MODEL in FALLBACK_MODELS
+                    else {}
+                ),
             )
             for k in ("input_tokens", "output_tokens", "cache_read_input_tokens"):
                 job.usage[k] = job.usage.get(k, 0) + int(getattr(resp.usage, k, 0) or 0)
