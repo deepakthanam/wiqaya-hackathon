@@ -50,6 +50,7 @@ Each criterion maps to the feature, the screen and the document or test that sho
 | `DECISIONS.md` | ✅ running log |
 | `EVALUATION.md` | ✅ generated (`make evaluate`) |
 | `DEMO_SCRIPT.md` | ✅ |
+| `DEMO_RECORDING_SCRIPT.md` | ✅ extra: narrated video script (8-minute and 3-minute cuts) |
 | `SUBMISSION_CHECKLIST.md` | ✅ this file |
 | `DEPLOYMENT.md` | ✅ Vercel (web) + container (API) public demo; VPS + Caddy; Azure UAE pilot path |
 | `TRANSLATION_REVIEW_NOTES.md` | ✅ extra: native-review priorities |

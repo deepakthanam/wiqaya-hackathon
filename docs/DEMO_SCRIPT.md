@@ -1,5 +1,8 @@
 # Demo script (3 minutes)
 
+For recording a narrated video (about 8 minutes, with narration, technical details, AI interventions and benefits), see
+`DEMO_RECORDING_SCRIPT.md`.
+
 Uses the pinned demo personas (seed 42). Every screen carries the **Simulated cohort** badge. The roles share one guest
 session, so a decision made as clinician shows up in the family view.
 
