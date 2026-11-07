@@ -287,7 +287,7 @@
      "content": {
       "application/json": {
        "schema": {
-        "$ref": "#/components/schemas/Decision"
+        "$ref": "#/components/schemas/wiqaya__api__routers__Decision"
        }
       }
      }
@@ -921,33 +921,211 @@
      }
     }
    }
+  },
+  "/api/v1/planner/analyst/status": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Analyst Status",
+    "operationId": "analyst_status_api_v1_planner_analyst_status_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Analyst Status Api V1 Planner Analyst Status Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/analyst/ask": {
+   "post": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Analyst Ask",
+    "operationId": "analyst_ask_api_v1_planner_analyst_ask_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Ask"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Analyst Ask Api V1 Planner Analyst Ask Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/analyst/jobs/{job_id}": {
+   "get": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Analyst Job",
+    "operationId": "analyst_job_api_v1_planner_analyst_jobs__job_id__get",
+    "parameters": [
+     {
+      "name": "job_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Job Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Analyst Job Api V1 Planner Analyst Jobs  Job Id  Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/analyst/proposals/{proposal_id}/decision": {
+   "post": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Analyst Decide",
+    "operationId": "analyst_decide_api_v1_planner_analyst_proposals__proposal_id__decision_post",
+    "parameters": [
+     {
+      "name": "proposal_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Proposal Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/wiqaya__api__analyst_routes__Decision"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Analyst Decide Api V1 Planner Analyst Proposals  Proposal Id  Decision Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/planner/analyst/reset": {
+   "post": {
+    "tags": [
+     "planner"
+    ],
+    "summary": "Analyst Reset",
+    "operationId": "analyst_reset_api_v1_planner_analyst_reset_post",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Analyst Reset Api V1 Planner Analyst Reset Post"
+        }
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {
   "schemas": {
-   "Decision": {
+   "Ask": {
     "properties": {
-     "decision": {
+     "question": {
       "type": "string",
-      "enum": [
-       "accepted",
-       "changed",
-       "rejected"
-      ],
-      "title": "Decision"
-     },
-     "note": {
-      "type": "string",
-      "maxLength": 500,
-      "title": "Note",
-      "default": ""
+      "maxLength": 600,
+      "minLength": 3,
+      "title": "Question"
      }
     },
     "type": "object",
     "required": [
-     "decision"
+     "question"
     ],
-    "title": "Decision"
+    "title": "Ask"
    },
    "GuestRequest": {
     "properties": {
@@ -1132,6 +1310,53 @@
      "type"
     ],
     "title": "ValidationError"
+   },
+   "wiqaya__api__analyst_routes__Decision": {
+    "properties": {
+     "decision": {
+      "type": "string",
+      "enum": [
+       "approve",
+       "dismiss"
+      ],
+      "title": "Decision"
+     },
+     "note": {
+      "type": "string",
+      "maxLength": 500,
+      "title": "Note",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "decision"
+    ],
+    "title": "Decision"
+   },
+   "wiqaya__api__routers__Decision": {
+    "properties": {
+     "decision": {
+      "type": "string",
+      "enum": [
+       "accepted",
+       "changed",
+       "rejected"
+      ],
+      "title": "Decision"
+     },
+     "note": {
+      "type": "string",
+      "maxLength": 500,
+      "title": "Note",
+      "default": ""
+     }
+    },
+    "type": "object",
+    "required": [
+     "decision"
+    ],
+    "title": "Decision"
    }
   }
  }

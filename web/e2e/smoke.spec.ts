@@ -66,6 +66,15 @@ test("planner: equity console with suppressed-cell hatching", async ({ page }) =
   await expect(page.getByTestId("sensitivity")).toBeVisible();
 });
 
+test("planner: AI analyst panel is present and states its data limits", async ({ page }) => {
+  await guest(page, "planner");
+  const panel = page.getByRole("region", { name: "AI analyst" });
+  await expect(panel).toBeVisible();
+  await expect(panel.getByText(/aggregate, suppressed figures/)).toBeVisible();
+  // Without a key it says it is off; with a key it offers questions. Either way it never blocks the console.
+  await expect(panel.getByText(/AI analyst is off|Ask about need/).or(panel.getByPlaceholder(/Ask about need/))).toBeVisible();
+});
+
 test("family: household messages and preference centre", async ({ page }) => {
   await guest(page, "family");
   await expect(page.getByTestId("phone").first()).toBeVisible();

@@ -105,7 +105,7 @@ pipeline: ## data -> gaps -> train -> sensitivity -> evaluate (no HAPI)
 	$(MAKE) --no-print-directory evaluate
 
 api: ## Run the API locally with reload
-	$(UV) uvicorn wiqaya.api.app:app --reload --port 8000
+	$(UV) uvicorn wiqaya.api.app:app --reload --port 8000 $(if $(wildcard .env),--env-file .env,)
 
 web: ## Run the web app in dev mode (http://localhost:3000)
 	cd web && $(PNPM) dev

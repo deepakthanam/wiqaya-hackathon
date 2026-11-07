@@ -18,6 +18,7 @@ Internet ──443──▶ Caddy (auto HTTPS) ──▶ web:3000 (Next.js) ─�
    ```bash
    cp .env.example .env
    # set: DOMAIN=wiqaya.example.org, SESSION_SECRET=$(openssl rand -hex 32), HAPI_DB_PASSWORD=<random>
+   # optional AI planner analyst: ANTHROPIC_API_KEY=<key> (leave empty to keep it off)
    ```
 3. Build and start:
    ```bash

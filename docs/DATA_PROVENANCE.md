@@ -22,6 +22,7 @@
 | Terminology look-ups via tx.fhir.org (LOINC, SNOMED CT, CVX, HL7 v3) | Code verification | Regenstrief, SNOMED International, CDC, HL7 | Public | Per code-system terms (LOINC licence; SNOMED CT affiliate terms for production) | N | Verified codes only (CODES.md) | 2026-11-07 |
 | Message library (`content/messages/`) | Templates | Wiqaya team | None | Team-owned | N | English source; ar/ur/hi/ml/tl machine drafts | n/a |
 | LLM API | Optional paraphrasing | – | – | – | N | **Disabled** (`LLM_ENABLED=false`); no provider bundled | – |
+| Anthropic Claude API (planner analyst) | Optional AI agent | Anthropic | Aggregate, suppressed simulated figures only | Anthropic commercial terms | N | Off unless `ANTHROPIC_API_KEY` is set. Receives only the planner's suppressed aggregates; no person-level data is sent (D-045) | – |
 
 ## Synthetic data safeguards
 

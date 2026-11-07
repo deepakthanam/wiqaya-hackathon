@@ -9,6 +9,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from wiqaya import __version__
+from wiqaya.api.analyst_routes import router as analyst_router
 from wiqaya.api.routers import router
 
 app = FastAPI(
@@ -37,3 +38,4 @@ async def security_headers(request: Request, call_next: Callable[[Request], Awai
 
 
 app.include_router(router)
+app.include_router(analyst_router)

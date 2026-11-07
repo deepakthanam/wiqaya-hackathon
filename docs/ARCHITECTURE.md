@@ -80,6 +80,7 @@ flowchart LR
 | Evaluation | 12-week simulator (common random numbers), metrics, report | `src/wiqaya/simulate/`, `src/wiqaya/evaluate/` |
 | Governance | Suppression, overlays, audit, provenance register | `src/wiqaya/governance/` |
 | API | FastAPI `/api/v1`, guest sessions, RBAC | `src/wiqaya/api/` |
+| Agent (optional) | Planner analyst: Claude tool-use loop over suppressed aggregate tools, number check, proposals that need a human decision (D-045) | `src/wiqaya/agents/`, `src/wiqaya/api/analyst_routes.py` |
 | Web | Next.js 14 consoles | `web/` |
 
 ## Data flow and stores

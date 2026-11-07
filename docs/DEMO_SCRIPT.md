@@ -49,6 +49,7 @@ session, so a decision made as clinician shows up in the family view.
    - On the map, choose **Children under 6** or **Labour accommodation**: small districts are hatched and *suppressed (n<11)*. Use **Show grid** for the SVG fallback.
    - In the equity table, choose **District × nationality**: hatched suppressed cells.
    - Show the calibration plot (AUROC 0.78, slope 0.89) and the sensitivity panel (the advantage holds in all three scenarios).
+   - *Optional, needs `ANTHROPIC_API_KEY`:* in **Ask the AI analyst**, click the first suggested question. The steps appear as the agent reads district need and runs a van-day what-if. It answers with evidence and caveats, every figure is checked against the data it looked up, and it drafts a proposal that you **Approve** or **Dismiss**. The decision shows in the admin audit log. The analyst sees only suppressed aggregates. (≈40 s, so skip it if time is short.)
 
 8. **Admin: rule library with sources, and the provenance register** (≈20 s)
    - Switch to **admin**. The rule library lists 15 rules with version, cited source, verification state (HTTP status, retrieved 2026-11-07), status *demo encoding requires clinical validation*, and the assumptions per rule.

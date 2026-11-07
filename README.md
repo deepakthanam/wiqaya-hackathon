@@ -14,6 +14,10 @@ Wiqaya:
 4. **reaches people the right way**, choosing language, channel and timing across 6 languages and 4 channels, with household bundles, a mobile van and a preference centre;
 5. **measures itself**, comparing against today's baseline with equity metrics, calibration and n<11 suppression.
 
+Optional **AI planner analyst** (Claude, off unless `ANTHROPIC_API_KEY` is set in `.env`): the planner asks questions in plain
+English. The agent reads the suppressed aggregate data, runs capacity what-ifs and drafts proposals that a person must approve.
+It never sees person-level data, and every figure it quotes is checked against the data it read (`docs/DECISIONS.md` D-045).
+
 Simulated 12-week result (`docs/EVALUATION.md`): **44.6 vs 19.8 completed screenings per 100 contacts** (Wiqaya vs
 baseline), with the same capacity and the same random draws. The sensitivity analysis and limitations are reported
 honestly in that file.
@@ -54,7 +58,7 @@ keeps the same session, so a clinician's sign-off shows up in the family view.
 |---|---|
 | Coordinator | Worklist, person and household detail, decisions, message previews |
 | Clinician | The coordinator's view, plus genomic detail and cascade sign-off |
-| Planner | Aggregates only (suppressed): KPIs, map, equity, calibration, sensitivity |
+| Planner | Aggregates only (suppressed): KPIs, map, equity, calibration, sensitivity, optional AI analyst |
 | Family | The Al-Hammadi household's messages and the preference centre |
 | Admin | Rule library, translations, provenance, model card, audit log, config |
 

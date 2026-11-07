@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { CartesianGrid, Legend, Line, ResponsiveContainer, Scatter, ComposedChart, Tooltip, XAxis, YAxis } from "recharts";
+import AnalystPanel from "@/components/AnalystPanel";
 import DistrictGrid from "@/components/DistrictGrid";
 import { Cell, ErrorBox, KPI, Loading } from "@/components/ui";
 import { api, fmt } from "@/lib/api";
@@ -55,6 +56,8 @@ export default function Planner() {
         <KPI label="Missed latent cases (FN)" value={`${fmt(w.false_negative_rate_pct)}% vs ${fmt(b.false_negative_rate_pct)}%`} sub="latent condition, not reached" />
         <KPI label="People reached" value={`${fmt(w.reach_pct)}% vs ${fmt(b.reach_pct)}%`} sub="fewer people, more touches each: see trade-off" />
       </section>
+
+      <AnalystPanel />
 
       <section className="card">
         <div className="flex flex-wrap items-center justify-between gap-2">
