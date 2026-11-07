@@ -1,6 +1,6 @@
 # Demo script (3 minutes)
 
-For recording a narrated video (about 8 minutes, with narration, technical details, AI interventions and benefits), see
+For recording the narrated video (a 2:30 walk-through that plays after a 30-second intro), see
 `DEMO_RECORDING_SCRIPT.md`.
 
 Uses the pinned demo personas (seed 42). Every screen carries the **Simulated cohort** badge. The roles share one guest
