@@ -33,3 +33,6 @@ Thumbs.db
 .vscode/
 web/*.tsbuildinfo
 data/audit/
+
+# Local archives
+*.zip
