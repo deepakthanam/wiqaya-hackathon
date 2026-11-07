@@ -4,7 +4,7 @@ This walk-through plays **after the 30-second intro video**, which covers the pr
 The total video runs 3:00.
 
 The story follows one family and one worker through the app, then shows that it works and that it's safe. There are
-seven scenes and about 260 words of narration, so you can speak calmly with pauses.
+seven scenes and about 280 words of narration, so you can speak calmly with pauses.
 
 | Time | Scene | Screen | The one point to land |
 |---|---|---|---|
@@ -12,8 +12,8 @@ seven scenes and about 260 words of narration, so you can speak calmly with paus
 | 0:15–0:50 | 2. Shamma | Shamma's page | Hidden family risk, explained, with a clinician in control |
 | 0:50–1:08 | 3. The family's message | Family view | One visit, in Arabic, privacy kept |
 | 1:08–1:28 | 4. Biju | Biju's page | Reaching people the usual approach misses |
-| 1:28–1:48 | 5. Does it work? | Planner KPIs | 44.6 vs 19.8 completed screenings per 100 contacts |
-| 1:48–2:15 | 6. AI analyst | Planner, AI analyst | AI that helps but can't act alone |
+| 1:28–1:52 | 5. Does it work? | Planner KPIs | In simulation, 21.7% vs 8% of care gaps closed; a pilot would confirm |
+| 1:52–2:15 | 6. AI analyst | Planner, AI analyst | AI that helps but can't act alone |
 | 2:15–2:30 | 7. Close | Admin audit log | Rules, models, people |
 
 All numbers below were checked against the running app (seed 42). Every person is synthetic.
@@ -84,18 +84,24 @@ All numbers below were checked against the running app (seed 42). Every person i
 
 **Caption:** *Evening van slot · Malayalam SMS · health-worker follow-up*
 
-### Scene 5. Does it work? (1:28–1:48)
+### Scene 5. Does it work? (1:28–1:52)
 **Do:**
-1. Switch the role to **planner**. Point at the first KPI card: **44.6 vs 19.8**.
+1. Switch the role to **planner**. Point at the **Gaps closed in 12 weeks** card: **21.7% vs 8.0%**, then at its
+   **Simulated cohort** badge.
 2. Scroll to the map or the equity table and point at a hatched cell (*n < 11*).
 
 **Say:**
-> "Does it work? In a twelve-week simulation with the same clinic capacity, Wiqaya completes 44.6 screenings per
-> hundred contacts, against 19.8 today. Planners see only totals, and any group under eleven people is hidden."
+> "Does it work? In a simulation on synthetic data, with the same clinic capacity, Wiqaya closed 21.7% of care gaps
+> in twelve weeks, against 8% for a generic SMS approach. That's a modelled estimate; a pilot would measure the real
+> effect. Planners see only totals, and any group under eleven people is hidden."
 
-**Caption:** *Simulated cohort · same capacity · small groups suppressed*
+**Caption:** *Simulated estimate on synthetic data · same capacity · small groups suppressed*
 
-### Scene 6. The AI analyst (1:48–2:15)
+**Why this wording:** the comparison is a *modelled* generic-SMS approach, not Abu Dhabi's measured current rate, and
+the simulator carries our own assumptions. *Gaps closed* counts everyone who is due, so unlike the per-contact rate it
+doesn't benefit from Wiqaya contacting fewer people. Avoid saying "today" or quoting 44.6 vs 19.8 as the headline.
+
+### Scene 6. The AI analyst (1:52–2:15)
 **Do:**
 1. Scroll to **Ask the AI analyst** and click the first suggested question.
 2. Let the steps appear. The answer takes 20–30 seconds, so **cut or speed up the wait** in the edit.
@@ -135,9 +141,12 @@ All numbers below were checked against the running app (seed 42). Every person i
 **Key numbers (simulated cohort):**
 - 20,000 synthetic people, 14,835 with open gaps.
 - 15 cited rules, 6 languages, 4 channels.
-- Completed screenings per 100 contacts: **44.6 vs 19.8**.
-- Gaps closed in 12 weeks: **21.7% vs 8.0%**.
+- Gaps closed in 12 weeks, across everyone due: **21.7% vs 8.0%** (the headline).
+- Completed screenings per 100 contacts: 44.6 vs 19.8. Quote this only with the reach figure, because a per-contact
+  rate rises when fewer people are contacted.
 - People reached: 19.3% vs 41.5%. This is the trade-off: fewer people, contacted better.
+- Under weaker simulator assumptions Wiqaya still leads (smallest gap: +19.9 completions per 100 contacts).
+- The baseline is a modelled generic-SMS approach, not a measured real-world rate.
 - Risk model AUROC 0.779.
 
 **Where AI is used:**
@@ -153,8 +162,11 @@ All numbers below were checked against the running app (seed 42). Every person i
 **Likely judge questions:**
 - **Is this real data?** No. Every record is synthetic and labelled *Simulated cohort*.
 - **Could the model discriminate?** Protected attributes are not inputs. They are used only to monitor fairness.
-- **How do you know it works?** A simulation against today's approach, with the same capacity and a sensitivity
-  analysis. Only a supervised pilot can confirm the real effect.
+- **How do you know it works?** We don't yet, in the real world. A simulation on synthetic data compares Wiqaya with a
+  modelled generic-SMS approach, using the same capacity and the same random draws. A sensitivity analysis shows the
+  advantage holds under weaker assumptions. Only a supervised pilot, ideally randomised, can measure the real effect.
+- **Isn't 44.6 vs 19.8 inflated because you contact fewer people?** Partly, yes. That's why we lead with gaps closed
+  across everyone due (21.7% vs 8.0%) and show reach (19.3% vs 41.5%) openly.
 - **How would it be deployed?** Azure UAE North, reading Malaffi FHIR, with DOH sign-in roles (see `DEPLOYMENT.md`).
 
 The earlier 8-minute version of this script is in git history (commit e00716f).
